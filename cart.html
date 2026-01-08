@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Корзина</title>
+
+        <link rel="stylesheet" href="./css/fonts.css" />
+
+        <!-- определение темы до загрузки дома  -->
+        <script>
+            (function () {
+                const theme = localStorage.getItem('styleMode') || 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+
+                if (theme === 'light') {
+                    document.documentElement.classList.add('light-mode');
+                }
+            })();
+        </script>
+
+        <link rel="stylesheet" href="./css/reset.css" />
+        <link rel="stylesheet" href="./css/swiper-bundle.css" />
+        <link rel="stylesheet" href="./css/glightbox.min.css" />
+        <link rel="stylesheet" href="./css/simplebar.min.css" />
+        <link rel="stylesheet" href="./css/choices.min.css" />
+        <link rel="stylesheet" href="./css/variables.css" />
+        <link rel="stylesheet" href="./css/template_styles.css" />
+        <link rel="stylesheet" href="./css/styles.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <div class="header-top">
+                    <div class="header-top__left">
+                        <button type="button" class="header-mobile__button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu" title="Нажмите чтобы открыть меню">
+                            <span class="visually-hidden">Меню</span>
+                            <span class="header-mobile__button-line"></span>
+                            <span class="header-mobile__button-line"></span>
+                            <span class="header-mobile__button-line"></span>
+                        </button>
+                        <a href="./index.html" class="header-logo" aria-label="На главную страницу">
+                            <!-- изображение для темной и светлой версии  -->
+                            <img src="./images/dark-logo.svg" data-theme-image='{"dark": "./images/dark-logo.svg", "light": "./images/light-logo.svg"}' alt="BUFFALO PROTEIN" width="188" height="68" />
+                        </a>
+                    </div>
+                    <div class="header-top__right">
+                        <button type="button" class="header-theme__button toggle-theme" aria-label="Включить cветлую тему" data-theme="dark" title="Включить светлую тему"><span class="header-theme__button-text">Light</span></button>
+                        <address class="header-top__info" aria-label="Контактная информация">
+                            <a href="tel:+78001000000" class="header-top__info-phone">8 800 100-00-00</a>
+                            <p class="header-top__info-datetime">
+                                Режим работы:
+                                <time datetime="09:00">09:00</time>–<time datetime="17:30">17:30</time>
+                            </p>
+                        </address>
+                        <div class="header-top__socials" aria-label="Социальные сети">
+                            <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="header-top__social" aria-label="WhatsApp">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/icons/dark-whatsapp.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-whatsapp.svg", "light": "./images/icons/light-whatsapp.svg"}' />
+                            </a>
+                            <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="header-top__social" aria-label="Telegram">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/icons/dark-telegram.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-telegram.svg", "light": "./images/icons/light-telegram.svg"}' />
+                            </a>
+                            <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="header-top__social" aria-label="ВКонтакте">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/icons/dark-vk.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-vk.svg", "light": "./images/icons/light-vk.svg"}' />
+                            </a>
+                        </div>
+                        <div class="header-top__buttons">
+                            <!-- мини-корзна -->
+                            <div class="header-top__mini-cart">
+                                <a href="./cart.html" class="button opacity-button header-top__button-cart" aria-label="Корзина, 2 товара" aria-describedby="cart-counter-mobile">
+                                    <!-- счетчик кол-ва товаров в корзине (если в корзине товаров больше 9, то лучше выводить 9+)
+                                     если в корзине нет товаров, то не выводить этот элемент -->
+                                    <span class="header-top__button-count" id="cart-counter-mobile">2</span>
+                                    <!-- !  -->
+                                    <span class="button-text" aria-hidden="true">Корзина</span>
+                                </a>
+                                <div class="header-top__card" hidden>
+                                    <div class="card card--mini" aria-label="Мини корзина">
+                                        <!-- если в корзине есть товары, тогда выводить card-content -->
+                                        <div class="card-content">
+                                            <div class="card-info">
+                                                <h2 class="card-title">В корзине 2 товара</h2>
+                                                <div class="mini-products custom-scroll">
+                                                    <article class="mini-product">
+                                                        <div class="mini-product__row">
+                                                            <div class="mini-product__image">
+                                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="110" height="110" />
+                                                            </div>
+                                                            <div class="mini-product__info">
+                                                                <h2 class="mini-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</h2>
+                                                                <ul class="mini-product__optionals">
+                                                                    <li>Шоколад</li>
+                                                                    <li>900 г</li>
+                                                                </ul>
+                                                            </div>
+                                                            <button type="button" class="mini-product__remove">
+                                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g>
+                                                                        <path d="M14.168 4.9974H18.3346V6.66406H16.668V17.4974C16.668 17.9576 16.2949 18.3307 15.8346 18.3307H4.16797C3.70774 18.3307 3.33464 17.9576 3.33464 17.4974V6.66406H1.66797V4.9974H5.83463V2.4974C5.83463 2.03716 6.20773 1.66406 6.66797 1.66406H13.3346C13.7949 1.66406 14.168 2.03716 14.168 2.4974V4.9974ZM15.0013 6.66406H5.0013V16.6641H15.0013V6.66406ZM11.1798 11.6638L12.653 13.137L11.4745 14.3155L10.0013 12.8423L8.52813 14.3155L7.34965 13.137L8.8228 11.6638L7.34965 10.1907L8.52813 9.01223L10.0013 10.4853L11.4745 9.01223L12.653 10.1907L11.1798 11.6638ZM7.5013 3.33073V4.9974H12.5013V3.33073H7.5013Z" fill="white" />
+                                                                    </g>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                        <div class="mini-product__details">
+                                                            <div class="mini-product__quantity">
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--minus" aria-label="Уменьшить количество" disabled=""></button>
+
+                                                                <input type="number" class="mini-product__quantity-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" />
+
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--plus" aria-label="Увеличить количество"></button>
+                                                            </div>
+
+                                                            <div class="mini-product__pricing">
+                                                                <div class="mini-product__prices">
+                                                                    <p class="mini-product__price mini-product__price--new">5 990 ₽</p>
+                                                                    <!-- если есть цена без скидки, то выводить  -->
+                                                                    <p class="mini-product__price mini-product__price--old">6 490 ₽</p>
+                                                                    <p class="mini-product__discount" aria-label="Скидка 10%">— 10%</p>
+                                                                </div>
+                                                                <div class="mini-product__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                    <article class="mini-product">
+                                                        <div class="mini-product__row">
+                                                            <div class="mini-product__image">
+                                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="110" height="110" />
+                                                            </div>
+                                                            <div class="mini-product__info">
+                                                                <h2 class="mini-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</h2>
+                                                                <ul class="mini-product__optionals">
+                                                                    <li>Шоколад</li>
+                                                                    <li>900 г</li>
+                                                                </ul>
+                                                            </div>
+                                                            <button type="button" class="mini-product__remove">
+                                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g>
+                                                                        <path d="M14.168 4.9974H18.3346V6.66406H16.668V17.4974C16.668 17.9576 16.2949 18.3307 15.8346 18.3307H4.16797C3.70774 18.3307 3.33464 17.9576 3.33464 17.4974V6.66406H1.66797V4.9974H5.83463V2.4974C5.83463 2.03716 6.20773 1.66406 6.66797 1.66406H13.3346C13.7949 1.66406 14.168 2.03716 14.168 2.4974V4.9974ZM15.0013 6.66406H5.0013V16.6641H15.0013V6.66406ZM11.1798 11.6638L12.653 13.137L11.4745 14.3155L10.0013 12.8423L8.52813 14.3155L7.34965 13.137L8.8228 11.6638L7.34965 10.1907L8.52813 9.01223L10.0013 10.4853L11.4745 9.01223L12.653 10.1907L11.1798 11.6638ZM7.5013 3.33073V4.9974H12.5013V3.33073H7.5013Z" fill="white" />
+                                                                    </g>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                        <div class="mini-product__details">
+                                                            <div class="mini-product__quantity">
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--minus" aria-label="Уменьшить количество" disabled=""></button>
+
+                                                                <input type="number" class="mini-product__quantity-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" />
+
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--plus" aria-label="Увеличить количество"></button>
+                                                            </div>
+
+                                                            <div class="mini-product__pricing">
+                                                                <div class="mini-product__prices">
+                                                                    <p class="mini-product__price mini-product__price--new">5 990 ₽</p>
+                                                                    <!-- если есть цена без скидки, то выводить  -->
+                                                                    <!-- <p class="mini-product__price mini-product__price--old">6 490 ₽</p> -->
+                                                                    <!-- <p class="mini-product__discount" aria-label="Скидка 10%">— 10%</p> -->
+                                                                </div>
+                                                                <div class="mini-product__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                            </div>
+                                            <div class="card-info">
+                                                <div class="card-list">
+                                                    <div class="card-list__item">
+                                                        <span class="card-list__item-title">2 товара</span>
+                                                        <p class="card-list__item-sum">12 480 ₽</p>
+                                                    </div>
+                                                    <div class="card-list__item card-list__item--discount">
+                                                        <div class="discount-toggle">
+                                                            <button type="button" class="discount-toggle__button" aria-expanded="false">Выгода</button>
+                                                            <span class="discount-amount">- 500 ₽</span>
+                                                        </div>
+
+                                                        <div class="discount-details" hidden>
+                                                            <ul class="discount-breakdown">
+                                                                <li>
+                                                                    <span class="discount-breakdown__title">Скидка по акции</span>
+                                                                    <p class="discount-breakdown__subtitle">-500 ₽</p>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="result">
+                                                    <span class="result__title">Итого</span>
+                                                    <p class="result__sum">10 980 ₽</p>
+                                                </div>
+                                                <a href="./cart.html" type="submit" class="card-button base-button">Перейти в корзину</a>
+                                            </div>
+                                        </div>
+                                        <!-- если в корзине нет товаров, тогда выводить card-empty -->
+                                        <!-- <div class="card-empty">
+                                            <div class="card-empty__text">
+                                                <p>В корзине пока пусто.</p>
+                                                <p>Найдите нужный товар в каталоге.</p>
+                                            </div>
+                                            <a href="./catalog.html" class="card-button base-button">Каталог товаров</a>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="./account.html" class="button main-button header-top__button-account">
+                                <!-- выводить, если пользователь не авторизован  -->
+                                <span class="button-text">Войти</span>
+                                <!-- выводить, если пользователь авторизован  -->
+                                <!-- <span class="button-text">Личный кабинет</span> -->
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav class="header-bottom__nav" aria-label="Основная навигация">
+                        <ul class="header-bottom__menu">
+                            <li>
+                                <a href="./catalog.html" class="header-bottom__menu-item--active">Каталог товаров</a>
+                                <ul aria-hidden="true">
+                                    <li><a href="./catalog.html">Протеин B•POWER</a></li>
+                                    <li><a href="./catalog.html">Аксессуары (или иначе назвать, Шейкер)</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="./about.html">О нас</a>
+                                <ul aria-hidden="true">
+                                    <li><a href="./about.html">О нас тестовая</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="./loyalty.html">Программа лояльности</a>
+                            </li>
+                            <li>
+                                <a href="./shipping-payment.html">Оплата и доставка</a>
+                            </li>
+                            <li>
+                                <a href="./faq.html">Вопрос-Ответ</a>
+                            </li>
+                            <li>
+                                <a href="./reviews.html">Отзывы</a>
+                            </li>
+                            <li>
+                                <a href="./contacts.html">Контакты</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <form action="" method="" role="search" class="header-bottom__search-form">
+                        <div class="header-bottom__search-wrapper">
+                            <label for="header-search" class="visually-hidden">Поиск по сайту</label>
+                            <input type="search" id="header-search" name="q" class="header-bottom__input" placeholder="Поиск по сайту" aria-label="Поиск по сайту" autocomplete="off" aria-controls="search-results" aria-expanded="false" />
+                            <button type="submit" class="visually-hidden">Найти</button>
+                        </div>
+                        <!-- результат поиска  -->
+                        <div class="header-bottom__result" aria-live="polite" aria-atomic="false" hidden>
+                            <section class="header-bottom__result-wrapper" aria-labelledby="popular-searches-title">
+                                <h3 id="popular-searches-title" class="header-bottom__result-title">Часто ищут</h3>
+                                <ul class="header-bottom__result-list" role="list">
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="header-bottom__result-wrapper" aria-labelledby="popular-products-title">
+                                <h3 id="popular-products-title" class="header-bottom__result-title">Популярные товары</h3>
+                                <div class="header-bottom__result-products">
+                                    <article class="result-product">
+                                        <a href="./product.html" class="result-product__image">
+                                            <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="100" height="100" loading="lazy" />
+                                        </a>
+                                        <div class="result-product__info">
+                                            <p class="result-product__additional">Шоколад</p>
+                                            <a href="./product.html" class="result-product__title"> Buffalo Whey Gusto Cioccolato — Proteine in Polvere </a>
+                                            <div class="result-product__row">
+                                                <div class="result-product__prices">
+                                                    <p class="result-product__price result-product__price--new">
+                                                        <span class="visually-hidden">Цена:</span>
+                                                        5 990 ₽
+                                                    </p>
+                                                    <!-- если есть старая цена, тогда просто добавляются эти два элемента и новая цена автоматически становится красного цвета  -->
+                                                    <!-- <p class="result-product__price result-product__price--old">
+                                                        <span class="visually-hidden">Старая цена:</span>
+                                                        6 490 ₽
+                                                    </p>
+                                                    <span class="result-product__discount" aria-label="Скидка 10%"> — 10% </span> -->
+                                                </div>
+                                                <p class="result-product__bonuses">
+                                                    <span class="visually-hidden">Начисляется бонусов:</span>
+                                                    + 168 бонусов
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="result-product">
+                                        <a href="./product.html" class="result-product__image">
+                                            <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="100" height="100" loading="lazy" />
+                                        </a>
+                                        <div class="result-product__info">
+                                            <p class="result-product__additional">Ваниль</p>
+                                            <a href="./product.html" class="result-product__title"> Buffalo Whey Gusto Cioccolato — Proteine in Polvere </a>
+                                            <div class="result-product__row">
+                                                <div class="result-product__prices">
+                                                    <p class="result-product__price result-product__price--new">
+                                                        <span class="visually-hidden">Цена:</span>
+                                                        5 990 ₽
+                                                    </p>
+                                                    <!-- если есть старая цена, тогда просто добавляются эти два элемента и новая цена автоматически становится красного цвета  -->
+                                                    <p class="result-product__price result-product__price--old">
+                                                        <span class="visually-hidden">Старая цена:</span>
+                                                        6 490 ₽
+                                                    </p>
+                                                    <span class="result-product__discount" aria-label="Скидка 10%"> — 10% </span>
+                                                </div>
+                                                <p class="result-product__bonuses">
+                                                    <span class="visually-hidden">Начисляется бонусов:</span>
+                                                    + 168 бонусов
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="result-product">
+                                        <a href="./product.html" class="result-product__image">
+                                            <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="100" height="100" loading="lazy" />
+                                        </a>
+                                        <div class="result-product__info">
+                                            <p class="result-product__additional">Карамельный латте</p>
+                                            <a href="./product.html" class="result-product__title"> Buffalo Whey Gusto Cioccolato — Proteine in Polvere </a>
+                                            <div class="result-product__row">
+                                                <div class="result-product__prices">
+                                                    <p class="result-product__price result-product__price--new">
+                                                        <span class="visually-hidden">Цена:</span>
+                                                        5 990 ₽
+                                                    </p>
+                                                    <!-- если есть старая цена, тогда просто добавляются эти два элемента и новая цена автоматически становится красного цвета  -->
+                                                    <!-- <p class="result-product__price result-product__price--old">
+                                                        <span class="visually-hidden">Старая цена:</span>
+                                                        6 490 ₽
+                                                    </p>
+                                                    <span class="result-product__discount" aria-label="Скидка 10%"> — 10% </span> -->
+                                                </div>
+                                                <p class="result-product__bonuses">
+                                                    <span class="visually-hidden">Начисляется бонусов:</span>
+                                                    + 168 бонусов
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                        </div>
+                    </form>
+                </div>
+                <div class="header-mobile" id="mobile-menu" hidden>
+                    <div class="header-mobile__wrapper">
+                        <form action="/search" method="GET" role="search" class="header-mobile__search-form">
+                            <div class="header-mobile__search-wrapper">
+                                <label for="header-mobile-search" class="visually-hidden">Поиск по сайту</label>
+                                <input type="search" id="header-mobile-search" name="q" class="header-mobile__input" placeholder="Поиск по сайту" aria-label="Поиск по сайту" autocomplete="off" />
+                            </div>
+                        </form>
+                        <div class="header-mobile__menu">
+                            <!-- меню первого уровня -->
+                            <nav class="header-mobile__main-menu" aria-label="Основная навигация">
+                                <ul>
+                                    <li>
+                                        <a href="./catalog.html">Каталог товаров</a>
+                                        <button type="button" class="header-mobile__open-btn" aria-label="Открыть подменю каталога" aria-expanded="false" aria-controls="mobile-submenu-catalog">
+                                            <span class="visually-hidden">Открыть подменю</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <a href="./about.html">О нас</a>
+                                        <button type="button" class="header-mobile__open-btn" aria-label="Открыть подменю о нас" aria-expanded="false" aria-controls="mobile-submenu-about">
+                                            <span class="visually-hidden">Открыть подменю</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <a href="./loyalty.html">Программа лояльности</a>
+                                    </li>
+                                    <li>
+                                        <a href="./shipping-payment.html">Оплата и доставка</a>
+                                    </li>
+                                    <li>
+                                        <a href="./faq.html">Вопрос-Ответ</a>
+                                    </li>
+                                    <li>
+                                        <a href="./reviews.html">Отзывы</a>
+                                    </li>
+                                    <li>
+                                        <a href="./contacts.html">Контакты</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <!-- Подменю для каталога -->
+                            <nav class="header-mobile__submenu-nav" id="mobile-submenu-catalog" aria-label="Подменю каталога" hidden>
+                                <button type="button" class="header-mobile__back-btn" aria-label="Назад к основному меню">Назад</button>
+                                <h2 class="header-mobile__submenu-title">Каталог товаров</h2>
+                                <ul class="header-mobile__submenu">
+                                    <li>
+                                        <a href="./catalog.html">Протеин</a>
+                                    </li>
+                                    <li>
+                                        <a href="./catalog.html">Аксессуары (или иначе назвать, Шейкер)</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <!-- Подменю для "О нас" -->
+                            <nav class="header-mobile__submenu-nav" id="mobile-submenu-about" aria-label="Подменю о нас" hidden>
+                                <button type="button" class="header-mobile__back-btn" aria-label="Назад к основному меню">Назад</button>
+                                <h2 class="header-mobile__submenu-title">О нас</h2>
+                                <ul class="header-mobile__submenu">
+                                    <li>
+                                        <a href="./about.html">О компании</a>
+                                    </li>
+                                    <li>
+                                        <a href="./about.html">Наша команда</a>
+                                    </li>
+                                    <li>
+                                        <a href="./about.html">История</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="header-mobile__bottom">
+                            <div class="header-mobile__inner">
+                                <address class="header-mobile__info" aria-label="Контактная информация">
+                                    <a href="tel:+78001000000" class="header-mobile__info-phone">8 800 100-00-00</a>
+                                    <p class="header-mobile__info-datetime">
+                                        Режим работы:
+                                        <time datetime="09:00">09:00</time>–<time datetime="17:30">17:30</time>
+                                    </p>
+                                </address>
+                                <div class="header-mobile__socials" aria-label="Социальные сети">
+                                    <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="header-mobile__social" aria-label="WhatsApp">
+                                        <!-- изображение для темной и светлой версии  -->
+                                        <img src="./images/icons/dark-whatsapp.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-whatsapp.svg", "light": "./images/icons/light-whatsapp.svg"}' />
+                                    </a>
+                                    <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="header-mobile__social" aria-label="Telegram">
+                                        <!-- изображение для темной и светлой версии  -->
+                                        <img src="./images/icons/dark-telegram.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-telegram.svg", "light": "./images/icons/light-telegram.svg"}' />
+                                    </a>
+                                    <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="header-mobile__social" aria-label="ВКонтакте">
+                                        <!-- изображение для темной и светлой версии  -->
+                                        <img src="./images/icons/dark-vk.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-vk.svg", "light": "./images/icons/light-vk.svg"}' />
+                                    </a>
+                                </div>
+                            </div>
+                            <button type="button" class="header-theme__button toggle-theme" aria-label="Включить cветлую тему" data-theme="dark" title="Включить светлую тему"><span class="header-theme__button-text">Light</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <section class="breadcrumbs">
+                <div class="container">
+                    <nav class="breadcrumbs-nav" aria-label="Хлебные крошки">
+                        <ul class="breadcrumbs-list">
+                            <li><a href="./index.html">Главная</a></li>
+                            <li><span>Корзина</span></li>
+                        </ul>
+                    </nav>
+                    <button type="button" class="breadcrumbs-back" onclick="history.back()">Назад</button>
+                </div>
+            </section>
+            <section class="section">
+                <div class="container">
+                    <h1 class="title-1 page-title">Корзина</h1>
+                    <div class="grid-container">
+                        <div class="cart">
+                            <div class="cart-top">
+                                <label type="button" class="cart-top__toggle" role="checkbox">
+                                    <input type="checkbox" class="visually-hidden" name="product[]" id="product_all" />
+                                    <span class="cart-top__toggle-text">Выбрать все</span>
+                                </label>
+                                <button type="button" class="cart-top__delete" aria-label="Удалить выбранные товары" aria-disabled="true">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM13.4142 13.9997L15.182 15.7675L13.7678 17.1817L12 15.4139L10.2322 17.1817L8.81802 15.7675L10.5858 13.9997L8.81802 12.232L10.2322 10.8178L12 12.5855L13.7678 10.8178L15.182 12.232L13.4142 13.9997ZM9 4V6H15V4H9Z" fill="white" />
+                                    </svg>
+                                    <span class="cart-top__delete-text">Удалить выбранное</span>
+                                </button>
+                            </div>
+                            <div class="cart-products">
+                                <article class="cart-product">
+                                    <div class="cart-product__column cart-product__column--info">
+                                        <label class="cart-product__checkbox cart__checkbox" for="product_id_1">
+                                            <input type="checkbox" class="visually-hidden" name="product[]" id="product_id_1" />
+                                        </label>
+
+                                        <div class="cart-product__image">
+                                            <img src="./images/product-1.webp" alt="+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="144" height="144" />
+                                        </div>
+
+                                        <div class="cart-product__content">
+                                            <div class="cart-product__header">
+                                                <a href="./product.html" class="cart-product__title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a>
+                                                <p class="cart-product__sku">артикул: 419143</p>
+                                            </div>
+
+                                            <ul class="cart-product__options">
+                                                <li>Шоколад</li>
+                                                <li>900 г</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="cart-product__column cart-product__column--actions">
+                                        <div class="cart-product__actions-wrapper">
+                                            <div class="cart-product__quantity">
+                                                <button type="button" class="cart-product__quantity-btn cart-product__quantity-btn--minus" aria-label="Уменьшить количество" disabled></button>
+
+                                                <input type="number" class="cart-product__quantity-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" />
+
+                                                <button type="button" class="cart-product__quantity-btn cart-product__quantity-btn--plus" aria-label="Увеличить количество"></button>
+                                            </div>
+
+                                            <div class="cart-product__pricing">
+                                                <div class="cart-product__prices">
+                                                    <span class="cart-product__price cart-product__price--new">5 990 ₽</span>
+                                                    <!-- если есть цена без скидки, то выводить  -->
+                                                    <span class="cart-product__price cart-product__price--old">6 490 ₽</span>
+                                                    <span class="cart-product__discount" aria-label="Скидка 10%">— 10%</span>
+                                                </div>
+                                                <div class="cart-product__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
+                                            </div>
+                                        </div>
+
+                                        <button type="button" class="cart-product__remove" aria-label="Удалить товар из корзины">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM13.4142 13.9997L15.182 15.7675L13.7678 17.1817L12 15.4139L10.2322 17.1817L8.81802 15.7675L10.5858 13.9997L8.81802 12.232L10.2322 10.8178L12 12.5855L13.7678 10.8178L15.182 12.232L13.4142 13.9997ZM9 4V6H15V4H9Z" fill="white" />
+                                                </g>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </article>
+                                <article class="cart-product">
+                                    <div class="cart-product__column cart-product__column--info">
+                                        <label class="cart-product__checkbox cart__checkbox" for="product_id_2">
+                                            <input type="checkbox" class="visually-hidden" name="product[]" id="product_id_2" />
+                                        </label>
+
+                                        <div class="cart-product__image">
+                                            <img src="./images/product-1.webp" alt="+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="144" height="144" />
+                                        </div>
+
+                                        <div class="cart-product__content">
+                                            <div class="cart-product__header">
+                                                <a href="./product.html" class="cart-product__title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a>
+                                                <p class="cart-product__sku">артикул: 419143</p>
+                                            </div>
+
+                                            <ul class="cart-product__options">
+                                                <li>Шоколад</li>
+                                                <li>900 г</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="cart-product__column cart-product__column--actions">
+                                        <div class="cart-product__actions-wrapper">
+                                            <div class="cart-product__quantity">
+                                                <button type="button" class="cart-product__quantity-btn cart-product__quantity-btn--minus" aria-label="Уменьшить количество" disabled></button>
+
+                                                <input type="number" class="cart-product__quantity-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" />
+
+                                                <button type="button" class="cart-product__quantity-btn cart-product__quantity-btn--plus" aria-label="Увеличить количество"></button>
+                                            </div>
+
+                                            <div class="cart-product__pricing">
+                                                <div class="cart-product__prices">
+                                                    <span class="cart-product__price cart-product__price--new">5 990 ₽</span>
+                                                    <!-- если есть цена без скидки, то выводить  -->
+                                                    <span class="cart-product__price cart-product__price--old">6 490 ₽</span>
+                                                    <span class="cart-product__discount" aria-label="Скидка 10%">— 10%</span>
+                                                </div>
+                                                <div class="cart-product__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
+                                            </div>
+                                        </div>
+
+                                        <button type="button" class="cart-product__remove" aria-label="Удалить товар из корзины">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g>
+                                                    <path d="M17 6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6ZM18 8H6V20H18V8ZM13.4142 13.9997L15.182 15.7675L13.7678 17.1817L12 15.4139L10.2322 17.1817L8.81802 15.7675L10.5858 13.9997L8.81802 12.232L10.2322 10.8178L12 12.5855L13.7678 10.8178L15.182 12.232L13.4142 13.9997ZM9 4V6H15V4H9Z" fill="white" />
+                                                </g>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </article>
+                            </div>
+                            <!-- выводить, если пользователь неавторизован  -->
+                            <div class="cart-offer" data-bg-desktop-dark="./images/offer-dark-desktop.webp" data-bg-desktop-light="./images/offer-light-desktop.webp" data-bg-mobile-dark="./images/offer-dark-mobile.webp" data-bg-mobile-light="./images/offer-light-mobile.webp">
+                                <div class="cart-offer__content">
+                                    <h2 class="cart-offer__title">Получите +{{X}} бонусов&nbsp;за этот заказ</h2>
+                                    <div class="cart-offer__text">
+                                        <p><a href="./account.html">Войдите</a> в личный кабинет или <a href="./account.html">зарегистрируйтесь</a>,чтобы бонусы начислились и вы могли использовать их в следующих покупках.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- блоки для комп версии -->
+                            <div class="cart-blocks cart-blocks--desktop">
+                                <div class="cart-block">
+                                    <div class="cart-block__icon"><img src="./images/dark-cart-icon-1.svg" alt="Иконка доставки" data-theme-image='{"dark": "./images/dark-cart-icon-1.svg", "light":"./images/light-cart-icon-1.svg"}' width="54" height="54" /></div>
+                                    <div class="cart-block__content">
+                                        <h3 class="cart-block__title">Бесплатная доставка</h3>
+                                        <div class="cart-block__description"><p>при заказе от 3500 рублей</p></div>
+                                    </div>
+                                </div>
+                                <div class="cart-block">
+                                    <div class="cart-block__icon"><img src="./images/dark-cart-icon-2.svg" alt="Иконка доставки" data-theme-image='{"dark": "./images/dark-cart-icon-2.svg", "light":"./images/light-cart-icon-2.svg"}' width="54" height="54" /></div>
+                                    <div class="cart-block__content">
+                                        <h3 class="cart-block__title">Быстрая отправка</h3>
+                                        <div class="cart-block__description"><p>в течение 24 часов</p></div>
+                                    </div>
+                                </div>
+                                <div class="cart-block">
+                                    <div class="cart-block__icon"><img src="./images/dark-cart-icon-3.svg" alt="Иконка доставки" data-theme-image='{"dark": "./images/dark-cart-icon-3.svg", "light":"./images/light-cart-icon-3.svg"}' width="54" height="54" /></div>
+                                    <div class="cart-block__content">
+                                        <h3 class="cart-block__title">Гарантия подлинности</h3>
+                                        <div class="cart-block__description"><p>официальная продукция B•POWER из Италии</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <aside class="card" aria-label="Сводка заказа">
+                            <div class="card-info">
+                                <h2 class="card-title">Сумма заказа</h2>
+                                <div class="card-list">
+                                    <div class="card-list__item">
+                                        <span class="card-list__item-title">2 товара</span>
+                                        <p class="card-list__item-sum">12 480 ₽</p>
+                                    </div>
+                                    <div class="card-list__item card-list__item--discount">
+                                        <div class="discount-toggle">
+                                            <button type="button" class="discount-toggle__button" aria-expanded="false">Выгода</button>
+                                            <span class="discount-amount">- 500 ₽</span>
+                                        </div>
+
+                                        <div class="discount-details" hidden>
+                                            <ul class="discount-breakdown">
+                                                <li>
+                                                    <span class="discount-breakdown__title">Скидка по акции</span>
+                                                    <p class="discount-breakdown__subtitle">-500 ₽</p>
+                                                </li>
+                                                <li>
+                                                    <span class="discount-breakdown__title">Скидка по промокоду</span>
+                                                    <p class="discount-breakdown__subtitle">-500 ₽</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="result">
+                                    <span class="result__title">Итого</span>
+                                    <p class="result__sum">11 980 ₽</p>
+                                </div>
+                                <button type="submit" class="card-button base-button">Перейти к оформлению</button>
+                            </div>
+
+                            <div class="card-info card-info--toggle">
+                                <button type="button" class="card-toggle__button" aria-expanded="false" data-toggle-target="promo">Использовать промокод</button>
+                                <div class="card-promo card-toggle__hidden" id="toggle-promo" hidden>
+                                    <div class="card-toggle__hidden-content">
+                                        <div class="card-promo__row">
+                                            <label for="promo_code" class="visually-hidden">Введите промокод</label>
+                                            <input type="text" id="promo_code" name="promo_code" placeholder="Введите промокод" class="card-promo__input" />
+                                            <!-- выводить, если ошибка  -->
+                                            <!-- <span class="card-promo__error">Текст ошибки</span> -->
+                                            <!-- выводить, если успешно  -->
+                                            <!-- <span class="card-promo__success">Промокод активирован</span> -->
+                                        </div>
+                                        <button type="button" class="card-promo__button black-white-button">Применить</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-info card-info--toggle">
+                                <button type="button" class="card-toggle__button card-toggle__button--bonus" aria-expanded="false" data-toggle-target="bonus">
+                                    <span class="card-toggle__button-text">Бонусная программа</span>
+                                </button>
+
+                                <!-- Для неавторизованных пользователей -->
+                                <!-- <div class="card-bonus card-bonus--unauth">
+                                    <p class="card-bonus__notice"><a href="./account.html">Войдите</a> в личный кабинет чтобы использовать бонусные баллы</p>
+                                </div> -->
+
+                                <div class="card-bonus card-toggle__hidden" id="toggle-bonus" hidden>
+                                    <div class="card-toggle__hidden-content">
+                                        <div class="card-list">
+                                            <!-- Для авторизованных пользователей -->
+                                            <div class="card-list__item">
+                                                <span class="card-list__item-title">На вашем счету</span>
+                                                <p class="card-list__item-sum">1 298 бонусов</p>
+                                            </div>
+                                            <div class="card-list__item">
+                                                <span class="card-list__item-title">Начислим</span>
+                                                <p class="card-list__item-sum">{X} бонусов</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                    <!-- такие же блоки только для моб версии -->
+                    <div class="cart-blocks swiper cart-blocks--mobile">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="cart-block">
+                                    <div class="cart-block__icon"><img src="./images/dark-cart-icon-1.svg" alt="Иконка доставки" data-theme-image='{"dark": "./images/dark-cart-icon-1.svg", "light":"./images/light-cart-icon-1.svg"}' width="54" height="54" /></div>
+                                    <div class="cart-block__content">
+                                        <h3 class="cart-block__title">Бесплатная доставка</h3>
+                                        <div class="cart-block__description"><p>при заказе от 3500 рублей</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="cart-block">
+                                    <div class="cart-block__icon"><img src="./images/dark-cart-icon-2.svg" alt="Иконка доставки" data-theme-image='{"dark": "./images/dark-cart-icon-2.svg", "light":"./images/light-cart-icon-2.svg"}' width="54" height="54" /></div>
+                                    <div class="cart-block__content">
+                                        <h3 class="cart-block__title">Быстрая отправка</h3>
+                                        <div class="cart-block__description"><p>в течение 24 часов</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="cart-block">
+                                    <div class="cart-block__icon"><img src="./images/dark-cart-icon-3.svg" alt="Иконка доставки" data-theme-image='{"dark": "./images/dark-cart-icon-3.svg", "light":"./images/light-cart-icon-3.svg"}' width="54" height="54" /></div>
+                                    <div class="cart-block__content">
+                                        <h3 class="cart-block__title">Гарантия подлинности</h3>
+                                        <div class="cart-block__description"><p>официальная продукция B•POWER из Италии</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- С этими товарами покупают -->
+            <section class="section">
+                <div class="container">
+                    <div class="info">
+                        <h2 class="title-2">С этими товарами покупают</h2>
+                    </div>
+                    <div class="slider slider--products">
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <!-- <div class="product-badges"> -->
+                                            <!-- выводить, если хит  -->
+                                            <!-- <span class="badge badge-hit" aria-label="Хит продаж">HIT</span> -->
+                                            <!-- выводить, если скидка  -->
+                                            <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            <!-- </div> -->
+
+                                            <div class="product-image">
+                                                <img src="./images/product-5.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Шоколад</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">900</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 224</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                            <li>1 Shaker Esclusivo B-Power</li>
+                                                            <li>2 Bustine Gusto Cioccolato</li>
+                                                            <li>2 Bustine Gusto Puro</li>
+                                                        </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <span class="badge badge-hit" aria-label="Хит продаж">HIT</span>
+                                                <!-- выводить, если скидка  -->
+                                                <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-2.webp" alt="+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Шоколад</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <span class="badge badge-hit" aria-label="Хит продаж">HIT</span>
+                                                <!-- выводить, если скидка  -->
+                                                <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-1.webp" alt="+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Карамельный латте</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <!-- <span class="badge badge-hit" aria-label="Хит продаж">HIT</span> -->
+                                                <!-- выводить, если скидка  -->
+                                                <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-4.webp" alt="+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Ваниль</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <!-- <div class="product-badges"> -->
+                                            <!-- выводить, если хит  -->
+                                            <!-- <span class="badge badge-hit" aria-label="Хит продаж">HIT</span> -->
+                                            <!-- выводить, если скидка  -->
+                                            <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            <!-- </div> -->
+
+                                            <div class="product-image">
+                                                <img src="./images/product-5.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Шоколад</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">900</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 224</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <span class="badge badge-hit" aria-label="Хит продаж">HIT</span>
+                                                <!-- выводить, если скидка  -->
+                                                <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-2.webp" alt="+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Шоколад</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <span class="badge badge-hit" aria-label="Хит продаж">HIT</span>
+                                                <!-- выводить, если скидка  -->
+                                                <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-1.webp" alt="+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Карамельный латте</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <!-- <span class="badge badge-hit" aria-label="Хит продаж">HIT</span> -->
+                                                <!-- выводить, если скидка  -->
+                                                <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-4.webp" alt="+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Ваниль</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-buttons">
+                            <button type="button" class="slider-button slider-button--prev" aria-label="Предыдущий слайд"></button>
+                            <button type="button" class="slider-button slider-button--next" aria-label="Следующий слайд"></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ответы на часто задаваемые вопросы -->
+            <section class="section">
+                <div class="container">
+                    <div class="info">
+                        <h2 class="title-2">Ответы на часто задаваемые вопросы</h2>
+                    </div>
+
+                    <ul class="faqs-list faqs-list--grid">
+                        <li class="faq-item">
+                            <div class="faq-item__question">
+                                <button type="button" class="faq-item__button">Чем отличается буйволиный протеин от обычного?</button>
+                            </div>
+                            <div class="faq-item__answer" hidden>
+                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
+                            </div>
+                        </li>
+                        <li class="faq-item">
+                            <div class="faq-item__question">
+                                <button type="button" class="faq-item__button">
+                                    Содержится ли в продукте лактоза?<br />
+                                    Подойдёт ли он при непереносимости молока?
+                                </button>
+                            </div>
+                            <div class="faq-item__answer" hidden>
+                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
+                            </div>
+                        </li>
+                        <li class="faq-item">
+                            <div class="faq-item__question">
+                                <button type="button" class="faq-item__button">Как хранить продукт и каков срок годности?</button>
+                            </div>
+                            <div class="faq-item__answer" hidden>
+                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
+                            </div>
+                        </li>
+                        <li class="faq-item">
+                            <div class="faq-item__question">
+                                <button type="button" class="faq-item__button">Как можно проверить подлинность продукта?</button>
+                            </div>
+                            <div class="faq-item__answer" hidden>
+                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
+                            </div>
+                        </li>
+                        <li class="faq-item">
+                            <div class="faq-item__question">
+                                <button type="button" class="faq-item__button">В какие регионы вы доставляете?</button>
+                            </div>
+                            <div class="faq-item__answer" hidden>
+                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
+                            </div>
+                        </li>
+                        <li class="faq-item">
+                            <div class="faq-item__question">
+                                <button type="button" class="faq-item__button">Сколько времени занимает доставка?</button>
+                            </div>
+                            <div class="faq-item__answer" hidden>
+                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
+                            </div>
+                        </li>
+                        <li class="faq-item">
+                            <div class="faq-item__question">
+                                <button type="button" class="faq-item__button">Каковы варианты и стоимость доставки?</button>
+                            </div>
+                            <div class="faq-item__answer" hidden>
+                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-inner">
+                    <div class="footer-left">
+                        <ul class="footer-logos">
+                            <li>
+                                <a href="./index.html" aria-label="На главную страницу">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/dark-logo.svg" data-theme-image='{"dark": "./images/dark-logo.svg", "light": "./images/light-logo.svg"}' alt="BUFFALO PROTEIN" width="189" height="68" loading="lazy" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" target="_blank" rel="noopener noreferrer">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/b-power-dark.svg" data-theme-image='{"dark": "./images/b-power-dark.svg", "light": "./images/b-power-light.svg"}' alt="B-POWER" width="189" height="68" loading="lazy" />
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="footer-info">
+                            <ul class="footer-info__contacts">
+                                <li>
+                                    <p>Почта</p>
+                                    <a href="mailto:info@mail.ru">info@mail.ru</a>
+                                </li>
+                                <li>
+                                    <p>Телефон горячей линии</p>
+                                    <a href="tel:+78001000000">8 800 100-00-00</a>
+                                </li>
+                            </ul>
+                            <div class="footer-info__socials" aria-label="Социальные сети">
+                                <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="footer-info__social" aria-label="WhatsApp">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/icons/dark-whatsapp.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-whatsapp.svg", "light": "./images/icons/light-whatsapp.svg"}' loading="lazy" />
+                                </a>
+                                <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="footer-info__social" aria-label="Telegram">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/icons/dark-telegram.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-telegram.svg", "light": "./images/icons/light-telegram.svg"}' loading="lazy" />
+                                </a>
+                                <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="footer-info__social" aria-label="ВКонтакте">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/icons/dark-vk.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-vk.svg", "light": "./images/icons/light-vk.svg"}' loading="lazy" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="footer-additional">
+                            <p class="footer-additional__copy">©2012–2025, ООО «Название компании», ИНН/КПП 7810845678/781101001, ОГРН 1234567890</p>
+                            <a href="./policy.html" class="footer-additional__link">Политика конфиденциальности</a>
+                            <a href="./terms-and-conditions.html" class="footer-additional__link">Публичная оферта</a>
+                            <a href="#!" class="footer-additional__link">Политика обработки файлов cookie</a>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <nav class="footer-nav" aria-label="Навигация по сайту">
+                            <h3 class="footer-nav__title">Навигация</h3>
+                            <ul class="footer-nav__menu">
+                                <li><a href="./index.html">Главная</a></li>
+                                <li><a href="./about.html">О нас</a></li>
+                                <li><a href="./loyalty.html">Программа лояльности</a></li>
+                                <li><a href="./shipping-payment.html">Оплата и доставка</a></li>
+                                <li><a href="./faq.html">Вопрос-Ответ</a></li>
+                                <li><a href="./contacts.html">Контакты</a></li>
+                            </ul>
+                        </nav>
+                        <nav class="footer-nav" aria-label="Каталог продукции">
+                            <h3 class="footer-nav__title">Каталог продукции</h3>
+                            <ul class="footer-nav__menu">
+                                <li><a href="./catalog.html">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">Buffalo Whey Gusto Puro — Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">+80 High Protein — Buffalo Whey Gusto Puro — Proteine in Polvere</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="footer-mobile">
+                        <p class="footer-mobile__copy">©2012–2025, ООО «Название компании», ИНН/КПП 7810845678/781101001, ОГРН&nbsp;1234567890</p>
+                        <a href="./policy.html" class="footer-mobile__link">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- модальное окно при клике на кнопку "в корзину" -->
+        <div class="modal modal-bg-close" id="modal-add-product" aria-hidden="true">
+            <div class="modal-inner">
+                <button type="button" role="dialog" aria-modal="true" class="modal-close" aria-label="Закрыть модальное окно"></button>
+                <div class="modal-content">
+                    <div class="modal-content__poduct">
+                        <h2 class="modal-title">Товар добавлен в корзину</h2>
+                        <article class="modal-product">
+                            <div class="modal-product__image">
+                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="116" height="116" loading="lazy" />
+                            </div>
+                            <div class="modal-product__content">
+                                <div class="modal-product__info">
+                                    <h4 class="modal-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</h4>
+                                    <div class="modal-product__bottom">
+                                        <div class="modal-product__additional modal-product__flavor"><p>Шоколад</p></div>
+                                        <div class="modal-product__additional modal-product__option"><p>900 г</p></div>
+                                    </div>
+                                </div>
+                                <div class="modal-product__info">
+                                    <div class="modal-product__prices">
+                                        <p class="modal-product__price modal-product__price--new">5 990 ₽</p>
+                                        <!-- если есть старая цена, то выводить modal-product__price--old и modal-product__discount -->
+                                        <p class="modal-product__price modal-product__price--old">6 490 ₽</p>
+                                        <div class="modal-product__discount"><span class="modal-product__discount-badge">— 10%</span></div>
+                                    </div>
+                                    <div class="modal-product__bonus"><p>+ 168 бонусов</p></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="modal-content__recommendation">
+                        <h3 class="modal-subtitle">Рекомендуем</h3>
+                        <div class="recommendation swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <article class="recommendation-product">
+                                        <div class="recommendation-product__info">
+                                            <div class="recommendation-product__image">
+                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="156" height="120" loading="lazy" />
+                                            </div>
+                                            <div class="recommendation-product__flavor">
+                                                <p>Шоколад</p>
+                                            </div>
+                                            <a href="./product.html" class="recommendation-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                        </div>
+                                        <div class="recommendation-product__prices">
+                                            <p class="recommendation-product__price recommendation-product__price--new">5 990 ₽</p>
+                                            <!-- если есть старая цена, то выводить recommendation-product__price--old и modal-product__discount -->
+                                            <p class="recommendation-product__price recommendation-product__price--old">6 490 ₽</p>
+                                            <span class="recommendation-product__discount" aria-label="Скидка 10 процентов">— 10%</span>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="recommendation-product">
+                                        <div class="recommendation-product__info">
+                                            <div class="recommendation-product__image">
+                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="156" height="120" loading="lazy" />
+                                            </div>
+                                            <div class="recommendation-product__flavor">
+                                                <p>Шоколад</p>
+                                            </div>
+                                            <a href="./product.html" class="recommendation-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                        </div>
+                                        <div class="recommendation-product__prices">
+                                            <p class="recommendation-product__price recommendation-product__price--new">5 990 ₽</p>
+                                            <!-- если есть старая цена, то выводить recommendation-product__price--old и modal-product__discount -->
+                                            <p class="recommendation-product__price recommendation-product__price--old">6 490 ₽</p>
+                                            <span class="recommendation-product__discount" aria-label="Скидка 10 процентов">— 10%</span>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="recommendation-product">
+                                        <div class="recommendation-product__info">
+                                            <div class="recommendation-product__image">
+                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="156" height="120" loading="lazy" />
+                                            </div>
+                                            <div class="recommendation-product__flavor">
+                                                <p>Шоколад</p>
+                                            </div>
+                                            <a href="./product.html" class="recommendation-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                        </div>
+                                        <div class="recommendation-product__prices">
+                                            <p class="recommendation-product__price recommendation-product__price--new">5 990 ₽</p>
+                                            <!-- если есть старая цена, то выводить recommendation-product__price--old и modal-product__discount -->
+                                            <p class="recommendation-product__price recommendation-product__price--old">6 490 ₽</p>
+                                            <span class="recommendation-product__discount" aria-label="Скидка 10 процентов">— 10%</span>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-fixed">
+                        <div class="modal-fixed__info">
+                            <p>В корзине <b>1 товар</b> на сумму <b>5 990 ₽</b></p>
+                        </div>
+                        <div class="modal-fixed__buttons">
+                            <button type="button" class="modal-fixed__button opacity-button" data-close-modal>Продолжить покупки</button>
+                            <a href="./cart.html" class="modal-fixed__button base-button">Перейти в корзину</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="./js/swiper-bundle.min.js"></script>
+        <script src="./js/phoneinput.js"></script>
+        <script src="./js/glightbox.min.js"></script>
+        <script src="./js/simplebar.min.js"></script>
+        <script src="./js/choices.min.js"></script>
+        <script src="./js/index.js"></script>
+    </body>
+</html>

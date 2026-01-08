@@ -1,0 +1,2350 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</title>
+
+        <link rel="stylesheet" href="./css/fonts.css" />
+
+        <!-- определение темы до загрузки дома  -->
+        <script>
+            (function () {
+                const theme = localStorage.getItem('styleMode') || 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+
+                if (theme === 'light') {
+                    document.documentElement.classList.add('light-mode');
+                }
+            })();
+        </script>
+
+        <link rel="stylesheet" href="./css/reset.css" />
+        <link rel="stylesheet" href="./css/swiper-bundle.css" />
+        <link rel="stylesheet" href="./css/glightbox.min.css" />
+        <link rel="stylesheet" href="./css/simplebar.min.css" />
+        <link rel="stylesheet" href="./css/choices.min.css" />
+        <link rel="stylesheet" href="./css/variables.css" />
+        <link rel="stylesheet" href="./css/template_styles.css" />
+        <link rel="stylesheet" href="./css/styles.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <div class="header-top">
+                    <div class="header-top__left">
+                        <button type="button" class="header-mobile__button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu" title="Нажмите чтобы открыть меню">
+                            <span class="visually-hidden">Меню</span>
+                            <span class="header-mobile__button-line"></span>
+                            <span class="header-mobile__button-line"></span>
+                            <span class="header-mobile__button-line"></span>
+                        </button>
+                        <a href="./index.html" class="header-logo" aria-label="На главную страницу">
+                            <!-- изображение для темной и светлой версии  -->
+                            <img src="./images/dark-logo.svg" data-theme-image='{"dark": "./images/dark-logo.svg", "light": "./images/light-logo.svg"}' alt="BUFFALO PROTEIN" width="188" height="68" />
+                        </a>
+                    </div>
+                    <div class="header-top__right">
+                        <button type="button" class="header-theme__button toggle-theme" aria-label="Включить cветлую тему" data-theme="dark" title="Включить светлую тему"><span class="header-theme__button-text">Light</span></button>
+                        <address class="header-top__info" aria-label="Контактная информация">
+                            <a href="tel:+78001000000" class="header-top__info-phone">8 800 100-00-00</a>
+                            <p class="header-top__info-datetime">
+                                Режим работы:
+                                <time datetime="09:00">09:00</time>–<time datetime="17:30">17:30</time>
+                            </p>
+                        </address>
+                        <div class="header-top__socials" aria-label="Социальные сети">
+                            <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="header-top__social" aria-label="WhatsApp">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/icons/dark-whatsapp.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-whatsapp.svg", "light": "./images/icons/light-whatsapp.svg"}' />
+                            </a>
+                            <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="header-top__social" aria-label="Telegram">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/icons/dark-telegram.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-telegram.svg", "light": "./images/icons/light-telegram.svg"}' />
+                            </a>
+                            <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="header-top__social" aria-label="ВКонтакте">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/icons/dark-vk.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-vk.svg", "light": "./images/icons/light-vk.svg"}' />
+                            </a>
+                        </div>
+                        <div class="header-top__buttons">
+                            <!-- мини-корзна -->
+                            <div class="header-top__mini-cart">
+                                <a href="./cart.html" class="button opacity-button header-top__button-cart" aria-label="Корзина, 2 товара" aria-describedby="cart-counter-mobile">
+                                    <!-- счетчик кол-ва товаров в корзине (если в корзине товаров больше 9, то лучше выводить 9+)
+                                     если в корзине нет товаров, то не выводить этот элемент -->
+                                    <span class="header-top__button-count" id="cart-counter-mobile">2</span>
+                                    <!-- !  -->
+                                    <span class="button-text" aria-hidden="true">Корзина</span>
+                                </a>
+                                <div class="header-top__card" hidden>
+                                    <div class="card card--mini" aria-label="Мини корзина">
+                                        <!-- если в корзине есть товары, тогда выводить card-content -->
+                                        <div class="card-content">
+                                            <div class="card-info">
+                                                <h2 class="card-title">В корзине 2 товара</h2>
+                                                <div class="mini-products custom-scroll">
+                                                    <article class="mini-product">
+                                                        <div class="mini-product__row">
+                                                            <div class="mini-product__image">
+                                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="110" height="110" />
+                                                            </div>
+                                                            <div class="mini-product__info">
+                                                                <h2 class="mini-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</h2>
+                                                                <ul class="mini-product__optionals">
+                                                                    <li>Шоколад</li>
+                                                                    <li>900 г</li>
+                                                                </ul>
+                                                            </div>
+                                                            <button type="button" class="mini-product__remove">
+                                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g>
+                                                                        <path d="M14.168 4.9974H18.3346V6.66406H16.668V17.4974C16.668 17.9576 16.2949 18.3307 15.8346 18.3307H4.16797C3.70774 18.3307 3.33464 17.9576 3.33464 17.4974V6.66406H1.66797V4.9974H5.83463V2.4974C5.83463 2.03716 6.20773 1.66406 6.66797 1.66406H13.3346C13.7949 1.66406 14.168 2.03716 14.168 2.4974V4.9974ZM15.0013 6.66406H5.0013V16.6641H15.0013V6.66406ZM11.1798 11.6638L12.653 13.137L11.4745 14.3155L10.0013 12.8423L8.52813 14.3155L7.34965 13.137L8.8228 11.6638L7.34965 10.1907L8.52813 9.01223L10.0013 10.4853L11.4745 9.01223L12.653 10.1907L11.1798 11.6638ZM7.5013 3.33073V4.9974H12.5013V3.33073H7.5013Z" fill="white" />
+                                                                    </g>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                        <div class="mini-product__details">
+                                                            <div class="mini-product__quantity">
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--minus" aria-label="Уменьшить количество" disabled=""></button>
+
+                                                                <input type="number" class="mini-product__quantity-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" />
+
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--plus" aria-label="Увеличить количество"></button>
+                                                            </div>
+
+                                                            <div class="mini-product__pricing">
+                                                                <div class="mini-product__prices">
+                                                                    <p class="mini-product__price mini-product__price--new">5 990 ₽</p>
+                                                                    <!-- если есть цена без скидки, то выводить  -->
+                                                                    <p class="mini-product__price mini-product__price--old">6 490 ₽</p>
+                                                                    <p class="mini-product__discount" aria-label="Скидка 10%">— 10%</p>
+                                                                </div>
+                                                                <div class="mini-product__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                    <article class="mini-product">
+                                                        <div class="mini-product__row">
+                                                            <div class="mini-product__image">
+                                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="110" height="110" />
+                                                            </div>
+                                                            <div class="mini-product__info">
+                                                                <h2 class="mini-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</h2>
+                                                                <ul class="mini-product__optionals">
+                                                                    <li>Шоколад</li>
+                                                                    <li>900 г</li>
+                                                                </ul>
+                                                            </div>
+                                                            <button type="button" class="mini-product__remove">
+                                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g>
+                                                                        <path d="M14.168 4.9974H18.3346V6.66406H16.668V17.4974C16.668 17.9576 16.2949 18.3307 15.8346 18.3307H4.16797C3.70774 18.3307 3.33464 17.9576 3.33464 17.4974V6.66406H1.66797V4.9974H5.83463V2.4974C5.83463 2.03716 6.20773 1.66406 6.66797 1.66406H13.3346C13.7949 1.66406 14.168 2.03716 14.168 2.4974V4.9974ZM15.0013 6.66406H5.0013V16.6641H15.0013V6.66406ZM11.1798 11.6638L12.653 13.137L11.4745 14.3155L10.0013 12.8423L8.52813 14.3155L7.34965 13.137L8.8228 11.6638L7.34965 10.1907L8.52813 9.01223L10.0013 10.4853L11.4745 9.01223L12.653 10.1907L11.1798 11.6638ZM7.5013 3.33073V4.9974H12.5013V3.33073H7.5013Z" fill="white" />
+                                                                    </g>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                        <div class="mini-product__details">
+                                                            <div class="mini-product__quantity">
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--minus" aria-label="Уменьшить количество" disabled=""></button>
+
+                                                                <input type="number" class="mini-product__quantity-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" />
+
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--plus" aria-label="Увеличить количество"></button>
+                                                            </div>
+
+                                                            <div class="mini-product__pricing">
+                                                                <div class="mini-product__prices">
+                                                                    <p class="mini-product__price mini-product__price--new">5 990 ₽</p>
+                                                                    <!-- если есть цена без скидки, то выводить  -->
+                                                                    <!-- <p class="mini-product__price mini-product__price--old">6 490 ₽</p> -->
+                                                                    <!-- <p class="mini-product__discount" aria-label="Скидка 10%">— 10%</p> -->
+                                                                </div>
+                                                                <div class="mini-product__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                            </div>
+                                            <div class="card-info">
+                                                <div class="card-list">
+                                                    <div class="card-list__item">
+                                                        <span class="card-list__item-title">2 товара</span>
+                                                        <p class="card-list__item-sum">12 480 ₽</p>
+                                                    </div>
+                                                    <div class="card-list__item card-list__item--discount">
+                                                        <div class="discount-toggle">
+                                                            <button type="button" class="discount-toggle__button" aria-expanded="false">Выгода</button>
+                                                            <span class="discount-amount">- 500 ₽</span>
+                                                        </div>
+
+                                                        <div class="discount-details" hidden>
+                                                            <ul class="discount-breakdown">
+                                                                <li>
+                                                                    <span class="discount-breakdown__title">Скидка по акции</span>
+                                                                    <p class="discount-breakdown__subtitle">-500 ₽</p>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="result">
+                                                    <span class="result__title">Итого</span>
+                                                    <p class="result__sum">10 980 ₽</p>
+                                                </div>
+                                                <a href="./cart.html" type="submit" class="card-button base-button">Перейти в корзину</a>
+                                            </div>
+                                        </div>
+                                        <!-- если в корзине нет товаров, тогда выводить card-empty -->
+                                        <!-- <div class="card-empty">
+                                            <div class="card-empty__text">
+                                                <p>В корзине пока пусто.</p>
+                                                <p>Найдите нужный товар в каталоге.</p>
+                                            </div>
+                                            <a href="./catalog.html" class="card-button base-button">Каталог товаров</a>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="./account.html" class="button main-button header-top__button-account">
+                                <!-- выводить, если пользователь не авторизован  -->
+                                <span class="button-text">Войти</span>
+                                <!-- выводить, если пользователь авторизован  -->
+                                <!-- <span class="button-text">Личный кабинет</span> -->
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav class="header-bottom__nav" aria-label="Основная навигация">
+                        <ul class="header-bottom__menu">
+                            <li>
+                                <a href="./catalog.html" class="header-bottom__menu-item--active">Каталог товаров</a>
+                                <ul aria-hidden="true">
+                                    <li><a href="./catalog.html">Протеин B•POWER</a></li>
+                                    <li><a href="./catalog.html">Аксессуары (или иначе назвать, Шейкер)</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="./about.html">О нас</a>
+                                <ul aria-hidden="true">
+                                    <li><a href="./about.html">О нас тестовая</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="./loyalty.html">Программа лояльности</a>
+                            </li>
+                            <li>
+                                <a href="./shipping-payment.html">Оплата и доставка</a>
+                            </li>
+                            <li>
+                                <a href="./faq.html">Вопрос-Ответ</a>
+                            </li>
+                            <li>
+                                <a href="./reviews.html">Отзывы</a>
+                            </li>
+                            <li>
+                                <a href="./contacts.html">Контакты</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <form action="" method="" role="search" class="header-bottom__search-form">
+                        <div class="header-bottom__search-wrapper">
+                            <label for="header-search" class="visually-hidden">Поиск по сайту</label>
+                            <input type="search" id="header-search" name="q" class="header-bottom__input" placeholder="Поиск по сайту" aria-label="Поиск по сайту" autocomplete="off" aria-controls="search-results" aria-expanded="false" />
+                            <button type="submit" class="visually-hidden">Найти</button>
+                        </div>
+                        <!-- результат поиска  -->
+                        <div class="header-bottom__result" aria-live="polite" aria-atomic="false" hidden>
+                            <section class="header-bottom__result-wrapper" aria-labelledby="popular-searches-title">
+                                <h3 id="popular-searches-title" class="header-bottom__result-title">Часто ищут</h3>
+                                <ul class="header-bottom__result-list" role="list">
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="header-bottom__result-wrapper" aria-labelledby="popular-products-title">
+                                <h3 id="popular-products-title" class="header-bottom__result-title">Популярные товары</h3>
+                                <div class="header-bottom__result-products">
+                                    <article class="result-product">
+                                        <a href="./product.html" class="result-product__image">
+                                            <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="100" height="100" loading="lazy" />
+                                        </a>
+                                        <div class="result-product__info">
+                                            <p class="result-product__additional">Шоколад</p>
+                                            <a href="./product.html" class="result-product__title"> Buffalo Whey Gusto Cioccolato — Proteine in Polvere </a>
+                                            <div class="result-product__row">
+                                                <div class="result-product__prices">
+                                                    <p class="result-product__price result-product__price--new">
+                                                        <span class="visually-hidden">Цена:</span>
+                                                        5 990 ₽
+                                                    </p>
+                                                    <!-- если есть старая цена, тогда просто добавляются эти два элемента и новая цена автоматически становится красного цвета  -->
+                                                    <!-- <p class="result-product__price result-product__price--old">
+                                                        <span class="visually-hidden">Старая цена:</span>
+                                                        6 490 ₽
+                                                    </p>
+                                                    <span class="result-product__discount" aria-label="Скидка 10%"> — 10% </span> -->
+                                                </div>
+                                                <p class="result-product__bonuses">
+                                                    <span class="visually-hidden">Начисляется бонусов:</span>
+                                                    + 168 бонусов
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="result-product">
+                                        <a href="./product.html" class="result-product__image">
+                                            <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="100" height="100" loading="lazy" />
+                                        </a>
+                                        <div class="result-product__info">
+                                            <p class="result-product__additional">Ваниль</p>
+                                            <a href="./product.html" class="result-product__title"> Buffalo Whey Gusto Cioccolato — Proteine in Polvere </a>
+                                            <div class="result-product__row">
+                                                <div class="result-product__prices">
+                                                    <p class="result-product__price result-product__price--new">
+                                                        <span class="visually-hidden">Цена:</span>
+                                                        5 990 ₽
+                                                    </p>
+                                                    <!-- если есть старая цена, тогда просто добавляются эти два элемента и новая цена автоматически становится красного цвета  -->
+                                                    <p class="result-product__price result-product__price--old">
+                                                        <span class="visually-hidden">Старая цена:</span>
+                                                        6 490 ₽
+                                                    </p>
+                                                    <span class="result-product__discount" aria-label="Скидка 10%"> — 10% </span>
+                                                </div>
+                                                <p class="result-product__bonuses">
+                                                    <span class="visually-hidden">Начисляется бонусов:</span>
+                                                    + 168 бонусов
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="result-product">
+                                        <a href="./product.html" class="result-product__image">
+                                            <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="100" height="100" loading="lazy" />
+                                        </a>
+                                        <div class="result-product__info">
+                                            <p class="result-product__additional">Карамельный латте</p>
+                                            <a href="./product.html" class="result-product__title"> Buffalo Whey Gusto Cioccolato — Proteine in Polvere </a>
+                                            <div class="result-product__row">
+                                                <div class="result-product__prices">
+                                                    <p class="result-product__price result-product__price--new">
+                                                        <span class="visually-hidden">Цена:</span>
+                                                        5 990 ₽
+                                                    </p>
+                                                    <!-- если есть старая цена, тогда просто добавляются эти два элемента и новая цена автоматически становится красного цвета  -->
+                                                    <!-- <p class="result-product__price result-product__price--old">
+                                                        <span class="visually-hidden">Старая цена:</span>
+                                                        6 490 ₽
+                                                    </p>
+                                                    <span class="result-product__discount" aria-label="Скидка 10%"> — 10% </span> -->
+                                                </div>
+                                                <p class="result-product__bonuses">
+                                                    <span class="visually-hidden">Начисляется бонусов:</span>
+                                                    + 168 бонусов
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                        </div>
+                    </form>
+                </div>
+                <div class="header-mobile" id="mobile-menu" hidden>
+                    <div class="header-mobile__wrapper">
+                        <form action="/search" method="GET" role="search" class="header-mobile__search-form">
+                            <div class="header-mobile__search-wrapper">
+                                <label for="header-mobile-search" class="visually-hidden">Поиск по сайту</label>
+                                <input type="search" id="header-mobile-search" name="q" class="header-mobile__input" placeholder="Поиск по сайту" aria-label="Поиск по сайту" autocomplete="off" />
+                            </div>
+                        </form>
+                        <div class="header-mobile__menu">
+                            <!-- меню первого уровня -->
+                            <nav class="header-mobile__main-menu" aria-label="Основная навигация">
+                                <ul>
+                                    <li>
+                                        <a href="./catalog.html">Каталог товаров</a>
+                                        <button type="button" class="header-mobile__open-btn" aria-label="Открыть подменю каталога" aria-expanded="false" aria-controls="mobile-submenu-catalog">
+                                            <span class="visually-hidden">Открыть подменю</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <a href="./about.html">О нас</a>
+                                        <button type="button" class="header-mobile__open-btn" aria-label="Открыть подменю о нас" aria-expanded="false" aria-controls="mobile-submenu-about">
+                                            <span class="visually-hidden">Открыть подменю</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <a href="./loyalty.html">Программа лояльности</a>
+                                    </li>
+                                    <li>
+                                        <a href="./shipping-payment.html">Оплата и доставка</a>
+                                    </li>
+                                    <li>
+                                        <a href="./faq.html">Вопрос-Ответ</a>
+                                    </li>
+                                    <li>
+                                        <a href="./reviews.html">Отзывы</a>
+                                    </li>
+                                    <li>
+                                        <a href="./contacts.html">Контакты</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <!-- Подменю для каталога -->
+                            <nav class="header-mobile__submenu-nav" id="mobile-submenu-catalog" aria-label="Подменю каталога" hidden>
+                                <button type="button" class="header-mobile__back-btn" aria-label="Назад к основному меню">Назад</button>
+                                <h2 class="header-mobile__submenu-title">Каталог товаров</h2>
+                                <ul class="header-mobile__submenu">
+                                    <li>
+                                        <a href="./catalog.html">Протеин</a>
+                                    </li>
+                                    <li>
+                                        <a href="./catalog.html">Аксессуары (или иначе назвать, Шейкер)</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <!-- Подменю для "О нас" -->
+                            <nav class="header-mobile__submenu-nav" id="mobile-submenu-about" aria-label="Подменю о нас" hidden>
+                                <button type="button" class="header-mobile__back-btn" aria-label="Назад к основному меню">Назад</button>
+                                <h2 class="header-mobile__submenu-title">О нас</h2>
+                                <ul class="header-mobile__submenu">
+                                    <li>
+                                        <a href="./about.html">О компании</a>
+                                    </li>
+                                    <li>
+                                        <a href="./about.html">Наша команда</a>
+                                    </li>
+                                    <li>
+                                        <a href="./about.html">История</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="header-mobile__bottom">
+                            <div class="header-mobile__inner">
+                                <address class="header-mobile__info" aria-label="Контактная информация">
+                                    <a href="tel:+78001000000" class="header-mobile__info-phone">8 800 100-00-00</a>
+                                    <p class="header-mobile__info-datetime">
+                                        Режим работы:
+                                        <time datetime="09:00">09:00</time>–<time datetime="17:30">17:30</time>
+                                    </p>
+                                </address>
+                                <div class="header-mobile__socials" aria-label="Социальные сети">
+                                    <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="header-mobile__social" aria-label="WhatsApp">
+                                        <!-- изображение для темной и светлой версии  -->
+                                        <img src="./images/icons/dark-whatsapp.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-whatsapp.svg", "light": "./images/icons/light-whatsapp.svg"}' />
+                                    </a>
+                                    <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="header-mobile__social" aria-label="Telegram">
+                                        <!-- изображение для темной и светлой версии  -->
+                                        <img src="./images/icons/dark-telegram.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-telegram.svg", "light": "./images/icons/light-telegram.svg"}' />
+                                    </a>
+                                    <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="header-mobile__social" aria-label="ВКонтакте">
+                                        <!-- изображение для темной и светлой версии  -->
+                                        <img src="./images/icons/dark-vk.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-vk.svg", "light": "./images/icons/light-vk.svg"}' />
+                                    </a>
+                                </div>
+                            </div>
+                            <button type="button" class="header-theme__button toggle-theme" aria-label="Включить cветлую тему" data-theme="dark" title="Включить светлую тему"><span class="header-theme__button-text">Light</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <section class="breadcrumbs">
+                <div class="container">
+                    <nav class="breadcrumbs-nav" aria-label="Хлебные крошки">
+                        <ul class="breadcrumbs-list">
+                            <li><a href="./index.html">Главная</a></li>
+                            <li><a href="./catalog.html">Каталог товаров</a></li>
+                            <li><a href="./subcategory.html">Протеин B•POWER</a></li>
+                            <li><span>Каталог товаров</span></li>
+                        </ul>
+                    </nav>
+                    <button type="button" class="breadcrumbs-back" onclick="history.back()">Назад</button>
+                </div>
+            </section>
+            <section class="section">
+                <div class="container">
+                    <div class="product-item">
+                        <div class="product-item__info">
+                            <div class="product-item__images">
+                                <!-- выводить, если есть бейджи  -->
+                                <div class="product-item__badges">
+                                    <!-- выводить, если хит  -->
+                                    <span class="badge badge-hit" aria-label="Хит продаж">HIT</span>
+                                    <!-- выводить, если скидка  -->
+                                    <span class="badge badge-sale" aria-label="Скидка">SALE</span>
+                                </div>
+
+                                <!-- Миниатюры -->
+                                <div class="product-item__image-slider swiper" aria-label="Миниатюры товара">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide" role="group" aria-label="1 из 8">
+                                            <div class="product-item__image-slide">
+                                                <img src="./images/product-1.webp" alt="Миниатюра товара +80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere, вид 1" width="152" height="141" />
+                                            </div>
+                                        </div>
+
+                                        <div class="swiper-slide" role="group" aria-label="2 из 8">
+                                            <div class="product-item__image-slide">
+                                                <img src="./images/product-item-2.webp" alt="Миниатюра товара +80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere, вид 2" width="152" height="141" />
+                                            </div>
+                                        </div>
+
+                                        <div class="swiper-slide" role="group" aria-label="3 из 8">
+                                            <div class="product-item__image-slide">
+                                                <img src="./images/product-item-3.webp" alt="Миниатюра товара +80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere, вид 3" width="152" height="141" />
+                                            </div>
+                                        </div>
+
+                                        <div class="swiper-slide" role="group" aria-label="4 из 8">
+                                            <div class="product-item__image-slide">
+                                                <img src="./images/product-item-4.webp" alt="Миниатюра товара +80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere, вид 4" width="152" height="141" />
+                                            </div>
+                                        </div>
+
+                                        <div class="swiper-slide" role="group" aria-label="5 из 8">
+                                            <div class="product-item__image-slide">
+                                                <img src="./images/product-item-5.webp" alt="Миниатюра товара +80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere, вид 5" width="152" height="141" />
+                                            </div>
+                                        </div>
+
+                                        <div class="swiper-slide" role="group" aria-label="6 из 8">
+                                            <div class="product-item__image-slide">
+                                                <img src="./images/product-1.webp" alt="Миниатюра товара +80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere, вид 1" width="152" height="141" />
+                                            </div>
+                                        </div>
+
+                                        <div class="swiper-slide" role="group" aria-label="7 из 8">
+                                            <div class="product-item__image-slide">
+                                                <img src="./images/product-item-2.webp" alt="Миниатюра товара +80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere, вид 2" width="152" height="141" />
+                                            </div>
+                                        </div>
+
+                                        <div class="swiper-slide" role="group" aria-label="8 из 8">
+                                            <div class="product-item__image-slide">
+                                                <img src="./images/product-item-3.webp" alt="Миниатюра товара +80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere, вид 3" width="152" height="141" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Главное изображение -->
+                                <div class="product-item__image-main">
+                                    <img src="./images/product-1.webp" alt="Главное изображение товара +80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="870" height="746" />
+                                </div>
+                            </div>
+                            <div class="product-item__content">
+                                <div class="product-item__content-top">
+                                    <h1 class="product-item__title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</h1>
+
+                                    <div class="product-item__row">
+                                        <div class="product-item__rating">
+                                            <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                <span class="star" aria-hidden="true"></span>
+                                                <span class="star" aria-hidden="true"></span>
+                                                <span class="star" aria-hidden="true"></span>
+                                                <span class="star" aria-hidden="true"></span>
+                                                <span class="star" aria-hidden="true"></span>
+                                            </div>
+                                            <a href="./reviews.html" class="product-item__rating-link">23 отзыва</a>
+                                        </div>
+                                        <div class="product-item__faqs">
+                                            <a href="./reviews.html" class="product-item__faqs-link">28 вопросов</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="product-item__description">
+                                        <ul>
+                                            <li>24 г белка на порцию для поддержки мышечной массы и улучшения спортивных результатов</li>
+                                            <li>5,5 г натуральных BCAA</li>
+                                            <li>Без глютена</li>
+                                            <li>Без искусственных ароматизаторов и консервантов</li>
+                                            <li>Без ГМО</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="product-item__options">
+                                        <div class="product-item__option">
+                                            <div class="product-item__option-row">
+                                                <p class="product-item__option-title">Вкус:</p>
+                                                <span class="product-item__option-subtitle">Карамельный латте</span>
+                                            </div>
+                                            <div class="product-item__option-variants">
+                                                <!-- Вариант 1 -->
+                                                <label class="product-item__option-variant product-item__option-variant--images">
+                                                    <input type="radio" name="flavor" value="caramel-latte" checked class="visually-hidden" aria-label="Выбрать вкус: Карамельный латте" />
+                                                    <span class="product-item__option-variant-content">
+                                                        <img src="./images/product-1.webp" alt="Карамельный латте" width="72" height="72" />
+                                                    </span>
+                                                </label>
+
+                                                <!-- Вариант 2 -->
+                                                <label class="product-item__option-variant product-item__option-variant--images">
+                                                    <input type="radio" name="flavor" value="vanilla" class="visually-hidden" aria-label="Выбрать вкус: Ванильный" />
+                                                    <span class="product-item__option-variant-content">
+                                                        <img src="./images/product-2.webp" alt="Ванильный" width="72" height="72" />
+                                                    </span>
+                                                </label>
+
+                                                <!-- Вариант 3 -->
+                                                <label class="product-item__option-variant product-item__option-variant--images">
+                                                    <input type="radio" name="flavor" value="chocolate" class="visually-hidden" aria-label="Выбрать вкус: Шоколадный" />
+                                                    <span class="product-item__option-variant-content">
+                                                        <img src="./images/product-3.webp" alt="Шоколадный" width="72" height="72" />
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="product-item__option">
+                                            <div class="product-item__option-row">
+                                                <p class="product-item__option-title">Вес:</p>
+                                            </div>
+                                            <div class="product-item__option-variants">
+                                                <!-- Вариант 1 -->
+                                                <label class="product-item__option-variant product-item__option-variant--info">
+                                                    <input type="radio" name="weight" value="750" checked class="visually-hidden" aria-label="Выбрать вес: 750 грамм, 25 порций" />
+                                                    <span class="product-item__option-variant-content">
+                                                        <p>750 г</p>
+                                                        <span>25 порции</span>
+                                                    </span>
+                                                </label>
+
+                                                <!-- Вариант 2 -->
+                                                <label class="product-item__option-variant product-item__option-variant--info">
+                                                    <input type="radio" name="weight" value="1024" class="visually-hidden" aria-label="Выбрать вес: 1024 грамма, 34 порции" />
+                                                    <span class="product-item__option-variant-content">
+                                                        <p>1024 г</p>
+                                                        <span>34 порции</span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-item__bottom">
+                                    <div class="product-item__pricing">
+                                        <div class="product-item__prices">
+                                            <p class="product-item__price product-item__price--new">5 990 ₽</p>
+                                            <!-- выводить, если есть цена без скидки  -->
+                                            <p class="product-item__price product-item__price--old">6 490 ₽</p>
+                                            <span class="product-item__discount" aria-label="Скидка 10 процентов">— 10%</span>
+                                        </div>
+                                        <div class="product-item__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
+                                    </div>
+
+                                    <div class="product-item__actions">
+                                        <div class="product-item__quantity">
+                                            <button type="button" class="product-item__count-button product-item__count-button--minus" disabled aria-label="Уменьшить количество" data-action="decrement"></button>
+                                            <input type="number" class="product-item__count-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" data-quantity-input />
+                                            <button type="button" class="product-item__count-button product-item__count-button--plus" aria-label="Увеличить количество" data-action="increment"></button>
+                                        </div>
+                                        <button type="button" class="product-item__button base-button" aria-label="Добавить товар в корзину" data-open="modal-add-product"><span class="product-item__button-text">Добавить в корзину</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-item__additionaly">
+                            <div class="product-item__additionaly-info">
+                                <div class="product-item__tabs swiper">
+                                    <div class="swiper-wrapper">
+                                        <!--  первый элемент активный -->
+                                        <div class="swiper-slide"><button type="button" class="product-item__tab active">Описание</button></div>
+                                        <div class="swiper-slide"><button type="button" class="product-item__tab">Состав</button></div>
+                                        <div class="swiper-slide"><button type="button" class="product-item__tab">Пищевая ценность</button></div>
+                                        <div class="swiper-slide"><button type="button" class="product-item__tab">Документы</button></div>
+                                    </div>
+                                </div>
+                                <div class="product-item__tabs-contents">
+                                    <!-- Содержимое таба "Описание" - первый элемент активный  -->
+                                    <div class="product-item__tabs-content active">
+                                        <div class="product-item__tabs-content-text">
+                                            <p>+80 High Protein Coffee Flavored — это продукт, сочетающий в себе вкус и максимальную эффективность.</p>
+                                            <ul>
+                                                <li>81% белка на 100 грамм</li>
+                                                <li>Энергетический эффект</li>
+                                                <li>Уникальный вкус кофейных сливок</li>
+                                                <li>Первый в мире 100% итальянский протеин из молока буйволицы.</li>
+                                            </ul>
+                                            <p>B-POWER Buffalo Whey производится из итальянской средиземноморской сыворотки буйволов, которую можно употреблять для стимуляции роста мышц.</p>
+                                            <p>B-POWER Buffalo Whey — это продукт премиум-класса, содержащий 24 г белка и 5,5 г BCAA. Он не содержит ароматизаторов и консервантов, ГМО и обогащён витаминами группы B, которые поддерживают энергетический обмен веществ, а также витамином D для здоровья и крепости костей.</p>
+                                            <p>B-POWER Buffalo Whey — это легкоусвояемый сывороточный протеин, идеальный перекус после тренировки, который поможет вам достичь желаемой дозы белка. Он обладает высокой биологической ценностью благодаря полноценному содержанию аминокислот. Приятный вкус, без химического привкуса, легко растворяется, готовится с добавлением воды или молока, ещё вкуснее в холодном виде.</p>
+                                        </div>
+                                    </div>
+                                    <!-- Содержимое таба "Состав"  -->
+                                    <div class="product-item__tabs-content">
+                                        <div class="product-item__tabs-content-text">
+                                            <p>Сывороточный протеин буйволиного молока (92%), растворимый кофе (7%), эмульгатор (подсолнечный лецитин), ксантановая камедь, гидрохлорид пиридоксина, рибофлавин, гидрохлорид тиамина, холекальциферол, подсластитель (сукралоза)</p>
+                                        </div>
+                                    </div>
+                                    <!-- Содержимое таба "Пищевая ценность" -->
+                                    <div class="product-item__tabs-content">
+                                        <table>
+                                            <tbody>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col"><b>Среднее содержание на</b></th>
+                                                        <th scope="col"><b>100 г</b></th>
+                                                        <th scope="col"><b>30 г (суточная доза)</b></th>
+                                                    </tr>
+                                                </thead>
+                                                <tr>
+                                                    <th scope="row"><b>Энергия</b></th>
+                                                    <td><b>385 Ккал</b></td>
+                                                    <td><b>115 Ккал</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><b>Жиры</b></th>
+                                                    <td><b>5,8 г</b></td>
+                                                    <td><b>1,7 г</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="row">из них насыщенные жирные кислоты</td>
+                                                    <td>3,7 г</td>
+                                                    <td>1,1 г</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><b>Углеводы</b></th>
+                                                    <td><b>3 г</b></td>
+                                                    <td><b>0,8 г</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="row">из них сахара</td>
+                                                    <td>2,3 г</td>
+                                                    <td>0,7 г</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><b>Белки</b></th>
+                                                    <td><b>81 г</b></td>
+                                                    <td><b>24 г</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><b>Соль</b></th>
+                                                    <td><b>0,49 г</b></td>
+                                                    <td><b>0,15 г</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><b>Холестерин</b></th>
+                                                    <td><b>221 мг</b></td>
+                                                    <td><b>66 мг</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><b>Витамин B1</b></th>
+                                                    <td><b>3,7 мг</b></td>
+                                                    <td><b>1,1 мг (100% от нормы суточного потребления*)</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><b>Витамин B2</b></th>
+                                                    <td><b>4,7 мг</b></td>
+                                                    <td><b>1,4 мг (100% от нормы суточного потребления*)</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><b>Витамин B6</b></th>
+                                                    <td><b>4,7 мг</b></td>
+                                                    <td><b>1,4 мг (100% от нормы суточного потребления*)</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><b>Витамин D3</b></th>
+                                                    <td><b>333 МЕ</b></td>
+                                                    <td><b>100 МЕ (50% от нормы суточного потребления*)</b></td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><b>Кофеин</b></th>
+                                                    <td><b>196 мг</b></td>
+                                                    <td><b>58,8 мг</b></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- Содержимое таба "Документы" -->
+                                    <div class="product-item__tabs-content">
+                                        <a href="/documents/requisites.doc" class="dowmnload" download>
+                                            <div class="dowmnload-icon">
+                                                <img src="./images/dark-download-icon.svg" data-theme-image='{"dark": "./images/dark-download-icon.svg", "light": "./images/light-download-icon.svg"}' alt="Иконка документа" width="34" height="46" loading="lazy" />
+                                            </div>
+                                            <div class="dowmnload-info">
+                                                <p class="dowmnload-info__title">Название документа в одну строку</p>
+                                                <p class="dowmnload-info__filename">.doc, 500 KB</p>
+                                            </div>
+                                        </a>
+                                        <a href="/documents/requisites.doc" class="dowmnload" download>
+                                            <div class="dowmnload-icon">
+                                                <img src="./images/dark-download-icon.svg" data-theme-image='{"dark": "./images/dark-download-icon.svg", "light": "./images/light-download-icon.svg"}' alt="Иконка документа" width="34" height="46" loading="lazy" />
+                                            </div>
+                                            <div class="dowmnload-info">
+                                                <p class="dowmnload-info__title">Название документа в одну строку</p>
+                                                <p class="dowmnload-info__filename">.doc, 500 KB</p>
+                                            </div>
+                                        </a>
+                                        <a href="/documents/requisites.doc" class="dowmnload" download>
+                                            <div class="dowmnload-icon">
+                                                <img src="./images/dark-download-icon.svg" data-theme-image='{"dark": "./images/dark-download-icon.svg", "light": "./images/light-download-icon.svg"}' alt="Иконка документа" width="34" height="46" loading="lazy" />
+                                            </div>
+                                            <div class="dowmnload-info">
+                                                <p class="dowmnload-info__title">Название документа в одну строку</p>
+                                                <p class="dowmnload-info__filename">.doc, 500 KB</p>
+                                            </div>
+                                        </a>
+                                        <a href="/documents/requisites.doc" class="dowmnload" download>
+                                            <div class="dowmnload-icon">
+                                                <img src="./images/dark-download-icon.svg" data-theme-image='{"dark": "./images/dark-download-icon.svg", "light": "./images/light-download-icon.svg"}' alt="Иконка документа" width="34" height="46" loading="lazy" />
+                                            </div>
+                                            <div class="dowmnload-info">
+                                                <p class="dowmnload-info__title">Название документа в одну строку</p>
+                                                <p class="dowmnload-info__filename">.doc, 500 KB</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- блок "Доставка и оплата" -->
+                            <div>
+                                <h3 class="product-item__additionaly-title">Доставка и оплата</h3>
+                                <div class="product-item__additionaly-block">
+                                    <ul>
+                                        <li>
+                                            <span>Способы оплаты</span>
+                                            <p>Онлайн картой, наличными при получении</p>
+                                        </li>
+                                        <li>
+                                            <span>Доставка по России</span>
+                                            <p>1–3 дня</p>
+                                        </li>
+                                        <li>
+                                            <span>Доставка по Санкт-Петербургу</span>
+                                            <p>Сегодня, завтра</p>
+                                        </li>
+                                    </ul>
+                                    <a href="./shipping-payment.html" class="product-item__additionaly-link">Подробнее о доставке</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Отзывы -->
+            <section class="section">
+                <div class="container">
+                    <div class="info">
+                        <h2 class="title-2">Отзывы</h2>
+                    </div>
+                    <div class="row row--custom">
+                        <div class="statistics">
+                            <div class="statistics-blocks">
+                                <div class="statistics-block">
+                                    <span class="statistics-block__num">4,9</span>
+                                    <div class="statistics-block__info">
+                                        <div class="stars" aria-label="Рейтинг: 4.9 из 5 звёзд">
+                                            <i class="star"></i>
+                                            <i class="star"></i>
+                                            <i class="star"></i>
+                                            <i class="star"></i>
+                                            <i class="star"></i>
+                                        </div>
+                                        <div class="statistics-block__info-text">
+                                            <p>оценка товара</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="statistics-block">
+                                    <span class="statistics-block__num">23</span>
+                                    <div class="statistics-block__info-text">
+                                        <p>отзывов</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="statistics-info">
+                                <p>94% покупателей советуют этот товар</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slider slider--review slider--statistics">
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide slide">
+                                    <article class="review">
+                                        <div class="review-avatar">
+                                            <img src="./images/avatar.webp" alt="Аватар пользователя Анна" width="64" height="64" loading="lazy" />
+                                        </div>
+                                        <div class="review-rating">
+                                            <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="review-top">
+                                            <p class="review-name">Анна</p>
+                                            <time datetime="2025-06-19" class="review-datetime">19 июня 2025</time>
+                                        </div>
+                                        <div class="review-description">
+                                            <p>После B•POWER забыла, что такое тяжесть после протеина.Вкус — огонь, и главное — реально без вздутия.</p>
+                                        </div>
+                                        <div class="review-bottom">
+                                            <!-- выводить блок review-media, если у отзыва есть изображения  -->
+                                            <div class="review-media">
+                                                <div class="review-images" aria-label="Фотографии отзыва">
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 1 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 2 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 3 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 4 из 6</figcaption>
+                                                        <!-- число этого элемента нужно рассчитывать на php по формуле (все количество изображений - 3) -->
+                                                        <!-- и выводить этот элемент только в том случае, если в отзыве изображений больше 4 штук, то есть 5 и более  -->
+                                                        <span class="review-media__count">+3</span>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 5 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 6 из 6</figcaption>
+                                                    </figure>
+                                                </div>
+                                            </div>
+
+                                            <!-- выводить, если отзыв на проверке  -->
+                                            <div class="review-status review-status--inspection" aria-label="Отзыв на проверке"><p>Отзыв на проверке</p></div>
+                                            <!-- выводить, если отзыв проверен  -->
+                                            <!-- <div class="review-status" aria-label="Проверенный отзыв"><p>Проверенный отзыв</p></div> -->
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div class="swiper-slide slide">
+                                    <article class="review">
+                                        <div class="review-avatar">
+                                            <img src="./images/avatar.webp" alt="Аватар пользователя Анна" width="64" height="64" loading="lazy" />
+                                        </div>
+                                        <div class="review-rating">
+                                            <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="review-top">
+                                            <p class="review-name">Анна</p>
+                                            <time datetime="2025-06-19" class="review-datetime">19 июня 2025</time>
+                                        </div>
+                                        <div class="review-description">
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                        </div>
+                                        <div class="review-bottom">
+                                            <!-- выводить блок review-media, если у отзыва есть изображения  -->
+                                            <div class="review-media">
+                                                <div class="review-images" aria-label="Фотографии отзыва">
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 1 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 2 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 3 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 4 из 6</figcaption>
+                                                        <!-- число этого элемента нужно рассчитывать на php по формуле (все количество изображений - 3) -->
+                                                        <!-- и выводить этот элемент только в том случае, если в отзыве изображений больше 4 штук, то есть 5 и более  -->
+                                                        <span class="review-media__count">+3</span>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 5 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 6 из 6</figcaption>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                            <!-- выводить, если отзыв на проверке  -->
+                                            <div class="review-status review-status--inspection" aria-label="Отзыв на проверке"><p>Отзыв на проверке</p></div>
+                                            <!-- выводить, если отзыв проверен  -->
+                                            <!-- <div class="review-status" aria-label="Проверенный отзыв"><p>Проверенный отзыв</p></div> -->
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div class="swiper-slide slide">
+                                    <article class="review">
+                                        <div class="review-avatar">
+                                            <img src="./images/avatar.webp" alt="Аватар пользователя Анна" width="64" height="64" loading="lazy" />
+                                        </div>
+                                        <div class="review-rating">
+                                            <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="review-top">
+                                            <p class="review-name">Анна</p>
+                                            <time datetime="2025-06-19" class="review-datetime">19 июня 2025</time>
+                                        </div>
+                                        <div class="review-description">
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                        </div>
+                                        <div class="review-bottom">
+                                            <!-- выводить, если отзыв на проверке  -->
+                                            <!-- <div class="review-status review-status--inspection" aria-label="Отзыв на проверке"><p>Отзыв на проверке</p></div> -->
+                                            <!-- выводить, если отзыв проверен  -->
+                                            <div class="review-status" aria-label="Проверенный отзыв"><p>Проверенный отзыв</p></div>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div class="swiper-slide slide">
+                                    <article class="review">
+                                        <div class="review-avatar">
+                                            <img src="./images/avatar.webp" alt="Аватар пользователя Анна" width="64" height="64" loading="lazy" />
+                                        </div>
+                                        <div class="review-rating">
+                                            <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="review-top">
+                                            <p class="review-name">Анна</p>
+                                            <time datetime="2025-06-19" class="review-datetime">19 июня 2025</time>
+                                        </div>
+                                        <div class="review-description">
+                                            <p>После B•POWER забыла, что такое тяжесть после протеина.Вкус — огонь, и главное — реально без вздутия.</p>
+                                        </div>
+                                        <div class="review-bottom">
+                                            <!-- выводить блок review-media, если у отзыва есть изображения  -->
+                                            <div class="review-media">
+                                                <div class="review-images" aria-label="Фотографии отзыва">
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 1 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 2 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 3 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 4 из 6</figcaption>
+                                                        <!-- число этого элемента нужно рассчитывать на php по формуле (все количество изображений - 3) -->
+                                                        <!-- и выводить этот элемент только в том случае, если в отзыве изображений больше 4 штук, то есть 5 и более  -->
+                                                        <span class="review-media__count">+3</span>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 5 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 6 из 6</figcaption>
+                                                    </figure>
+                                                </div>
+                                            </div>
+
+                                            <!-- выводить, если отзыв на проверке  -->
+                                            <div class="review-status review-status--inspection" aria-label="Отзыв на проверке"><p>Отзыв на проверке</p></div>
+                                            <!-- выводить, если отзыв проверен  -->
+                                            <!-- <div class="review-status" aria-label="Проверенный отзыв"><p>Проверенный отзыв</p></div> -->
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div class="swiper-slide slide">
+                                    <article class="review">
+                                        <div class="review-avatar">
+                                            <img src="./images/avatar.webp" alt="Аватар пользователя Анна" width="64" height="64" loading="lazy" />
+                                        </div>
+                                        <div class="review-rating">
+                                            <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="review-top">
+                                            <p class="review-name">Анна</p>
+                                            <time datetime="2025-06-19" class="review-datetime">19 июня 2025</time>
+                                        </div>
+                                        <div class="review-description">
+                                            <p>После B•POWER забыла, что такое тяжесть после протеина.Вкус — огонь, и главное — реально без вздутия.</p>
+                                        </div>
+                                        <div class="review-bottom">
+                                            <!-- выводить блок review-media, если у отзыва есть изображения  -->
+                                            <div class="review-media">
+                                                <div class="review-images" aria-label="Фотографии отзыва">
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 1 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 2 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 3 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 4 из 6</figcaption>
+                                                        <!-- число этого элемента нужно рассчитывать на php по формуле (все количество изображений - 3) -->
+                                                        <!-- и выводить этот элемент только в том случае, если в отзыве изображений больше 4 штук, то есть 5 и более  -->
+                                                        <span class="review-media__count">+3</span>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 5 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 6 из 6</figcaption>
+                                                    </figure>
+                                                </div>
+                                            </div>
+
+                                            <!-- выводить, если отзыв на проверке  -->
+                                            <div class="review-status review-status--inspection" aria-label="Отзыв на проверке"><p>Отзыв на проверке</p></div>
+                                            <!-- выводить, если отзыв проверен  -->
+                                            <!-- <div class="review-status" aria-label="Проверенный отзыв"><p>Проверенный отзыв</p></div> -->
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div class="swiper-slide slide">
+                                    <article class="review">
+                                        <div class="review-avatar">
+                                            <img src="./images/avatar.webp" alt="Аватар пользователя Анна" width="64" height="64" loading="lazy" />
+                                        </div>
+                                        <div class="review-rating">
+                                            <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="review-top">
+                                            <p class="review-name">Анна</p>
+                                            <time datetime="2025-06-19" class="review-datetime">19 июня 2025</time>
+                                        </div>
+                                        <div class="review-description">
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                        </div>
+                                        <div class="review-bottom">
+                                            <!-- выводить блок review-media, если у отзыва есть изображения  -->
+                                            <div class="review-media">
+                                                <div class="review-images" aria-label="Фотографии отзыва">
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 1 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 2 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 3 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 4 из 6</figcaption>
+                                                        <!-- число этого элемента нужно рассчитывать на php по формуле (все количество изображений - 3) -->
+                                                        <!-- и выводить этот элемент только в том случае, если в отзыве изображений больше 4 штук, то есть 5 и более  -->
+                                                        <span class="review-media__count">+3</span>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 5 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 6 из 6</figcaption>
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                            <!-- выводить, если отзыв на проверке  -->
+                                            <div class="review-status review-status--inspection" aria-label="Отзыв на проверке"><p>Отзыв на проверке</p></div>
+                                            <!-- выводить, если отзыв проверен  -->
+                                            <!-- <div class="review-status" aria-label="Проверенный отзыв"><p>Проверенный отзыв</p></div> -->
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div class="swiper-slide slide">
+                                    <article class="review">
+                                        <div class="review-avatar">
+                                            <img src="./images/avatar.webp" alt="Аватар пользователя Анна" width="64" height="64" loading="lazy" />
+                                        </div>
+                                        <div class="review-rating">
+                                            <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="review-top">
+                                            <p class="review-name">Анна</p>
+                                            <time datetime="2025-06-19" class="review-datetime">19 июня 2025</time>
+                                        </div>
+                                        <div class="review-description">
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                            <p>Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею. Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.Пью ваниль по утрам. Чувствую себя бодро, иммунитет реально лучше — меньше болею.</p>
+                                        </div>
+                                        <div class="review-bottom">
+                                            <!-- выводить, если отзыв на проверке  -->
+                                            <!-- <div class="review-status review-status--inspection" aria-label="Отзыв на проверке"><p>Отзыв на проверке</p></div> -->
+                                            <!-- выводить, если отзыв проверен  -->
+                                            <div class="review-status" aria-label="Проверенный отзыв"><p>Проверенный отзыв</p></div>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <div class="swiper-slide slide">
+                                    <article class="review">
+                                        <div class="review-avatar">
+                                            <img src="./images/avatar.webp" alt="Аватар пользователя Анна" width="64" height="64" loading="lazy" />
+                                        </div>
+                                        <div class="review-rating">
+                                            <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                                <i class="star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="review-top">
+                                            <p class="review-name">Анна</p>
+                                            <time datetime="2025-06-19" class="review-datetime">19 июня 2025</time>
+                                        </div>
+                                        <div class="review-description">
+                                            <p>После B•POWER забыла, что такое тяжесть после протеина.Вкус — огонь, и главное — реально без вздутия.</p>
+                                        </div>
+                                        <div class="review-bottom">
+                                            <!-- выводить блок review-media, если у отзыва есть изображения  -->
+                                            <div class="review-media">
+                                                <div class="review-images" aria-label="Фотографии отзыва">
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 1 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 2 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 3 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 4 из 6</figcaption>
+                                                        <!-- число этого элемента нужно рассчитывать на php по формуле (все количество изображений - 3) -->
+                                                        <!-- и выводить этот элемент только в том случае, если в отзыве изображений больше 4 штук, то есть 5 и более  -->
+                                                        <span class="review-media__count">+3</span>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 5 из 6</figcaption>
+                                                    </figure>
+                                                    <figure class="review-image">
+                                                        <a href="./images/review.webp" class="glightbox">
+                                                            <img src="./images/review.webp" alt="Фотография упаковки протеина Buffalo Whey на столе" width="70" height="90" loading="lazy" />
+                                                        </a>
+                                                        <figcaption class="visually-hidden">Фото 6 из 6</figcaption>
+                                                    </figure>
+                                                </div>
+                                            </div>
+
+                                            <!-- выводить, если отзыв на проверке  -->
+                                            <div class="review-status review-status--inspection" aria-label="Отзыв на проверке"><p>Отзыв на проверке</p></div>
+                                            <!-- выводить, если отзыв проверен  -->
+                                            <!-- <div class="review-status" aria-label="Проверенный отзыв"><p>Проверенный отзыв</p></div> -->
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-buttons slider-buttons--bg">
+                            <button type="button" class="slider-button slider-button--prev" aria-label="Предыдущий слайд"></button>
+                            <button type="button" class="slider-button slider-button--next" aria-label="Следующий слайд"></button>
+                        </div>
+                    </div>
+
+                    <button type="button" class="underslider-button">Оставить отзыв</button>
+                </div>
+            </section>
+            <!-- Вопросы о товаре -->
+            <section class="section">
+                <div class="container">
+                    <div class="info">
+                        <h2 class="title-2">Вопросы о товаре</h2>
+                    </div>
+                    <div class="slider slider--faqs">
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide slide">
+                                    <div class="faq-slide">
+                                        <div class="faq-slide__info">
+                                            <p class="faq-slide__name">Анна</p>
+                                            <time class="faq-slide__datetime" datetime="2025-06-19">19 июня 2025</time>
+                                        </div>
+                                        <div class="faq-slide__content">
+                                            <div class="faq-slide__question">
+                                                <p>Добрый день, подскажите рыба текст рыба текст в одну или несколько строк ограничений на вопрос сам нет по высоте</p>
+                                            </div>
+                                            <div class="faq-slide__answer">
+                                                <h3 class="faq-slide__answer-title">Ответ продавца</h3>
+                                                <div class="faq-slide__answer-text">
+                                                    <p>
+                                                        Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высотеДобрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по
+                                                        высотеДобрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высотеДобрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап
+                                                        по высотеДобрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide slide">
+                                    <div class="faq-slide">
+                                        <div class="faq-slide__info">
+                                            <p class="faq-slide__name">Анна</p>
+                                            <time class="faq-slide__datetime" datetime="2025-06-19">19 июня 2025</time>
+                                        </div>
+                                        <div class="faq-slide__content">
+                                            <div class="faq-slide__question">
+                                                <p>Добрый день, подскажите рыба текст рыба текст в одну или несколько строк ограничений на вопрос сам нет по высоте длинный вопрос очень длинный вопрос</p>
+                                            </div>
+                                            <div class="faq-slide__answer">
+                                                <h3 class="faq-slide__answer-title">Ответ продавца</h3>
+                                                <div class="faq-slide__answer-text">
+                                                    <p>Добрый день, подскажите рыба текст рыба текст в одну или несколько строк ограничений на вопрос сам нет по высоте длинный вопрос очень длинный вопрос</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide slide">
+                                    <div class="faq-slide">
+                                        <div class="faq-slide__info">
+                                            <p class="faq-slide__name">Анна</p>
+                                            <time class="faq-slide__datetime" datetime="2025-06-19">19 июня 2025</time>
+                                        </div>
+                                        <div class="faq-slide__content">
+                                            <div class="faq-slide__question">
+                                                <p>Добрый день, подскажите рыба текст рыба текст в одну или несколько строк ограничений на вопрос сам нет по высоте</p>
+                                            </div>
+                                            <div class="faq-slide__answer">
+                                                <h3 class="faq-slide__answer-title">Ответ продавца</h3>
+                                                <div class="faq-slide__answer-text">
+                                                    <p>Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide slide">
+                                    <div class="faq-slide">
+                                        <div class="faq-slide__info">
+                                            <p class="faq-slide__name">Анна</p>
+                                            <time class="faq-slide__datetime" datetime="2025-06-19">19 июня 2025</time>
+                                        </div>
+                                        <div class="faq-slide__content">
+                                            <div class="faq-slide__question">
+                                                <p>Добрый день, подскажите рыба текст рыба текст в одну или несколько строк ограничений на вопрос сам нет по высоте</p>
+                                            </div>
+                                            <div class="faq-slide__answer">
+                                                <h3 class="faq-slide__answer-title">Ответ продавца</h3>
+                                                <div class="faq-slide__answer-text">
+                                                    <p>Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide slide">
+                                    <div class="faq-slide">
+                                        <div class="faq-slide__info">
+                                            <p class="faq-slide__name">Анна</p>
+                                            <time class="faq-slide__datetime" datetime="2025-06-19">19 июня 2025</time>
+                                        </div>
+                                        <div class="faq-slide__content">
+                                            <div class="faq-slide__question">
+                                                <p>Добрый день, подскажите рыба текст рыба текст в одну или несколько строк ограничений на вопрос сам нет по высоте</p>
+                                            </div>
+                                            <div class="faq-slide__answer">
+                                                <h3 class="faq-slide__answer-title">Ответ продавца</h3>
+                                                <div class="faq-slide__answer-text">
+                                                    <p>Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide slide">
+                                    <div class="faq-slide">
+                                        <div class="faq-slide__info">
+                                            <p class="faq-slide__name">Анна</p>
+                                            <time class="faq-slide__datetime" datetime="2025-06-19">19 июня 2025</time>
+                                        </div>
+                                        <div class="faq-slide__content">
+                                            <div class="faq-slide__question">
+                                                <p>Добрый день, подскажите рыба текст рыба текст в одну или несколько строк ограничений на вопрос сам нет по высоте длинный вопрос очень длинный вопрос</p>
+                                            </div>
+                                            <div class="faq-slide__answer">
+                                                <h3 class="faq-slide__answer-title">Ответ продавца</h3>
+                                                <div class="faq-slide__answer-text">
+                                                    <p>Добрый день, подскажите рыба текст рыба текст в одну или несколько строк ограничений на вопрос сам нет по высоте длинный вопрос очень длинный вопрос</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide slide">
+                                    <div class="faq-slide">
+                                        <div class="faq-slide__info">
+                                            <p class="faq-slide__name">Анна</p>
+                                            <time class="faq-slide__datetime" datetime="2025-06-19">19 июня 2025</time>
+                                        </div>
+                                        <div class="faq-slide__content">
+                                            <div class="faq-slide__question">
+                                                <p>Добрый день, подскажите рыба текст рыба текст в одну или несколько строк ограничений на вопрос сам нет по высоте</p>
+                                            </div>
+                                            <div class="faq-slide__answer">
+                                                <h3 class="faq-slide__answer-title">Ответ продавца</h3>
+                                                <div class="faq-slide__answer-text">
+                                                    <p>Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide slide">
+                                    <div class="faq-slide">
+                                        <div class="faq-slide__info">
+                                            <p class="faq-slide__name">Анна</p>
+                                            <time class="faq-slide__datetime" datetime="2025-06-19">19 июня 2025</time>
+                                        </div>
+                                        <div class="faq-slide__content">
+                                            <div class="faq-slide__question">
+                                                <p>Добрый день, подскажите рыба текст рыба текст в одну или несколько строк ограничений на вопрос сам нет по высоте</p>
+                                            </div>
+                                            <div class="faq-slide__answer">
+                                                <h3 class="faq-slide__answer-title">Ответ продавца</h3>
+                                                <div class="faq-slide__answer-text">
+                                                    <p>Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте Добрый день, ответ рыба текст рыба текст в одну или несколько строк ограничений на ответ сам есть ограничения по высоте, будем разворачивать поп-ап по высоте</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="underslider-button">Задать вопрос</button>
+                </div>
+            </section>
+
+            <!-- Смотрите также -->
+            <section class="section">
+                <div class="container">
+                    <div class="info">
+                        <h2 class="title-2">Смотрите также</h2>
+                    </div>
+                    <div class="slider slider--products">
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <!-- <div class="product-badges"> -->
+                                            <!-- выводить, если хит  -->
+                                            <!-- <span class="badge badge-hit" aria-label="Хит продаж">HIT</span> -->
+                                            <!-- выводить, если скидка  -->
+                                            <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            <!-- </div> -->
+
+                                            <div class="product-image">
+                                                <img src="./images/product-5.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Шоколад</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">900</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 224</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                            <li>1 Shaker Esclusivo B-Power</li>
+                                                            <li>2 Bustine Gusto Cioccolato</li>
+                                                            <li>2 Bustine Gusto Puro</li>
+                                                        </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <span class="badge badge-hit" aria-label="Хит продаж">HIT</span>
+                                                <!-- выводить, если скидка  -->
+                                                <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-2.webp" alt="+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Шоколад</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <span class="badge badge-hit" aria-label="Хит продаж">HIT</span>
+                                                <!-- выводить, если скидка  -->
+                                                <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-1.webp" alt="+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Карамельный латте</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <!-- <span class="badge badge-hit" aria-label="Хит продаж">HIT</span> -->
+                                                <!-- выводить, если скидка  -->
+                                                <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-4.webp" alt="+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Ваниль</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <!-- <div class="product-badges"> -->
+                                            <!-- выводить, если хит  -->
+                                            <!-- <span class="badge badge-hit" aria-label="Хит продаж">HIT</span> -->
+                                            <!-- выводить, если скидка  -->
+                                            <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            <!-- </div> -->
+
+                                            <div class="product-image">
+                                                <img src="./images/product-5.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Шоколад</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">900</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 224</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <span class="badge badge-hit" aria-label="Хит продаж">HIT</span>
+                                                <!-- выводить, если скидка  -->
+                                                <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-2.webp" alt="+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Шоколад</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <span class="badge badge-hit" aria-label="Хит продаж">HIT</span>
+                                                <!-- выводить, если скидка  -->
+                                                <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-1.webp" alt="+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Карамельный латте</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <!-- <span class="badge badge-hit" aria-label="Хит продаж">HIT</span> -->
+                                                <!-- выводить, если скидка  -->
+                                                <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-4.webp" alt="+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Ваниль</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-buttons">
+                            <button type="button" class="slider-button slider-button--prev" aria-label="Предыдущий слайд"></button>
+                            <button type="button" class="slider-button slider-button--next" aria-label="Следующий слайд"></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-inner">
+                    <div class="footer-left">
+                        <ul class="footer-logos">
+                            <li>
+                                <a href="./index.html" aria-label="На главную страницу">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/dark-logo.svg" data-theme-image='{"dark": "./images/dark-logo.svg", "light": "./images/light-logo.svg"}' alt="BUFFALO PROTEIN" width="189" height="68" loading="lazy" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" target="_blank" rel="noopener noreferrer">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/b-power-dark.svg" data-theme-image='{"dark": "./images/b-power-dark.svg", "light": "./images/b-power-light.svg"}' alt="B-POWER" width="189" height="68" loading="lazy" />
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="footer-info">
+                            <ul class="footer-info__contacts">
+                                <li>
+                                    <p>Почта</p>
+                                    <a href="mailto:info@mail.ru">info@mail.ru</a>
+                                </li>
+                                <li>
+                                    <p>Телефон горячей линии</p>
+                                    <a href="tel:+78001000000">8 800 100-00-00</a>
+                                </li>
+                            </ul>
+                            <div class="footer-info__socials" aria-label="Социальные сети">
+                                <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="footer-info__social" aria-label="WhatsApp">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/icons/dark-whatsapp.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-whatsapp.svg", "light": "./images/icons/light-whatsapp.svg"}' loading="lazy" />
+                                </a>
+                                <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="footer-info__social" aria-label="Telegram">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/icons/dark-telegram.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-telegram.svg", "light": "./images/icons/light-telegram.svg"}' loading="lazy" />
+                                </a>
+                                <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="footer-info__social" aria-label="ВКонтакте">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/icons/dark-vk.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-vk.svg", "light": "./images/icons/light-vk.svg"}' loading="lazy" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="footer-additional">
+                            <p class="footer-additional__copy">©2012–2025, ООО «Название компании», ИНН/КПП 7810845678/781101001, ОГРН 1234567890</p>
+                            <a href="./policy.html" class="footer-additional__link">Политика конфиденциальности</a>
+                            <a href="./terms-and-conditions.html" class="footer-additional__link">Публичная оферта</a>
+                            <a href="#!" class="footer-additional__link">Политика обработки файлов cookie</a>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <nav class="footer-nav" aria-label="Навигация по сайту">
+                            <h3 class="footer-nav__title">Навигация</h3>
+                            <ul class="footer-nav__menu">
+                                <li><a href="./index.html">Главная</a></li>
+                                <li><a href="./about.html">О нас</a></li>
+                                <li><a href="./loyalty.html">Программа лояльности</a></li>
+                                <li><a href="./shipping-payment.html">Оплата и доставка</a></li>
+                                <li><a href="./faq.html">Вопрос-Ответ</a></li>
+                                <li><a href="./contacts.html">Контакты</a></li>
+                            </ul>
+                        </nav>
+                        <nav class="footer-nav" aria-label="Каталог продукции">
+                            <h3 class="footer-nav__title">Каталог продукции</h3>
+                            <ul class="footer-nav__menu">
+                                <li><a href="./catalog.html">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">Buffalo Whey Gusto Puro — Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">+80 High Protein — Buffalo Whey Gusto Puro — Proteine in Polvere</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="footer-mobile">
+                        <p class="footer-mobile__copy">©2012–2025, ООО «Название компании», ИНН/КПП 7810845678/781101001, ОГРН&nbsp;1234567890</p>
+                        <a href="./policy.html" class="footer-mobile__link">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- модальное окно при клике на кнопку "в корзину" -->
+        <div class="modal modal-bg-close" id="modal-add-product" aria-hidden="true">
+            <div class="modal-inner">
+                <button type="button" role="dialog" aria-modal="true" class="modal-close" aria-label="Закрыть модальное окно"></button>
+                <div class="modal-content">
+                    <div class="modal-content__poduct">
+                        <h2 class="modal-title">Товар добавлен в корзину</h2>
+                        <article class="modal-product">
+                            <div class="modal-product__image">
+                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="116" height="116" loading="lazy" />
+                            </div>
+                            <div class="modal-product__content">
+                                <div class="modal-product__info">
+                                    <h4 class="modal-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</h4>
+                                    <div class="modal-product__bottom">
+                                        <div class="modal-product__additional modal-product__flavor"><p>Шоколад</p></div>
+                                        <div class="modal-product__additional modal-product__option"><p>900 г</p></div>
+                                    </div>
+                                </div>
+                                <div class="modal-product__info">
+                                    <div class="modal-product__prices">
+                                        <p class="modal-product__price modal-product__price--new">5 990 ₽</p>
+                                        <!-- если есть старая цена, то выводить modal-product__price--old и modal-product__discount -->
+                                        <p class="modal-product__price modal-product__price--old">6 490 ₽</p>
+                                        <div class="modal-product__discount"><span class="modal-product__discount-badge">— 10%</span></div>
+                                    </div>
+                                    <div class="modal-product__bonus"><p>+ 168 бонусов</p></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="modal-content__recommendation">
+                        <h3 class="modal-subtitle">Рекомендуем</h3>
+                        <div class="recommendation swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <article class="recommendation-product">
+                                        <div class="recommendation-product__info">
+                                            <div class="recommendation-product__image">
+                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="156" height="120" loading="lazy" />
+                                            </div>
+                                            <div class="recommendation-product__flavor">
+                                                <p>Шоколад</p>
+                                            </div>
+                                            <a href="./product.html" class="recommendation-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                        </div>
+                                        <div class="recommendation-product__prices">
+                                            <p class="recommendation-product__price recommendation-product__price--new">5 990 ₽</p>
+                                            <!-- если есть старая цена, то выводить recommendation-product__price--old и modal-product__discount -->
+                                            <p class="recommendation-product__price recommendation-product__price--old">6 490 ₽</p>
+                                            <span class="recommendation-product__discount" aria-label="Скидка 10 процентов">— 10%</span>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="recommendation-product">
+                                        <div class="recommendation-product__info">
+                                            <div class="recommendation-product__image">
+                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="156" height="120" loading="lazy" />
+                                            </div>
+                                            <div class="recommendation-product__flavor">
+                                                <p>Шоколад</p>
+                                            </div>
+                                            <a href="./product.html" class="recommendation-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                        </div>
+                                        <div class="recommendation-product__prices">
+                                            <p class="recommendation-product__price recommendation-product__price--new">5 990 ₽</p>
+                                            <!-- если есть старая цена, то выводить recommendation-product__price--old и modal-product__discount -->
+                                            <p class="recommendation-product__price recommendation-product__price--old">6 490 ₽</p>
+                                            <span class="recommendation-product__discount" aria-label="Скидка 10 процентов">— 10%</span>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="recommendation-product">
+                                        <div class="recommendation-product__info">
+                                            <div class="recommendation-product__image">
+                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="156" height="120" loading="lazy" />
+                                            </div>
+                                            <div class="recommendation-product__flavor">
+                                                <p>Шоколад</p>
+                                            </div>
+                                            <a href="./product.html" class="recommendation-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                        </div>
+                                        <div class="recommendation-product__prices">
+                                            <p class="recommendation-product__price recommendation-product__price--new">5 990 ₽</p>
+                                            <!-- если есть старая цена, то выводить recommendation-product__price--old и modal-product__discount -->
+                                            <p class="recommendation-product__price recommendation-product__price--old">6 490 ₽</p>
+                                            <span class="recommendation-product__discount" aria-label="Скидка 10 процентов">— 10%</span>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-fixed">
+                        <div class="modal-fixed__info">
+                            <p>В корзине <b>1 товар</b> на сумму <b>5 990 ₽</b></p>
+                        </div>
+                        <div class="modal-fixed__buttons">
+                            <button type="button" class="modal-fixed__button opacity-button" data-close-modal>Продолжить покупки</button>
+                            <a href="./cart.html" class="modal-fixed__button base-button">Перейти в корзину</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="./js/swiper-bundle.min.js"></script>
+        <script src="./js/phoneinput.js"></script>
+        <script src="./js/glightbox.min.js"></script>
+        <script src="./js/simplebar.min.js"></script>
+        <script src="./js/choices.min.js"></script>
+        <script src="./js/index.js"></script>
+    </body>
+</html>

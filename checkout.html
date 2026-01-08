@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Оформление заказа</title>
+
+        <link rel="stylesheet" href="./css/fonts.css" />
+
+        <!-- определение темы до загрузки дома  -->
+        <script>
+            (function () {
+                const theme = localStorage.getItem('styleMode') || 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+
+                if (theme === 'light') {
+                    document.documentElement.classList.add('light-mode');
+                }
+            })();
+        </script>
+
+        <link rel="stylesheet" href="./css/reset.css" />
+        <link rel="stylesheet" href="./css/swiper-bundle.css" />
+        <link rel="stylesheet" href="./css/glightbox.min.css" />
+        <link rel="stylesheet" href="./css/simplebar.min.css" />
+        <link rel="stylesheet" href="./css/choices.min.css" />
+        <link rel="stylesheet" href="./css/variables.css" />
+
+        <!-- подключать только для этой страницы  -->
+        <link rel="stylesheet" href="./css/intlTelInput.css" />
+        <link rel="stylesheet" href="./css/flag-icon.min.css" />
+        <!-- !  -->
+
+        <link rel="stylesheet" href="./css/template_styles.css" />
+        <link rel="stylesheet" href="./css/styles.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <div class="header-top">
+                    <div class="header-top__left">
+                        <button type="button" class="header-mobile__button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu" title="Нажмите чтобы открыть меню">
+                            <span class="visually-hidden">Меню</span>
+                            <span class="header-mobile__button-line"></span>
+                            <span class="header-mobile__button-line"></span>
+                            <span class="header-mobile__button-line"></span>
+                        </button>
+                        <a href="./index.html" class="header-logo" aria-label="На главную страницу">
+                            <!-- изображение для темной и светлой версии  -->
+                            <img src="./images/dark-logo.svg" data-theme-image='{"dark": "./images/dark-logo.svg", "light": "./images/light-logo.svg"}' alt="BUFFALO PROTEIN" width="188" height="68" />
+                        </a>
+                    </div>
+                    <div class="header-top__right">
+                        <button type="button" class="header-theme__button toggle-theme" aria-label="Включить cветлую тему" data-theme="dark" title="Включить светлую тему"><span class="header-theme__button-text">Light</span></button>
+                        <address class="header-top__info" aria-label="Контактная информация">
+                            <a href="tel:+78001000000" class="header-top__info-phone">8 800 100-00-00</a>
+                            <p class="header-top__info-datetime">
+                                Режим работы:
+                                <time datetime="09:00">09:00</time>–<time datetime="17:30">17:30</time>
+                            </p>
+                        </address>
+                        <div class="header-top__socials" aria-label="Социальные сети">
+                            <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="header-top__social" aria-label="WhatsApp">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/icons/dark-whatsapp.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-whatsapp.svg", "light": "./images/icons/light-whatsapp.svg"}' />
+                            </a>
+                            <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="header-top__social" aria-label="Telegram">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/icons/dark-telegram.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-telegram.svg", "light": "./images/icons/light-telegram.svg"}' />
+                            </a>
+                            <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="header-top__social" aria-label="ВКонтакте">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/icons/dark-vk.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-vk.svg", "light": "./images/icons/light-vk.svg"}' />
+                            </a>
+                        </div>
+                        <div class="header-top__buttons">
+                            <!-- мини-корзна -->
+                            <div class="header-top__mini-cart">
+                                <a href="./cart.html" class="button opacity-button header-top__button-cart" aria-label="Корзина, 2 товара" aria-describedby="cart-counter-mobile">
+                                    <!-- счетчик кол-ва товаров в корзине (если в корзине товаров больше 9, то лучше выводить 9+)
+                                     если в корзине нет товаров, то не выводить этот элемент -->
+                                    <span class="header-top__button-count" id="cart-counter-mobile">2</span>
+                                    <!-- !  -->
+                                    <span class="button-text" aria-hidden="true">Корзина</span>
+                                </a>
+                                <div class="header-top__card" hidden>
+                                    <div class="card card--mini" aria-label="Мини корзина">
+                                        <!-- если в корзине есть товары, тогда выводить card-content -->
+                                        <div class="card-content">
+                                            <div class="card-info">
+                                                <h2 class="card-title">В корзине 2 товара</h2>
+                                                <div class="mini-products custom-scroll">
+                                                    <article class="mini-product">
+                                                        <div class="mini-product__row">
+                                                            <div class="mini-product__image">
+                                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="110" height="110" />
+                                                            </div>
+                                                            <div class="mini-product__info">
+                                                                <h2 class="mini-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</h2>
+                                                                <ul class="mini-product__optionals">
+                                                                    <li>Шоколад</li>
+                                                                    <li>900 г</li>
+                                                                </ul>
+                                                            </div>
+                                                            <button type="button" class="mini-product__remove">
+                                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g>
+                                                                        <path d="M14.168 4.9974H18.3346V6.66406H16.668V17.4974C16.668 17.9576 16.2949 18.3307 15.8346 18.3307H4.16797C3.70774 18.3307 3.33464 17.9576 3.33464 17.4974V6.66406H1.66797V4.9974H5.83463V2.4974C5.83463 2.03716 6.20773 1.66406 6.66797 1.66406H13.3346C13.7949 1.66406 14.168 2.03716 14.168 2.4974V4.9974ZM15.0013 6.66406H5.0013V16.6641H15.0013V6.66406ZM11.1798 11.6638L12.653 13.137L11.4745 14.3155L10.0013 12.8423L8.52813 14.3155L7.34965 13.137L8.8228 11.6638L7.34965 10.1907L8.52813 9.01223L10.0013 10.4853L11.4745 9.01223L12.653 10.1907L11.1798 11.6638ZM7.5013 3.33073V4.9974H12.5013V3.33073H7.5013Z" fill="white" />
+                                                                    </g>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                        <div class="mini-product__details">
+                                                            <div class="mini-product__quantity">
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--minus" aria-label="Уменьшить количество" disabled=""></button>
+
+                                                                <input type="number" class="mini-product__quantity-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" />
+
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--plus" aria-label="Увеличить количество"></button>
+                                                            </div>
+
+                                                            <div class="mini-product__pricing">
+                                                                <div class="mini-product__prices">
+                                                                    <p class="mini-product__price mini-product__price--new">5 990 ₽</p>
+                                                                    <!-- если есть цена без скидки, то выводить  -->
+                                                                    <p class="mini-product__price mini-product__price--old">6 490 ₽</p>
+                                                                    <p class="mini-product__discount" aria-label="Скидка 10%">— 10%</p>
+                                                                </div>
+                                                                <div class="mini-product__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                    <article class="mini-product">
+                                                        <div class="mini-product__row">
+                                                            <div class="mini-product__image">
+                                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="110" height="110" />
+                                                            </div>
+                                                            <div class="mini-product__info">
+                                                                <h2 class="mini-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</h2>
+                                                                <ul class="mini-product__optionals">
+                                                                    <li>Шоколад</li>
+                                                                    <li>900 г</li>
+                                                                </ul>
+                                                            </div>
+                                                            <button type="button" class="mini-product__remove">
+                                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g>
+                                                                        <path d="M14.168 4.9974H18.3346V6.66406H16.668V17.4974C16.668 17.9576 16.2949 18.3307 15.8346 18.3307H4.16797C3.70774 18.3307 3.33464 17.9576 3.33464 17.4974V6.66406H1.66797V4.9974H5.83463V2.4974C5.83463 2.03716 6.20773 1.66406 6.66797 1.66406H13.3346C13.7949 1.66406 14.168 2.03716 14.168 2.4974V4.9974ZM15.0013 6.66406H5.0013V16.6641H15.0013V6.66406ZM11.1798 11.6638L12.653 13.137L11.4745 14.3155L10.0013 12.8423L8.52813 14.3155L7.34965 13.137L8.8228 11.6638L7.34965 10.1907L8.52813 9.01223L10.0013 10.4853L11.4745 9.01223L12.653 10.1907L11.1798 11.6638ZM7.5013 3.33073V4.9974H12.5013V3.33073H7.5013Z" fill="white" />
+                                                                    </g>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                        <div class="mini-product__details">
+                                                            <div class="mini-product__quantity">
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--minus" aria-label="Уменьшить количество" disabled=""></button>
+
+                                                                <input type="number" class="mini-product__quantity-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" />
+
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--plus" aria-label="Увеличить количество"></button>
+                                                            </div>
+
+                                                            <div class="mini-product__pricing">
+                                                                <div class="mini-product__prices">
+                                                                    <p class="mini-product__price mini-product__price--new">5 990 ₽</p>
+                                                                    <!-- если есть цена без скидки, то выводить  -->
+                                                                    <!-- <p class="mini-product__price mini-product__price--old">6 490 ₽</p> -->
+                                                                    <!-- <p class="mini-product__discount" aria-label="Скидка 10%">— 10%</p> -->
+                                                                </div>
+                                                                <div class="mini-product__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                            </div>
+                                            <div class="card-info">
+                                                <div class="card-list">
+                                                    <div class="card-list__item">
+                                                        <span class="card-list__item-title">2 товара</span>
+                                                        <p class="card-list__item-sum">12 480 ₽</p>
+                                                    </div>
+                                                    <div class="card-list__item card-list__item--discount">
+                                                        <div class="discount-toggle">
+                                                            <button type="button" class="discount-toggle__button" aria-expanded="false">Выгода</button>
+                                                            <span class="discount-amount">- 500 ₽</span>
+                                                        </div>
+
+                                                        <div class="discount-details" hidden>
+                                                            <ul class="discount-breakdown">
+                                                                <li>
+                                                                    <span class="discount-breakdown__title">Скидка по акции</span>
+                                                                    <p class="discount-breakdown__subtitle">-500 ₽</p>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="result">
+                                                    <span class="result__title">Итого</span>
+                                                    <p class="result__sum">10 980 ₽</p>
+                                                </div>
+                                                <a href="./cart.html" type="submit" class="card-button base-button">Перейти в корзину</a>
+                                            </div>
+                                        </div>
+                                        <!-- если в корзине нет товаров, тогда выводить card-empty -->
+                                        <!-- <div class="card-empty">
+                                            <div class="card-empty__text">
+                                                <p>В корзине пока пусто.</p>
+                                                <p>Найдите нужный товар в каталоге.</p>
+                                            </div>
+                                            <a href="./catalog.html" class="card-button base-button">Каталог товаров</a>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="./account.html" class="button main-button header-top__button-account">
+                                <!-- выводить, если пользователь не авторизован  -->
+                                <span class="button-text">Войти</span>
+                                <!-- выводить, если пользователь авторизован  -->
+                                <!-- <span class="button-text">Личный кабинет</span> -->
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav class="header-bottom__nav" aria-label="Основная навигация">
+                        <ul class="header-bottom__menu">
+                            <li>
+                                <a href="./catalog.html" class="header-bottom__menu-item--active">Каталог товаров</a>
+                                <ul aria-hidden="true">
+                                    <li><a href="./catalog.html">Протеин B•POWER</a></li>
+                                    <li><a href="./catalog.html">Аксессуары (или иначе назвать, Шейкер)</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="./about.html">О нас</a>
+                                <ul aria-hidden="true">
+                                    <li><a href="./about.html">О нас тестовая</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="./loyalty.html">Программа лояльности</a>
+                            </li>
+                            <li>
+                                <a href="./shipping-payment.html">Оплата и доставка</a>
+                            </li>
+                            <li>
+                                <a href="./faq.html">Вопрос-Ответ</a>
+                            </li>
+                            <li>
+                                <a href="./reviews.html">Отзывы</a>
+                            </li>
+                            <li>
+                                <a href="./contacts.html">Контакты</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <form action="" method="" role="search" class="header-bottom__search-form">
+                        <div class="header-bottom__search-wrapper">
+                            <label for="header-search" class="visually-hidden">Поиск по сайту</label>
+                            <input type="search" id="header-search" name="q" class="header-bottom__input" placeholder="Поиск по сайту" aria-label="Поиск по сайту" autocomplete="off" aria-controls="search-results" aria-expanded="false" />
+                            <button type="submit" class="visually-hidden">Найти</button>
+                        </div>
+                        <!-- результат поиска  -->
+                        <div class="header-bottom__result" aria-live="polite" aria-atomic="false" hidden>
+                            <section class="header-bottom__result-wrapper" aria-labelledby="popular-searches-title">
+                                <h3 id="popular-searches-title" class="header-bottom__result-title">Часто ищут</h3>
+                                <ul class="header-bottom__result-list" role="list">
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="header-bottom__result-wrapper" aria-labelledby="popular-products-title">
+                                <h3 id="popular-products-title" class="header-bottom__result-title">Популярные товары</h3>
+                                <div class="header-bottom__result-products">
+                                    <article class="result-product">
+                                        <a href="./product.html" class="result-product__image">
+                                            <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="100" height="100" loading="lazy" />
+                                        </a>
+                                        <div class="result-product__info">
+                                            <p class="result-product__additional">Шоколад</p>
+                                            <a href="./product.html" class="result-product__title"> Buffalo Whey Gusto Cioccolato — Proteine in Polvere </a>
+                                            <div class="result-product__row">
+                                                <div class="result-product__prices">
+                                                    <p class="result-product__price result-product__price--new">
+                                                        <span class="visually-hidden">Цена:</span>
+                                                        5 990 ₽
+                                                    </p>
+                                                    <!-- если есть старая цена, тогда просто добавляются эти два элемента и новая цена автоматически становится красного цвета  -->
+                                                    <!-- <p class="result-product__price result-product__price--old">
+                                                        <span class="visually-hidden">Старая цена:</span>
+                                                        6 490 ₽
+                                                    </p>
+                                                    <span class="result-product__discount" aria-label="Скидка 10%"> — 10% </span> -->
+                                                </div>
+                                                <p class="result-product__bonuses">
+                                                    <span class="visually-hidden">Начисляется бонусов:</span>
+                                                    + 168 бонусов
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="result-product">
+                                        <a href="./product.html" class="result-product__image">
+                                            <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="100" height="100" loading="lazy" />
+                                        </a>
+                                        <div class="result-product__info">
+                                            <p class="result-product__additional">Ваниль</p>
+                                            <a href="./product.html" class="result-product__title"> Buffalo Whey Gusto Cioccolato — Proteine in Polvere </a>
+                                            <div class="result-product__row">
+                                                <div class="result-product__prices">
+                                                    <p class="result-product__price result-product__price--new">
+                                                        <span class="visually-hidden">Цена:</span>
+                                                        5 990 ₽
+                                                    </p>
+                                                    <!-- если есть старая цена, тогда просто добавляются эти два элемента и новая цена автоматически становится красного цвета  -->
+                                                    <p class="result-product__price result-product__price--old">
+                                                        <span class="visually-hidden">Старая цена:</span>
+                                                        6 490 ₽
+                                                    </p>
+                                                    <span class="result-product__discount" aria-label="Скидка 10%"> — 10% </span>
+                                                </div>
+                                                <p class="result-product__bonuses">
+                                                    <span class="visually-hidden">Начисляется бонусов:</span>
+                                                    + 168 бонусов
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="result-product">
+                                        <a href="./product.html" class="result-product__image">
+                                            <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="100" height="100" loading="lazy" />
+                                        </a>
+                                        <div class="result-product__info">
+                                            <p class="result-product__additional">Карамельный латте</p>
+                                            <a href="./product.html" class="result-product__title"> Buffalo Whey Gusto Cioccolato — Proteine in Polvere </a>
+                                            <div class="result-product__row">
+                                                <div class="result-product__prices">
+                                                    <p class="result-product__price result-product__price--new">
+                                                        <span class="visually-hidden">Цена:</span>
+                                                        5 990 ₽
+                                                    </p>
+                                                    <!-- если есть старая цена, тогда просто добавляются эти два элемента и новая цена автоматически становится красного цвета  -->
+                                                    <!-- <p class="result-product__price result-product__price--old">
+                                                        <span class="visually-hidden">Старая цена:</span>
+                                                        6 490 ₽
+                                                    </p>
+                                                    <span class="result-product__discount" aria-label="Скидка 10%"> — 10% </span> -->
+                                                </div>
+                                                <p class="result-product__bonuses">
+                                                    <span class="visually-hidden">Начисляется бонусов:</span>
+                                                    + 168 бонусов
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                        </div>
+                    </form>
+                </div>
+                <div class="header-mobile" id="mobile-menu" hidden>
+                    <div class="header-mobile__wrapper">
+                        <form action="/search" method="GET" role="search" class="header-mobile__search-form">
+                            <div class="header-mobile__search-wrapper">
+                                <label for="header-mobile-search" class="visually-hidden">Поиск по сайту</label>
+                                <input type="search" id="header-mobile-search" name="q" class="header-mobile__input" placeholder="Поиск по сайту" aria-label="Поиск по сайту" autocomplete="off" />
+                            </div>
+                        </form>
+                        <div class="header-mobile__menu">
+                            <!-- меню первого уровня -->
+                            <nav class="header-mobile__main-menu" aria-label="Основная навигация">
+                                <ul>
+                                    <li>
+                                        <a href="./catalog.html">Каталог товаров</a>
+                                        <button type="button" class="header-mobile__open-btn" aria-label="Открыть подменю каталога" aria-expanded="false" aria-controls="mobile-submenu-catalog">
+                                            <span class="visually-hidden">Открыть подменю</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <a href="./about.html">О нас</a>
+                                        <button type="button" class="header-mobile__open-btn" aria-label="Открыть подменю о нас" aria-expanded="false" aria-controls="mobile-submenu-about">
+                                            <span class="visually-hidden">Открыть подменю</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <a href="./loyalty.html">Программа лояльности</a>
+                                    </li>
+                                    <li>
+                                        <a href="./shipping-payment.html">Оплата и доставка</a>
+                                    </li>
+                                    <li>
+                                        <a href="./faq.html">Вопрос-Ответ</a>
+                                    </li>
+                                    <li>
+                                        <a href="./reviews.html">Отзывы</a>
+                                    </li>
+                                    <li>
+                                        <a href="./contacts.html">Контакты</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <!-- Подменю для каталога -->
+                            <nav class="header-mobile__submenu-nav" id="mobile-submenu-catalog" aria-label="Подменю каталога" hidden>
+                                <button type="button" class="header-mobile__back-btn" aria-label="Назад к основному меню">Назад</button>
+                                <h2 class="header-mobile__submenu-title">Каталог товаров</h2>
+                                <ul class="header-mobile__submenu">
+                                    <li>
+                                        <a href="./catalog.html">Протеин</a>
+                                    </li>
+                                    <li>
+                                        <a href="./catalog.html">Аксессуары (или иначе назвать, Шейкер)</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <!-- Подменю для "О нас" -->
+                            <nav class="header-mobile__submenu-nav" id="mobile-submenu-about" aria-label="Подменю о нас" hidden>
+                                <button type="button" class="header-mobile__back-btn" aria-label="Назад к основному меню">Назад</button>
+                                <h2 class="header-mobile__submenu-title">О нас</h2>
+                                <ul class="header-mobile__submenu">
+                                    <li>
+                                        <a href="./about.html">О компании</a>
+                                    </li>
+                                    <li>
+                                        <a href="./about.html">Наша команда</a>
+                                    </li>
+                                    <li>
+                                        <a href="./about.html">История</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="header-mobile__bottom">
+                            <div class="header-mobile__inner">
+                                <address class="header-mobile__info" aria-label="Контактная информация">
+                                    <a href="tel:+78001000000" class="header-mobile__info-phone">8 800 100-00-00</a>
+                                    <p class="header-mobile__info-datetime">
+                                        Режим работы:
+                                        <time datetime="09:00">09:00</time>–<time datetime="17:30">17:30</time>
+                                    </p>
+                                </address>
+                                <div class="header-mobile__socials" aria-label="Социальные сети">
+                                    <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="header-mobile__social" aria-label="WhatsApp">
+                                        <!-- изображение для темной и светлой версии  -->
+                                        <img src="./images/icons/dark-whatsapp.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-whatsapp.svg", "light": "./images/icons/light-whatsapp.svg"}' />
+                                    </a>
+                                    <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="header-mobile__social" aria-label="Telegram">
+                                        <!-- изображение для темной и светлой версии  -->
+                                        <img src="./images/icons/dark-telegram.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-telegram.svg", "light": "./images/icons/light-telegram.svg"}' />
+                                    </a>
+                                    <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="header-mobile__social" aria-label="ВКонтакте">
+                                        <!-- изображение для темной и светлой версии  -->
+                                        <img src="./images/icons/dark-vk.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-vk.svg", "light": "./images/icons/light-vk.svg"}' />
+                                    </a>
+                                </div>
+                            </div>
+                            <button type="button" class="header-theme__button toggle-theme" aria-label="Включить cветлую тему" data-theme="dark" title="Включить светлую тему"><span class="header-theme__button-text">Light</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <section class="back-wrapper">
+                <div class="container">
+                    <a href="./cart.html" class="back"
+                        ><span class="back-text">
+                            <span class="back-text__desktop">Вернуться в корзину</span>
+                            <span class="back-text__mobile">В корзину</span>
+                        </span></a
+                    >
+                </div>
+            </section>
+            <!-- обратите внимание, что в head и в script подключение некоторых библиотек только для этой страницы  -->
+            <section class="section">
+                <div class="container">
+                    <h1 class="title-1 page-title">Оформление заказа</h1>
+                    <div class="grid-container">
+                        <div class="checkout">
+                            <div class="checkout-blocks">
+                                <!-- если элемент допущен к активности, тогда к <div class="checkout-block"> добавляется класс checkout-block--active
+                                        сейчас добавлен checkout-block--active ко всем элементам, чтобы наглядно заказчикам показать верстку
+                                        при натяжке верстки уберите checkout-block--active у всех элементов кроме первого и стили встанут как в макете при неактивированных инпутах -->
+
+                                <!-- к первому элементу добавляется класс checkout-block--main checkout-block--active, тк он изначально открытый при загрузке  -->
+                                <div class="checkout-block checkout-block--main checkout-block--active">
+                                    <div class="checkout-block__info">
+                                        <h2 class="checkout-block__info-title">Ваши контакты</h2>
+                                        <div class="checkout-block__info-description">
+                                            <p>Укажите ваши данные, для получения деталей заказа</p>
+                                        </div>
+                                    </div>
+                                    <div class="checkout-block__hidden">
+                                        <div class="checkout-block__content checkout-block__content--main">
+                                            <div class="checkout-block__content-contact">
+                                                <div class="checkout-block__field checkout-block__field--phone">
+                                                    <label class="visually-hidden" for="your_phone">Выберите код страны и введите ваш номер телефона</label>
+                                                    <input data-phone id="your_phone" name="your_phone" />
+                                                    <input type="hidden" class="phone-full" />
+                                                    <!-- выводить, если есть ошибка  -->
+                                                    <!-- <span class="checkout-block__field-error">Текст ошибки</span> -->
+                                                </div>
+                                                <div class="checkout-block__field checkout-block__field--email">
+                                                    <label class="visually-hidden" for="your_email">Введите вашу электронную почту</label>
+                                                    <input type="email" id="your_email" name="your_email" placeholder="name@mail.com" required />
+                                                    <!-- выводить, если есть ошибка  -->
+                                                    <!-- <span class="checkout-block__field-error">Текст ошибки</span> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- если элемент допущен к активности, тогда к <div class="checkout-block"> добавляется класс checkout-block--active -->
+                                <div class="checkout-block checkout-block--active">
+                                    <div class="checkout-block__info">
+                                        <h2 class="checkout-block__info-title">Страна и Населенный пункт доставки</h2>
+                                        <div class="checkout-block__info-description"><p>Введите свой телефон и эл. почту, чтобы перейти к выбору страны и города</p></div>
+                                    </div>
+                                    <div class="checkout-block__hidden">
+                                        <div class="checkout-block__content">
+                                            <div class="checkout-block__content-grid">
+                                                <div class="checkout-block__country-wrapper">
+                                                    <div class="checkout-block__country">
+                                                        <div class="flag-container">
+                                                            <span class="flag-icon flag-icon-ru"></span>
+                                                        </div>
+                                                        <label for="country_input" class="visually-hidden">Выберите страну</label>
+                                                        <input type="text" id="country_input" name="country_input" placeholder="Выберите страну" value="Россия" required />
+                                                    </div>
+                                                    <div id="suggestions" class="checkout-block__country-list"></div>
+                                                </div>
+                                                <div class="checkout-block__field">
+                                                    <label class="visually-hidden" for="your_city">Укажите населенный пункт</label>
+                                                    <input type="text" id="your_city" name="your_city" placeholder="Укажите населенный пункт" required />
+                                                    <!-- выводить, если есть ошибка  -->
+                                                    <!-- <span class="checkout-block__field-error">Текст ошибки</span> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- если элемент допущен к активности, тогда к <div class="checkout-block"> добавляется класс checkout-block--active -->
+                                <div class="checkout-block checkout-block--active">
+                                    <div class="checkout-block__info">
+                                        <h2 class="checkout-block__info-title">Способ доставки</h2>
+                                        <div class="checkout-block__info-description"><p>Укажите страну и город доставки, чтобы перейти к выбору страны и города</p></div>
+                                        <!-- выводить, если есть ошибка  -->
+                                        <!-- <p class="checkout-block__content-error">Текст ошибки Необходимо указать способ оплаты</p> -->
+                                    </div>
+                                    <div class="checkout-block__hidden">
+                                        <div class="checkout-block__content">
+                                            <div class="checkout-block__content-grid">
+                                                <div class="checkout-block__delivery checkout-block__radio">
+                                                    <input type="radio" class="visually-hidden" id="checkout_delivery_sdek" name="delivery" value="sdek" />
+                                                    <label for="checkout_delivery_sdek">СДЭК</label>
+                                                    <ul class="checkout-block__delivery-list">
+                                                        <li>
+                                                            <p>Сроки:</p>
+                                                            <span>2–7 дней </span>
+                                                        </li>
+                                                        <li>
+                                                            <p>Стоимость:</p>
+                                                            <span>от 350 ₽ (зависит от адреса)</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="checkout-block__delivery-description">
+                                                        <p>Доставка до двери или в ближайший пункт выдачи. СДЭК уведомляет о каждом этапе: сборка, отправка, прибытие в ПВЗ.</p>
+                                                        <p>Идеально подходит для заказов в регионы и крупных городов.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="checkout-block__delivery checkout-block__radio">
+                                                    <input type="radio" class="visually-hidden" id="checkout_delivery_yandex" name="delivery" value="yandex" />
+                                                    <label for="checkout_delivery_yandex">Яндекс.Доставка</label>
+                                                    <ul class="checkout-block__delivery-list">
+                                                        <li>
+                                                            <p>Сроки:</p>
+                                                            <span>2–7 дней </span>
+                                                        </li>
+                                                        <li>
+                                                            <p>Стоимость:</p>
+                                                            <span>от 350 ₽ (зависит от адреса)</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="checkout-block__delivery-description">
+                                                        <p>Современная служба, доступная почти во всех городах России. Предлагает удобные временные интервалы и отслеживание в реальном времени.</p>
+                                                        <p>Уведомления о движении заказа приходят в приложении и по SMS.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="checkout-block__delivery checkout-block__radio">
+                                                    <input type="radio" class="visually-hidden" id="checkout_delivery_boxberry" name="delivery" value="boxberry" />
+                                                    <label for="checkout_delivery_boxberry">Boxberry</label>
+                                                    <ul class="checkout-block__delivery-list">
+                                                        <li>
+                                                            <p>Сроки:</p>
+                                                            <span>2–7 дней </span>
+                                                        </li>
+                                                        <li>
+                                                            <p>Стоимость:</p>
+                                                            <span>от 350 ₽ (зависит от адреса)</span>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="checkout-block__delivery-description">
+                                                        <p>Удобная доставка до ближайшего пункта выдачи или постамата. Boxberry работает в большинстве городов России, включая малые населённые пункты.</p>
+                                                        <p>Уведомления о движении заказа приходят в приложении и по SMS.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- если элемент допущен к активности, тогда к <div class="checkout-block"> добавляется класс checkout-block--active -->
+                                <div class="checkout-block checkout-block--active">
+                                    <div class="checkout-block__info">
+                                        <h2 class="checkout-block__info-title">Адрес и дата доставки</h2>
+                                        <div class="checkout-block__info-description"><p>Укажите способ доставки, чтобы указать точный адрес и получить точный расчет стоимости доставки</p></div>
+                                    </div>
+                                    <div class="checkout-block__hidden">
+                                        <div class="checkout-block__content">
+                                            <div class="checkout-block__content-map">
+                                                <!-- вставляется Ваш виджет карты доставки в зависимости от выбранного способа доставки  -->
+                                                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A6578434f0db136eb4c7a9e87e912e371043ace1f44a0a65dcd9b8d06163ea011&amp;source=constructor" width="100%" height="100%" frameborder="0" title="Карта для выбора адреса доставки" loading="lazy"></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- если элемент допущен к активности, тогда к <div class="checkout-block"> добавляется класс checkout-block--active -->
+                                <div class="checkout-block checkout-block--active">
+                                    <div class="checkout-block__info">
+                                        <h2 class="checkout-block__info-title">Ваши данные</h2>
+                                        <div class="checkout-block__info-description"><p>Укажите адрес доставки, чтобы указать ваши данные и/или данные получателя</p></div>
+                                    </div>
+                                    <div class="checkout-block__hidden">
+                                        <div class="checkout-block__content">
+                                            <div class="checkout-block__content-grid">
+                                                <div class="checkout-block__field">
+                                                    <label class="visually-hidden" for="your_surname">Введите вашу фамилию</label>
+                                                    <input type="text" id="your_surname" name="your_surname" placeholder="Ваша Фамилия" required />
+                                                    <!-- выводить, если есть ошибка  -->
+                                                    <!-- <span class="checkout-block__field-error">Текст ошибки</span> -->
+                                                </div>
+                                                <div class="checkout-block__field">
+                                                    <label class="visually-hidden" for="your_name">Введите ваше имя</label>
+                                                    <input type="text" id="your_name" name="your_name" placeholder="Ваше Имя" required />
+                                                    <!-- выводить, если есть ошибка  -->
+                                                    <!-- <span class="checkout-block__field-error">Текст ошибки</span> -->
+                                                </div>
+                                            </div>
+                                            <div class="checkout-block__checkbox checkout-block__checkbox--custom">
+                                                <input type="checkbox" id="checkout_recipient" name="checkout_recipient" class="visually-hidden" />
+                                                <label for="checkout_recipient">Другой получатель</label>
+                                                <span>Если вы покупаете не для себя, или хотите, чтобы товар забрал другой человек</span>
+                                            </div>
+                                            <div class="checkout-block__recipient" hidden>
+                                                <div class="checkout-block__recipient-info">
+                                                    <div class="checkout-block__content-grid">
+                                                        <div class="checkout-block__field">
+                                                            <label class="visually-hidden" for="recipient_surname">Введите вашу фамилию</label>
+                                                            <input type="text" id="recipient_surname" name="recipient_surname" placeholder="Ваша Фамилия" required />
+                                                            <!-- выводить, если есть ошибка  -->
+                                                            <!-- <span class="checkout-block__field-error">Текст ошибки</span> -->
+                                                        </div>
+                                                        <div class="checkout-block__field">
+                                                            <label class="visually-hidden" for="recipient_name">Введите ваше имя</label>
+                                                            <input type="text" id="recipient_name" name="recipient_name" placeholder="Ваше Имя" required />
+                                                            <!-- выводить, если есть ошибка  -->
+                                                            <!-- <span class="checkout-block__field-error">Текст ошибки</span> -->
+                                                        </div>
+                                                        <div class="checkout-block__field checkout-block__field--phone">
+                                                            <label class="visually-hidden" for="phone_2">Выберите код страны и введите ваш номер телефона</label>
+                                                            <input data-phone id="phone_2" />
+                                                            <input type="hidden" class="phone-full" />
+                                                            <!-- выводить, если есть ошибка  -->
+                                                            <!-- <span class="checkout-block__field-error">Текст ошибки</span> -->
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkout-block__checkbox">
+                                                        <input type="checkbox" id="inform_recipient" name="inform_recipient" class="visually-hidden" />
+                                                        <label for="inform_recipient">Информировать получателя по СМС об изменении статуса заказа</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- если элемент допущен к активности, тогда к <div class="checkout-block"> добавляется класс checkout-block--active -->
+                                <div class="checkout-block checkout-block--active">
+                                    <div class="checkout-block__info">
+                                        <h2 class="checkout-block__info-title">Способ оплаты</h2>
+                                        <div class="checkout-block__info-description"><p>Введите ваши данные чтобы перейти к выбору способа оплаты</p></div>
+                                    </div>
+                                    <div class="checkout-block__hidden">
+                                        <div class="checkout-block__content">
+                                            <div class="checkout-block__content-grid">
+                                                <div class="checkout-block__payment checkout-block__radio">
+                                                    <input type="radio" id="checkout_payment_1" name="payment_method" class="visually-hidden" value="cash_on_delivery" />
+                                                    <label for="checkout_payment_1">Оплата при&nbsp;получении</label>
+                                                    <!-- выводить, если есть иконка  -->
+                                                    <div class="checkout-block__payment-icons">
+                                                        <img src="./images/dark-payment-icon-1.svg" data-theme-image='{"dark": "./images/dark-payment-icon-1.svg", "light": "./images/light-payment-icon-1.svg"}' alt="Оплата при получении" width="24" height="24" loading="lazy" />
+                                                    </div>
+                                                </div>
+                                                <div class="checkout-block__payment checkout-block__radio">
+                                                    <input type="radio" id="checkout_payment_2" name="payment_method" class="visually-hidden" value="sbp" />
+                                                    <label for="checkout_payment_2">Система Быстрых&nbsp;Платежей&nbsp;(СБП)</label>
+                                                    <!-- выводить, если есть иконка  -->
+                                                    <div class="checkout-block__payment-icons">
+                                                        <img src="./images/main-payment-icon-2.svg" alt="Оплата при получении" width="48" height="24" loading="lazy" />
+                                                    </div>
+                                                </div>
+                                                <div class="checkout-block__payment checkout-block__radio">
+                                                    <input type="radio" id="checkout_payment_3" name="payment_method" class="visually-hidden" value="card_online" />
+                                                    <label for="checkout_payment_3">Онлайн оплата картой</label>
+                                                    <!-- выводить, если есть иконка  -->
+                                                    <div class="checkout-block__payment-icons">
+                                                        <img src="./images/main-payment-icon-3.svg" alt="Онлайн оплата картой" width="58" height="18" loading="lazy" />
+                                                        <img src="./images/main-payment-icon-4.svg" alt="Онлайн оплата картой" width="41" height="24" loading="lazy" />
+                                                        <img src="./images/main-payment-icon-5.svg" alt="Онлайн оплата картой" width="56" height="17" loading="lazy" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="checkout-block__bonus">
+                                                <div class="checkout-block__bonus-checkbox">
+                                                    <input type="radio" id="checkout_payment_4" name="payment_method" class="visually-hidden" />
+                                                    <label for="checkout_payment_4">Оплатить бонусами</label>
+                                                </div>
+                                                <div class="checkout-block__bonus-toggle" hidden>
+                                                    <div class="checkout-block__content-grid">
+                                                        <div class="checkout-block__bonus-inner">
+                                                            <div class="checkout-block__bonus-icon">
+                                                                <img src="./images/bonus.svg" alt="Иконка бонусы" width="38" height="38" />
+                                                            </div>
+                                                            <div class="checkout-block__bonus-info">
+                                                                <div class="checkout-block__bonus-row">
+                                                                    <p class="checkout-block__bonus-title">На вашем счету:</p>
+                                                                    <span class="checkout-block__bonus-count">1 298 бонусов</span>
+                                                                </div>
+                                                                <div class="checkout-block__bonus-row">
+                                                                    <p class="checkout-block__bonus-title">Списать:</p>
+                                                                    <input id="bonus_amount" name="bonus_amount" type="number" value="1000" class="checkout-block__bonus-input" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- если элемент допущен к активности, тогда к <div class="checkout-block"> добавляется класс checkout-block--active -->
+                                <div class="checkout-block checkout-block--active">
+                                    <div class="checkout-block__info">
+                                        <h2 class="checkout-block__info-title">Комментарий к закзу</h2>
+                                        <div class="checkout-block__info-description"><p>Выберите способ оплаты чтобы перейти к вводу комментария</p></div>
+                                    </div>
+                                    <div class="checkout-block__hidden">
+                                        <div class="checkout-block__content">
+                                            <div class="checkout-block__field">
+                                                <textarea id="checkout_message" name="checkout_message" placeholder="Здесь вы можете указать необходимую информацию (не обязательно)"></textarea>
+                                            </div>
+                                            <div class="checkout-block__checkbox checkout-block__checkbox--custom">
+                                                <input type="checkbox" id="subscribe_news" name="subscribe_news" class="visually-hidden" />
+                                                <label for="subscribe_news">Подписаться на новости и скидки</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="checkout-button base-button" disabled>Оформить заказ</button>
+                            <div class="checkout-policy">
+                                <p>Нажимая «Оформить заказ», вы соглашаетесь с <a href="./terms-and-conditions.html">условиями публичной оферты</a> и <a href="./policy.html">политикой конфиденциальности</a></p>
+                            </div>
+                        </div>
+
+                        <aside class="card card--checkout" aria-label="Ваш заказ">
+                            <div class="card-info">
+                                <h2 class="card-title">Ваш заказ</h2>
+                                <div class="mini-products">
+                                    <article class="mini-product">
+                                        <div class="mini-product__row">
+                                            <div class="mini-product__image">
+                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="110" height="110" />
+                                            </div>
+                                            <div class="mini-product__info">
+                                                <h2 class="mini-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</h2>
+                                                <ul class="mini-product__optionals">
+                                                    <li>Шоколад</li>
+                                                    <li>900 г</li>
+                                                </ul>
+                                            </div>
+                                            <button type="button" class="mini-product__remove">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g>
+                                                        <path d="M14.168 4.9974H18.3346V6.66406H16.668V17.4974C16.668 17.9576 16.2949 18.3307 15.8346 18.3307H4.16797C3.70774 18.3307 3.33464 17.9576 3.33464 17.4974V6.66406H1.66797V4.9974H5.83463V2.4974C5.83463 2.03716 6.20773 1.66406 6.66797 1.66406H13.3346C13.7949 1.66406 14.168 2.03716 14.168 2.4974V4.9974ZM15.0013 6.66406H5.0013V16.6641H15.0013V6.66406ZM11.1798 11.6638L12.653 13.137L11.4745 14.3155L10.0013 12.8423L8.52813 14.3155L7.34965 13.137L8.8228 11.6638L7.34965 10.1907L8.52813 9.01223L10.0013 10.4853L11.4745 9.01223L12.653 10.1907L11.1798 11.6638ZM7.5013 3.33073V4.9974H12.5013V3.33073H7.5013Z" fill="white" />
+                                                    </g>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="mini-product__details">
+                                            <div class="mini-product__quantity">
+                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--minus" aria-label="Уменьшить количество" disabled=""></button>
+
+                                                <input type="number" class="mini-product__quantity-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" />
+
+                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--plus" aria-label="Увеличить количество"></button>
+                                            </div>
+
+                                            <div class="mini-product__pricing">
+                                                <div class="mini-product__prices">
+                                                    <p class="mini-product__price mini-product__price--new">5 990 ₽</p>
+                                                    <!-- если есть цена без скидки, то выводить  -->
+                                                    <p class="mini-product__price mini-product__price--old">6 490 ₽</p>
+                                                    <p class="mini-product__discount" aria-label="Скидка 10%">— 10%</p>
+                                                </div>
+                                                <div class="mini-product__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="mini-product">
+                                        <div class="mini-product__row">
+                                            <div class="mini-product__image">
+                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="110" height="110" />
+                                            </div>
+                                            <div class="mini-product__info">
+                                                <h2 class="mini-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</h2>
+                                                <ul class="mini-product__optionals">
+                                                    <li>Шоколад</li>
+                                                    <li>900 г</li>
+                                                </ul>
+                                            </div>
+                                            <button type="button" class="mini-product__remove">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g>
+                                                        <path d="M14.168 4.9974H18.3346V6.66406H16.668V17.4974C16.668 17.9576 16.2949 18.3307 15.8346 18.3307H4.16797C3.70774 18.3307 3.33464 17.9576 3.33464 17.4974V6.66406H1.66797V4.9974H5.83463V2.4974C5.83463 2.03716 6.20773 1.66406 6.66797 1.66406H13.3346C13.7949 1.66406 14.168 2.03716 14.168 2.4974V4.9974ZM15.0013 6.66406H5.0013V16.6641H15.0013V6.66406ZM11.1798 11.6638L12.653 13.137L11.4745 14.3155L10.0013 12.8423L8.52813 14.3155L7.34965 13.137L8.8228 11.6638L7.34965 10.1907L8.52813 9.01223L10.0013 10.4853L11.4745 9.01223L12.653 10.1907L11.1798 11.6638ZM7.5013 3.33073V4.9974H12.5013V3.33073H7.5013Z" fill="white" />
+                                                    </g>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="mini-product__details">
+                                            <div class="mini-product__quantity">
+                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--minus" aria-label="Уменьшить количество" disabled=""></button>
+
+                                                <input type="number" class="mini-product__quantity-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" />
+
+                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--plus" aria-label="Увеличить количество"></button>
+                                            </div>
+
+                                            <div class="mini-product__pricing">
+                                                <div class="mini-product__prices">
+                                                    <p class="mini-product__price mini-product__price--new">5 990 ₽</p>
+                                                    <!-- если есть цена без скидки, то выводить  -->
+                                                    <p class="mini-product__price mini-product__price--old">6 490 ₽</p>
+                                                    <p class="mini-product__discount" aria-label="Скидка 10%">— 10%</p>
+                                                </div>
+                                                <div class="mini-product__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                            <div class="card-info">
+                                <div class="card-list">
+                                    <div class="card-list__item">
+                                        <span class="card-list__item-title">2 товара</span>
+                                        <p class="card-list__item-sum">12 480 ₽</p>
+                                    </div>
+                                    <div class="card-list__item card-list__item--discount">
+                                        <div class="discount-toggle">
+                                            <button type="button" class="discount-toggle__button" aria-expanded="false">Выгода</button>
+                                            <span class="discount-amount">- 500 ₽</span>
+                                        </div>
+
+                                        <div class="discount-details" hidden>
+                                            <ul class="discount-breakdown">
+                                                <li>
+                                                    <span class="discount-breakdown__title">Скидка по акции</span>
+                                                    <p class="discount-breakdown__subtitle">-500 ₽</p>
+                                                </li>
+                                                <li>
+                                                    <span class="discount-breakdown__title">Скидка по промокоду</span>
+                                                    <p class="discount-breakdown__subtitle">-500 ₽</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="result">
+                                    <span class="result__title">Итого</span>
+                                    <p class="result__sum">10 980 ₽</p>
+                                </div>
+                                <button type="submit" class="card-button base-button" disabled>Оформить заказ</button>
+                                <div class="card-policy">
+                                    <p>Нажимая «Оформить заказ», вы соглашаетесь с <a href="./terms-and-conditions.html">условиями публичной оферты</a> и <a href="./policy.html">политикой конфиденциальности</a></p>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ответы на часто задаваемые вопросы -->
+            <section class="section">
+                <div class="container">
+                    <div class="info">
+                        <h2 class="title-2">Ответы на часто задаваемые вопросы</h2>
+                    </div>
+
+                    <ul class="faqs-list faqs-list--grid">
+                        <li class="faq-item">
+                            <div class="faq-item__question">
+                                <button type="button" class="faq-item__button">Чем отличается буйволиный протеин от обычного?</button>
+                            </div>
+                            <div class="faq-item__answer" hidden>
+                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
+                            </div>
+                        </li>
+                        <li class="faq-item">
+                            <div class="faq-item__question">
+                                <button type="button" class="faq-item__button">
+                                    Содержится ли в продукте лактоза?<br />
+                                    Подойдёт ли он при непереносимости молока?
+                                </button>
+                            </div>
+                            <div class="faq-item__answer" hidden>
+                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
+                            </div>
+                        </li>
+                        <li class="faq-item">
+                            <div class="faq-item__question">
+                                <button type="button" class="faq-item__button">Как хранить продукт и каков срок годности?</button>
+                            </div>
+                            <div class="faq-item__answer" hidden>
+                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
+                            </div>
+                        </li>
+                        <li class="faq-item">
+                            <div class="faq-item__question">
+                                <button type="button" class="faq-item__button">Как можно проверить подлинность продукта?</button>
+                            </div>
+                            <div class="faq-item__answer" hidden>
+                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
+                            </div>
+                        </li>
+                        <li class="faq-item">
+                            <div class="faq-item__question">
+                                <button type="button" class="faq-item__button">В какие регионы вы доставляете?</button>
+                            </div>
+                            <div class="faq-item__answer" hidden>
+                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
+                            </div>
+                        </li>
+                        <li class="faq-item">
+                            <div class="faq-item__question">
+                                <button type="button" class="faq-item__button">Сколько времени занимает доставка?</button>
+                            </div>
+                            <div class="faq-item__answer" hidden>
+                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
+                            </div>
+                        </li>
+                        <li class="faq-item">
+                            <div class="faq-item__question">
+                                <button type="button" class="faq-item__button">Каковы варианты и стоимость доставки?</button>
+                            </div>
+                            <div class="faq-item__answer" hidden>
+                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-inner">
+                    <div class="footer-left">
+                        <ul class="footer-logos">
+                            <li>
+                                <a href="./index.html" aria-label="На главную страницу">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/dark-logo.svg" data-theme-image='{"dark": "./images/dark-logo.svg", "light": "./images/light-logo.svg"}' alt="BUFFALO PROTEIN" width="189" height="68" loading="lazy" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" target="_blank" rel="noopener noreferrer">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/b-power-dark.svg" data-theme-image='{"dark": "./images/b-power-dark.svg", "light": "./images/b-power-light.svg"}' alt="B-POWER" width="189" height="68" loading="lazy" />
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="footer-info">
+                            <ul class="footer-info__contacts">
+                                <li>
+                                    <p>Почта</p>
+                                    <a href="mailto:info@mail.ru">info@mail.ru</a>
+                                </li>
+                                <li>
+                                    <p>Телефон горячей линии</p>
+                                    <a href="tel:+78001000000">8 800 100-00-00</a>
+                                </li>
+                            </ul>
+                            <div class="footer-info__socials" aria-label="Социальные сети">
+                                <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="footer-info__social" aria-label="WhatsApp">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/icons/dark-whatsapp.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-whatsapp.svg", "light": "./images/icons/light-whatsapp.svg"}' loading="lazy" />
+                                </a>
+                                <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="footer-info__social" aria-label="Telegram">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/icons/dark-telegram.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-telegram.svg", "light": "./images/icons/light-telegram.svg"}' loading="lazy" />
+                                </a>
+                                <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="footer-info__social" aria-label="ВКонтакте">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/icons/dark-vk.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-vk.svg", "light": "./images/icons/light-vk.svg"}' loading="lazy" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="footer-additional">
+                            <p class="footer-additional__copy">©2012–2025, ООО «Название компании», ИНН/КПП 7810845678/781101001, ОГРН 1234567890</p>
+                            <a href="./policy.html" class="footer-additional__link">Политика конфиденциальности</a>
+                            <a href="./terms-and-conditions.html" class="footer-additional__link">Публичная оферта</a>
+                            <a href="#!" class="footer-additional__link">Политика обработки файлов cookie</a>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <nav class="footer-nav" aria-label="Навигация по сайту">
+                            <h3 class="footer-nav__title">Навигация</h3>
+                            <ul class="footer-nav__menu">
+                                <li><a href="./index.html">Главная</a></li>
+                                <li><a href="./about.html">О нас</a></li>
+                                <li><a href="./loyalty.html">Программа лояльности</a></li>
+                                <li><a href="./shipping-payment.html">Оплата и доставка</a></li>
+                                <li><a href="./faq.html">Вопрос-Ответ</a></li>
+                                <li><a href="./contacts.html">Контакты</a></li>
+                            </ul>
+                        </nav>
+                        <nav class="footer-nav" aria-label="Каталог продукции">
+                            <h3 class="footer-nav__title">Каталог продукции</h3>
+                            <ul class="footer-nav__menu">
+                                <li><a href="./catalog.html">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">Buffalo Whey Gusto Puro — Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">+80 High Protein — Buffalo Whey Gusto Puro — Proteine in Polvere</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="footer-mobile">
+                        <p class="footer-mobile__copy">©2012–2025, ООО «Название компании», ИНН/КПП 7810845678/781101001, ОГРН&nbsp;1234567890</p>
+                        <a href="./policy.html" class="footer-mobile__link">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- подключать только для этой страницы  -->
+        <script src="./js/intlTelInput.min.js"></script>
+        <script src="./js/cleave.min.js"></script>
+        <script src="./js/utils.js"></script>
+        <!-- !  -->
+
+        <script src="https://cdn.jsdelivr.net/npm/countries-states-cities-database@1.0.0/dist/index.min.js"></script>
+
+        <script src="./js/swiper-bundle.min.js"></script>
+        <script src="./js/phoneinput.js"></script>
+        <script src="./js/glightbox.min.js"></script>
+        <script src="./js/simplebar.min.js"></script>
+        <script src="./js/choices.min.js"></script>
+        <script src="./js/index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Публичная Оферта</title>
+
+        <link rel="stylesheet" href="./css/fonts.css" />
+
+        <!-- определение темы до загрузки дома  -->
+        <script>
+            (function () {
+                const theme = localStorage.getItem('styleMode') || 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+
+                if (theme === 'light') {
+                    document.documentElement.classList.add('light-mode');
+                }
+            })();
+        </script>
+
+        <link rel="stylesheet" href="./css/reset.css" />
+        <link rel="stylesheet" href="./css/swiper-bundle.css" />
+        <link rel="stylesheet" href="./css/glightbox.min.css" />
+        <link rel="stylesheet" href="./css/simplebar.min.css" />
+        <link rel="stylesheet" href="./css/choices.min.css" />
+        <link rel="stylesheet" href="./css/variables.css" />
+        <link rel="stylesheet" href="./css/template_styles.css" />
+        <link rel="stylesheet" href="./css/styles.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <div class="header-top">
+                    <div class="header-top__left">
+                        <button type="button" class="header-mobile__button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu" title="Нажмите чтобы открыть меню">
+                            <span class="visually-hidden">Меню</span>
+                            <span class="header-mobile__button-line"></span>
+                            <span class="header-mobile__button-line"></span>
+                            <span class="header-mobile__button-line"></span>
+                        </button>
+                        <a href="./index.html" class="header-logo" aria-label="На главную страницу">
+                            <!-- изображение для темной и светлой версии  -->
+                            <img src="./images/dark-logo.svg" data-theme-image='{"dark": "./images/dark-logo.svg", "light": "./images/light-logo.svg"}' alt="BUFFALO PROTEIN" width="188" height="68" />
+                        </a>
+                    </div>
+                    <div class="header-top__right">
+                        <button type="button" class="header-theme__button toggle-theme" aria-label="Включить cветлую тему" data-theme="dark" title="Включить светлую тему"><span class="header-theme__button-text">Light</span></button>
+                        <address class="header-top__info" aria-label="Контактная информация">
+                            <a href="tel:+78001000000" class="header-top__info-phone">8 800 100-00-00</a>
+                            <p class="header-top__info-datetime">
+                                Режим работы:
+                                <time datetime="09:00">09:00</time>–<time datetime="17:30">17:30</time>
+                            </p>
+                        </address>
+                        <div class="header-top__socials" aria-label="Социальные сети">
+                            <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="header-top__social" aria-label="WhatsApp">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/icons/dark-whatsapp.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-whatsapp.svg", "light": "./images/icons/light-whatsapp.svg"}' />
+                            </a>
+                            <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="header-top__social" aria-label="Telegram">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/icons/dark-telegram.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-telegram.svg", "light": "./images/icons/light-telegram.svg"}' />
+                            </a>
+                            <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="header-top__social" aria-label="ВКонтакте">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/icons/dark-vk.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-vk.svg", "light": "./images/icons/light-vk.svg"}' />
+                            </a>
+                        </div>
+                        <div class="header-top__buttons">
+                            <!-- мини-корзна -->
+                            <div class="header-top__mini-cart">
+                                <a href="./cart.html" class="button opacity-button header-top__button-cart" aria-label="Корзина, 2 товара" aria-describedby="cart-counter-mobile">
+                                    <!-- счетчик кол-ва товаров в корзине (если в корзине товаров больше 9, то лучше выводить 9+)
+                                     если в корзине нет товаров, то не выводить этот элемент -->
+                                    <span class="header-top__button-count" id="cart-counter-mobile">2</span>
+                                    <!-- !  -->
+                                    <span class="button-text" aria-hidden="true">Корзина</span>
+                                </a>
+                                <div class="header-top__card" hidden>
+                                    <div class="card card--mini" aria-label="Мини корзина">
+                                        <!-- если в корзине есть товары, тогда выводить card-content -->
+                                        <div class="card-content">
+                                            <div class="card-info">
+                                                <h2 class="card-title">В корзине 2 товара</h2>
+                                                <div class="mini-products custom-scroll">
+                                                    <article class="mini-product">
+                                                        <div class="mini-product__row">
+                                                            <div class="mini-product__image">
+                                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="110" height="110" />
+                                                            </div>
+                                                            <div class="mini-product__info">
+                                                                <h2 class="mini-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</h2>
+                                                                <ul class="mini-product__optionals">
+                                                                    <li>Шоколад</li>
+                                                                    <li>900 г</li>
+                                                                </ul>
+                                                            </div>
+                                                            <button type="button" class="mini-product__remove">
+                                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g>
+                                                                        <path d="M14.168 4.9974H18.3346V6.66406H16.668V17.4974C16.668 17.9576 16.2949 18.3307 15.8346 18.3307H4.16797C3.70774 18.3307 3.33464 17.9576 3.33464 17.4974V6.66406H1.66797V4.9974H5.83463V2.4974C5.83463 2.03716 6.20773 1.66406 6.66797 1.66406H13.3346C13.7949 1.66406 14.168 2.03716 14.168 2.4974V4.9974ZM15.0013 6.66406H5.0013V16.6641H15.0013V6.66406ZM11.1798 11.6638L12.653 13.137L11.4745 14.3155L10.0013 12.8423L8.52813 14.3155L7.34965 13.137L8.8228 11.6638L7.34965 10.1907L8.52813 9.01223L10.0013 10.4853L11.4745 9.01223L12.653 10.1907L11.1798 11.6638ZM7.5013 3.33073V4.9974H12.5013V3.33073H7.5013Z" fill="white" />
+                                                                    </g>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                        <div class="mini-product__details">
+                                                            <div class="mini-product__quantity">
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--minus" aria-label="Уменьшить количество" disabled=""></button>
+
+                                                                <input type="number" class="mini-product__quantity-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" />
+
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--plus" aria-label="Увеличить количество"></button>
+                                                            </div>
+
+                                                            <div class="mini-product__pricing">
+                                                                <div class="mini-product__prices">
+                                                                    <p class="mini-product__price mini-product__price--new">5 990 ₽</p>
+                                                                    <!-- если есть цена без скидки, то выводить  -->
+                                                                    <p class="mini-product__price mini-product__price--old">6 490 ₽</p>
+                                                                    <p class="mini-product__discount" aria-label="Скидка 10%">— 10%</p>
+                                                                </div>
+                                                                <div class="mini-product__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                    <article class="mini-product">
+                                                        <div class="mini-product__row">
+                                                            <div class="mini-product__image">
+                                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="110" height="110" />
+                                                            </div>
+                                                            <div class="mini-product__info">
+                                                                <h2 class="mini-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</h2>
+                                                                <ul class="mini-product__optionals">
+                                                                    <li>Шоколад</li>
+                                                                    <li>900 г</li>
+                                                                </ul>
+                                                            </div>
+                                                            <button type="button" class="mini-product__remove">
+                                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g>
+                                                                        <path d="M14.168 4.9974H18.3346V6.66406H16.668V17.4974C16.668 17.9576 16.2949 18.3307 15.8346 18.3307H4.16797C3.70774 18.3307 3.33464 17.9576 3.33464 17.4974V6.66406H1.66797V4.9974H5.83463V2.4974C5.83463 2.03716 6.20773 1.66406 6.66797 1.66406H13.3346C13.7949 1.66406 14.168 2.03716 14.168 2.4974V4.9974ZM15.0013 6.66406H5.0013V16.6641H15.0013V6.66406ZM11.1798 11.6638L12.653 13.137L11.4745 14.3155L10.0013 12.8423L8.52813 14.3155L7.34965 13.137L8.8228 11.6638L7.34965 10.1907L8.52813 9.01223L10.0013 10.4853L11.4745 9.01223L12.653 10.1907L11.1798 11.6638ZM7.5013 3.33073V4.9974H12.5013V3.33073H7.5013Z" fill="white" />
+                                                                    </g>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                        <div class="mini-product__details">
+                                                            <div class="mini-product__quantity">
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--minus" aria-label="Уменьшить количество" disabled=""></button>
+
+                                                                <input type="number" class="mini-product__quantity-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" />
+
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--plus" aria-label="Увеличить количество"></button>
+                                                            </div>
+
+                                                            <div class="mini-product__pricing">
+                                                                <div class="mini-product__prices">
+                                                                    <p class="mini-product__price mini-product__price--new">5 990 ₽</p>
+                                                                    <!-- если есть цена без скидки, то выводить  -->
+                                                                    <!-- <p class="mini-product__price mini-product__price--old">6 490 ₽</p> -->
+                                                                    <!-- <p class="mini-product__discount" aria-label="Скидка 10%">— 10%</p> -->
+                                                                </div>
+                                                                <div class="mini-product__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                            </div>
+                                            <div class="card-info">
+                                                <div class="card-list">
+                                                    <div class="card-list__item">
+                                                        <span class="card-list__item-title">2 товара</span>
+                                                        <p class="card-list__item-sum">12 480 ₽</p>
+                                                    </div>
+                                                    <div class="card-list__item card-list__item--discount">
+                                                        <div class="discount-toggle">
+                                                            <button type="button" class="discount-toggle__button" aria-expanded="false">Выгода</button>
+                                                            <span class="discount-amount">- 500 ₽</span>
+                                                        </div>
+
+                                                        <div class="discount-details" hidden>
+                                                            <ul class="discount-breakdown">
+                                                                <li>
+                                                                    <span class="discount-breakdown__title">Скидка по акции</span>
+                                                                    <p class="discount-breakdown__subtitle">-500 ₽</p>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="result">
+                                                    <span class="result__title">Итого</span>
+                                                    <p class="result__sum">10 980 ₽</p>
+                                                </div>
+                                                <a href="./cart.html" type="submit" class="card-button base-button">Перейти в корзину</a>
+                                            </div>
+                                        </div>
+                                        <!-- если в корзине нет товаров, тогда выводить card-empty -->
+                                        <!-- <div class="card-empty">
+                                            <div class="card-empty__text">
+                                                <p>В корзине пока пусто.</p>
+                                                <p>Найдите нужный товар в каталоге.</p>
+                                            </div>
+                                            <a href="./catalog.html" class="card-button base-button">Каталог товаров</a>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="./account.html" class="button main-button header-top__button-account">
+                                <!-- выводить, если пользователь не авторизован  -->
+                                <span class="button-text">Войти</span>
+                                <!-- выводить, если пользователь авторизован  -->
+                                <!-- <span class="button-text">Личный кабинет</span> -->
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav class="header-bottom__nav" aria-label="Основная навигация">
+                        <ul class="header-bottom__menu">
+                            <li>
+                                <a href="./catalog.html" class="header-bottom__menu-item--active">Каталог товаров</a>
+                                <ul aria-hidden="true">
+                                    <li><a href="./catalog.html">Протеин B•POWER</a></li>
+                                    <li><a href="./catalog.html">Аксессуары (или иначе назвать, Шейкер)</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="./about.html">О нас</a>
+                                <ul aria-hidden="true">
+                                    <li><a href="./about.html">О нас тестовая</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="./loyalty.html">Программа лояльности</a>
+                            </li>
+                            <li>
+                                <a href="./shipping-payment.html">Оплата и доставка</a>
+                            </li>
+                            <li>
+                                <a href="./faq.html">Вопрос-Ответ</a>
+                            </li>
+                            <li>
+                                <a href="./reviews.html">Отзывы</a>
+                            </li>
+                            <li>
+                                <a href="./contacts.html">Контакты</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <form action="" method="" role="search" class="header-bottom__search-form">
+                        <div class="header-bottom__search-wrapper">
+                            <label for="header-search" class="visually-hidden">Поиск по сайту</label>
+                            <input type="search" id="header-search" name="q" class="header-bottom__input" placeholder="Поиск по сайту" aria-label="Поиск по сайту" autocomplete="off" aria-controls="search-results" aria-expanded="false" />
+                            <button type="submit" class="visually-hidden">Найти</button>
+                        </div>
+                        <!-- результат поиска  -->
+                        <div class="header-bottom__result" aria-live="polite" aria-atomic="false" hidden>
+                            <section class="header-bottom__result-wrapper" aria-labelledby="popular-searches-title">
+                                <h3 id="popular-searches-title" class="header-bottom__result-title">Часто ищут</h3>
+                                <ul class="header-bottom__result-list" role="list">
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="header-bottom__result-wrapper" aria-labelledby="popular-products-title">
+                                <h3 id="popular-products-title" class="header-bottom__result-title">Популярные товары</h3>
+                                <div class="header-bottom__result-products">
+                                    <article class="result-product">
+                                        <a href="./product.html" class="result-product__image">
+                                            <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="100" height="100" loading="lazy" />
+                                        </a>
+                                        <div class="result-product__info">
+                                            <p class="result-product__additional">Шоколад</p>
+                                            <a href="./product.html" class="result-product__title"> Buffalo Whey Gusto Cioccolato — Proteine in Polvere </a>
+                                            <div class="result-product__row">
+                                                <div class="result-product__prices">
+                                                    <p class="result-product__price result-product__price--new">
+                                                        <span class="visually-hidden">Цена:</span>
+                                                        5 990 ₽
+                                                    </p>
+                                                    <!-- если есть старая цена, тогда просто добавляются эти два элемента и новая цена автоматически становится красного цвета  -->
+                                                    <!-- <p class="result-product__price result-product__price--old">
+                                                        <span class="visually-hidden">Старая цена:</span>
+                                                        6 490 ₽
+                                                    </p>
+                                                    <span class="result-product__discount" aria-label="Скидка 10%"> — 10% </span> -->
+                                                </div>
+                                                <p class="result-product__bonuses">
+                                                    <span class="visually-hidden">Начисляется бонусов:</span>
+                                                    + 168 бонусов
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="result-product">
+                                        <a href="./product.html" class="result-product__image">
+                                            <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="100" height="100" loading="lazy" />
+                                        </a>
+                                        <div class="result-product__info">
+                                            <p class="result-product__additional">Ваниль</p>
+                                            <a href="./product.html" class="result-product__title"> Buffalo Whey Gusto Cioccolato — Proteine in Polvere </a>
+                                            <div class="result-product__row">
+                                                <div class="result-product__prices">
+                                                    <p class="result-product__price result-product__price--new">
+                                                        <span class="visually-hidden">Цена:</span>
+                                                        5 990 ₽
+                                                    </p>
+                                                    <!-- если есть старая цена, тогда просто добавляются эти два элемента и новая цена автоматически становится красного цвета  -->
+                                                    <p class="result-product__price result-product__price--old">
+                                                        <span class="visually-hidden">Старая цена:</span>
+                                                        6 490 ₽
+                                                    </p>
+                                                    <span class="result-product__discount" aria-label="Скидка 10%"> — 10% </span>
+                                                </div>
+                                                <p class="result-product__bonuses">
+                                                    <span class="visually-hidden">Начисляется бонусов:</span>
+                                                    + 168 бонусов
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="result-product">
+                                        <a href="./product.html" class="result-product__image">
+                                            <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="100" height="100" loading="lazy" />
+                                        </a>
+                                        <div class="result-product__info">
+                                            <p class="result-product__additional">Карамельный латте</p>
+                                            <a href="./product.html" class="result-product__title"> Buffalo Whey Gusto Cioccolato — Proteine in Polvere </a>
+                                            <div class="result-product__row">
+                                                <div class="result-product__prices">
+                                                    <p class="result-product__price result-product__price--new">
+                                                        <span class="visually-hidden">Цена:</span>
+                                                        5 990 ₽
+                                                    </p>
+                                                    <!-- если есть старая цена, тогда просто добавляются эти два элемента и новая цена автоматически становится красного цвета  -->
+                                                    <!-- <p class="result-product__price result-product__price--old">
+                                                        <span class="visually-hidden">Старая цена:</span>
+                                                        6 490 ₽
+                                                    </p>
+                                                    <span class="result-product__discount" aria-label="Скидка 10%"> — 10% </span> -->
+                                                </div>
+                                                <p class="result-product__bonuses">
+                                                    <span class="visually-hidden">Начисляется бонусов:</span>
+                                                    + 168 бонусов
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                        </div>
+                    </form>
+                </div>
+                <div class="header-mobile" id="mobile-menu" hidden>
+                    <div class="header-mobile__wrapper">
+                        <form action="/search" method="GET" role="search" class="header-mobile__search-form">
+                            <div class="header-mobile__search-wrapper">
+                                <label for="header-mobile-search" class="visually-hidden">Поиск по сайту</label>
+                                <input type="search" id="header-mobile-search" name="q" class="header-mobile__input" placeholder="Поиск по сайту" aria-label="Поиск по сайту" autocomplete="off" />
+                            </div>
+                        </form>
+                        <div class="header-mobile__menu">
+                            <!-- меню первого уровня -->
+                            <nav class="header-mobile__main-menu" aria-label="Основная навигация">
+                                <ul>
+                                    <li>
+                                        <a href="./catalog.html">Каталог товаров</a>
+                                        <button type="button" class="header-mobile__open-btn" aria-label="Открыть подменю каталога" aria-expanded="false" aria-controls="mobile-submenu-catalog">
+                                            <span class="visually-hidden">Открыть подменю</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <a href="./about.html">О нас</a>
+                                        <button type="button" class="header-mobile__open-btn" aria-label="Открыть подменю о нас" aria-expanded="false" aria-controls="mobile-submenu-about">
+                                            <span class="visually-hidden">Открыть подменю</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <a href="./loyalty.html">Программа лояльности</a>
+                                    </li>
+                                    <li>
+                                        <a href="./shipping-payment.html">Оплата и доставка</a>
+                                    </li>
+                                    <li>
+                                        <a href="./faq.html">Вопрос-Ответ</a>
+                                    </li>
+                                    <li>
+                                        <a href="./reviews.html">Отзывы</a>
+                                    </li>
+                                    <li>
+                                        <a href="./contacts.html">Контакты</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <!-- Подменю для каталога -->
+                            <nav class="header-mobile__submenu-nav" id="mobile-submenu-catalog" aria-label="Подменю каталога" hidden>
+                                <button type="button" class="header-mobile__back-btn" aria-label="Назад к основному меню">Назад</button>
+                                <h2 class="header-mobile__submenu-title">Каталог товаров</h2>
+                                <ul class="header-mobile__submenu">
+                                    <li>
+                                        <a href="./catalog.html">Протеин</a>
+                                    </li>
+                                    <li>
+                                        <a href="./catalog.html">Аксессуары (или иначе назвать, Шейкер)</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <!-- Подменю для "О нас" -->
+                            <nav class="header-mobile__submenu-nav" id="mobile-submenu-about" aria-label="Подменю о нас" hidden>
+                                <button type="button" class="header-mobile__back-btn" aria-label="Назад к основному меню">Назад</button>
+                                <h2 class="header-mobile__submenu-title">О нас</h2>
+                                <ul class="header-mobile__submenu">
+                                    <li>
+                                        <a href="./about.html">О компании</a>
+                                    </li>
+                                    <li>
+                                        <a href="./about.html">Наша команда</a>
+                                    </li>
+                                    <li>
+                                        <a href="./about.html">История</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="header-mobile__bottom">
+                            <div class="header-mobile__inner">
+                                <address class="header-mobile__info" aria-label="Контактная информация">
+                                    <a href="tel:+78001000000" class="header-mobile__info-phone">8 800 100-00-00</a>
+                                    <p class="header-mobile__info-datetime">
+                                        Режим работы:
+                                        <time datetime="09:00">09:00</time>–<time datetime="17:30">17:30</time>
+                                    </p>
+                                </address>
+                                <div class="header-mobile__socials" aria-label="Социальные сети">
+                                    <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="header-mobile__social" aria-label="WhatsApp">
+                                        <!-- изображение для темной и светлой версии  -->
+                                        <img src="./images/icons/dark-whatsapp.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-whatsapp.svg", "light": "./images/icons/light-whatsapp.svg"}' />
+                                    </a>
+                                    <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="header-mobile__social" aria-label="Telegram">
+                                        <!-- изображение для темной и светлой версии  -->
+                                        <img src="./images/icons/dark-telegram.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-telegram.svg", "light": "./images/icons/light-telegram.svg"}' />
+                                    </a>
+                                    <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="header-mobile__social" aria-label="ВКонтакте">
+                                        <!-- изображение для темной и светлой версии  -->
+                                        <img src="./images/icons/dark-vk.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-vk.svg", "light": "./images/icons/light-vk.svg"}' />
+                                    </a>
+                                </div>
+                            </div>
+                            <button type="button" class="header-theme__button toggle-theme" aria-label="Включить cветлую тему" data-theme="dark" title="Включить светлую тему"><span class="header-theme__button-text">Light</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <section class="breadcrumbs">
+                <div class="container">
+                    <nav class="breadcrumbs-nav" aria-label="Хлебные крошки">
+                        <ul class="breadcrumbs-list">
+                            <li><a href="./index.html">Главная</a></li>
+                            <li><span>Публичная Оферта</span></li>
+                        </ul>
+                    </nav>
+                    <button type="button" class="breadcrumbs-back" onclick="history.back()">Назад</button>
+                </div>
+            </section>
+            <section class="section">
+                <div class="container">
+                    <h1 class="title-1 title-min">Публичная Оферта</h1>
+                    <div class="page">
+                        <ol>
+                            <li>
+                                <h2>ОБЩИЕ ПОЛОЖЕНИЯ</h2>
+                                <ol>
+                                    <li>Политика конфиденциальности (далее – «Политика») публикуется ООО «Ингредиенты. Развитие», ОГРН 1127847306322 ИНН/КПП 7805591077/780501001, место нахождения: 198184, город Санкт-Петербург, Канонерский остров, дом 3 корпус 1, литер «Б», (далее – «Оператор») для информирования осуществляемой Оператором политике в отношении обработки персональных данных пользователей сайта Оператора – субъектов персон данных (далее – «Пользователь»).</li>
+                                    <li>Политика разработана и опубликована Оператором в соответствии с п. 2 ч. 1 ст. 18.1 Федерального закона от 27 июля 2006 г. № 152-ФЗ персональных данных» (далее – ФЗ «О персональных данных»).</li>
+                                    <li>Политика разработана в целях реализации требований законодательства в области обработки и защиты персональных данных и направлена на обеспечение защиты прав и свобод человека и гражданина при обработке его персональных данных, в том числе защиты прав на неприкосновенность частной жизни, личной и семейной тайны.</li>
+                                    <li>Политика содержит сведения, подлежащие раскрытию в соответствии с ч. 1 ст. 14 ФЗ «О персональных данных», является общедоступным документом и расположена по адресу:</li>
+                                    <li>Для поддержания в актуальном состоянии документов, определяющих политику Оператора в отношении обработки персональных данных, Оператор вправе в любой момент изменить настоящую Политику, опубликовав соответствующие изменения. Настоящая Политика не может быть изменена, кроме как посредством опубликования измененного документа на Сайте.</li>
+                                </ol>
+                            </li>
+                            <li>
+                                <h2>ОСНОВНЫЕ ПОНЯТИЯ</h2>
+                                <ol>
+                                    <li>«Персональные данные» – любая информация, относящаяся к прямо или косвенно определенному, или определяемому физическому лицу персональных данных.</li>
+                                    <li>«Обработка персональных данных» – любое действие (операция) или совокупность действий (операций), совершаемых с использованием автоматизации или без использования таких средств с персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, обезличивание, блокирование, удаление, уничтожение персональных данных.</li>
+                                    <li>«Оператор персональных данных» – самостоятельно или совместно с другими лицами организующее и (или) осуществляющее обработку персональных данных, а также определяющее цели обработки персональных данных, их состав, подлежащий обработке, действия (операции) совершаемые с персональными данными Пользователей.</li>
+                                    <li>«Конфиденциальность персональных данных» – обязанность Оператора и иных лиц, получивших доступ к персональным данным, не распространять их без согласия субъекта третьим лицам и не распространять их без согласия субъекта персональных данных, если иное не предусмотрено федеральным законом.</li>
+                                    <li>«Сайт» – совокупность программ для электронных вычислительных машин и иной информации, содержащейся в информационной системе, которой обеспечивается посредством информационно-телекоммуникационной сети интернет и расположенной по адресу: .</li>
+                                </ol>
+                            </li>
+                            <li>
+                                <h2>ПРАВА ПОЛЬЗОВАТЕЛЯ</h2>
+                                <ol>
+                                    <li>
+                                        Пользователь имеет право:
+                                        <ol>
+                                            <li>На получение персональных данных, относящихся к Пользователю, и информации, касающейся их обработки;</li>
+                                            <li>На уточнение, блокирование или уничтожение его персональных данных в случае, если они являются неполными, устаревшими, неточными незаконно полученными или не являются необходимыми для заявленной цели обработки;</li>
+                                            <li>На отзыв данного им согласия на обработку персональных данных;</li>
+                                            <li>На защиту своих прав и законных интересов, в том числе на возмещение убытков и компенсацию морального вреда в судебном порядке.</li>
+                                            <li>На обжалование действий или бездействия Оператора в уполномоченный орган по защите прав субъектов персональных данных или в судебном порядке.</li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>
+                                <h2>ОСНОВАНИЯ ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ</h2>
+                                <ol>
+                                    <li>Оператор обрабатывает персональные данные на законной и справедливой основе для выполнения возложенных законодательством полномочий и обязанностей, осуществления прав и законных интересов Оператора и Пользователя.</li>
+                                    <li>Оператор получает персональные данные непосредственно от Пользователя и осуществляет их обработку исключительно с согласия Пользователя. Оператор получает персональные данные Пользователя при его в взаимодействии с отдельными функциями Сайта.</li>
+                                </ol>
+                            </li>
+                            <li>
+                                <h2>ОБРАБОТКА ПЕРСОНАЛЬНЫХ ДАННЫХ ПОЛЬЗОВАТЕЛЕЙ</h2>
+                                <ol>
+                                    <li>Настоящая Политика устанавливает обязательства Оператора по неразглашению и обеспечению режима защиты конфиденциальности персональных данных, которые Пользователь предоставляет при использовании Сайта.</li>
+                                    <li>
+                                        Оператор обрабатывает персональные данные Пользователей в целях соблюдения норм законодательства РФ, а также с такой(-ими) целями как:
+                                        <ul>
+                                            <li>предоставление Пользователю возможности для обратной связи с Оператором</li>
+                                            <li>предоставление Пользователю технической поддержки по продуктам и услугам и повышение качества продуктов и услуг Оператора;</li>
+                                            <li>проведения внутреннего аудита и прочих исследований с целью повышения качества предоставляемых услуг.</li>
+                                        </ul>
+                                    </li>
+                                    <li>Оператор обрабатывает персональные данные Пользователей с их согласия, полученного путем проставления отметки в поле о его согласии с условиями настоящего Соглашения.</li>
+                                    <li>
+                                        Категории персональных данных, которые Оператор собирает для достижения целей, указанных в пункте 5.2. Политики:
+                                        <ul>
+                                            <li>Фамилия, имя, отчество;</li>
+                                            <li>Контактный телефон;</li>
+                                            <li>Адрес электронной почты;</li>
+                                            <li>ИНН (для юридических лиц);</li>
+                                            <li>Идентификатор пользователя, хранимый в cookie.</li>
+                                        </ul>
+                                    </li>
+                                    <li>Оператор не обрабатывает специальные категории персональных данных Пользователей.</li>
+                                    <li>Оператор не обрабатывает биометрические категории персональных данных Пользователей.</li>
+                                    <li>Настоящая Политика применима только к информации, обрабатываемой в ходе использования Сайта. Оператор не контролирует и не несет ответственности за обработку информации сайтами и сервисами третьих лиц, на которые Пользователи могут перейти по ссылкам.</li>
+                                    <li>Оператор не проверяет достоверность персональных данных, предоставляемых Пользователем, и не имеет возможности оценивать его дееспособность. Однако Оператор исходит из того, что Пользователь предоставляет достоверные и достаточные персональные данные и поддерживает их в актуальном состоянии.</li>
+                                </ol>
+                            </li>
+                            <li>
+                                <h2>ОБРАБОТКА ПЕРСОНАЛЬНЫХ ДАННЫХ ПОЛЬЗОВАТЕЛЕЙ С ИСПОЛЬЗОВАНИЕМ ФАЙЛОВ COOKIE</h2>
+                                <ol>
+                                    <li>Файлы cookie, передаваемые техническим устройствам Пользователей, могут использоваться для предоставления Пользователям персонализированных функций Сайта, для персональной рекламы, которая показывается Пользователям, в статистических и исследовательских целях, а также для улучшения Сайта.</li>
+                                    <li>Пользователи осознают, что оборудование и программное обеспечение, используемые ими для посещения сайтов в сети интернет, могут обладать функцией запрещения операций с файлами cookie (для любых сайтов или для определенных сайтов), а также удаления ранее полученных cookie.</li>
+                                    <li>Оператор вправе установить, что предоставление определенных функций Сайта возможно лишь при условии, что прием и получение cookie разрешены Пользователями.</li>
+                                    <li>Структура файла cookie, его содержание и технические параметры определяются Оператором и могут изменяться без предварительного уведомления Пользователей.</li>
+                                    <li>Счетчики, размещенные на сайте или приложении Сайта, могут использоваться для анализа файлов cookie Пользователей, для сбора статистической информации об использовании Сайта, а также для обеспечения работоспособности Сайта в целом или его отдельных функций в частности. Технические параметры работы счетчиков определяются Оператором и могут изменяться без предварительного уведомления Пользователей.</li>
+                                </ol>
+                            </li>
+                            <li>
+                                <h2>УСЛОВИЯ ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ ПОЛЬЗОВАТЕЛЕЙ</h2>
+                                <ol>
+                                    <li>Обработка персональных данных Пользователей ограничена сроком достижения целей обработки.</li>
+                                    <li>Оператор обрабатывает персональные данные Пользователей автоматизированным способом с использованием средств вычислительной техники.</li>
+                                    <li>Действия по обработке персональных данных включают сбор, запись, систематизацию, накопление, хранение, уточнение (обновление извлечение, использование, передачу (распространение, предоставление, доступ), обезличивание, блокирование, удаление и уничтожение</li>
+                                    <li>В отношении персональных данных Пользователей сохраняется их конфиденциальность, кроме случаев добровольного предоставления Пользователями информации о себе для общего доступа неограниченному кругу лиц.</li>
+                                    <li>
+                                        Оператор вправе передать персональные данные Пользователя третьим лицам в следующих случаях:
+                                        <ol>
+                                            <li>Пользователи выразили согласие на такие действия;</li>
+                                            <li>Передача необходима для использования Пользователями определенных функций Сайта либо для исполнения определенного соглашения или договора;</li>
+                                            <li>Передача предусмотрена российским или иным применимым законодательством в рамках установленной законодательством процедуры;</li>
+                                            <li>Такая передача происходит в рамках продажи или иной передачи бизнеса (полностью или в части), при этом к приобретателю переходят обязательства по соблюдению условий настоящей Политики применительно к полученным им персональным данным;</li>
+                                            <li>В результате обработки персональных данных Пользователей путем их обезличивания получены обезличенные статистические данные передаются третьему лицу для проведения исследований, выполнения работ или оказания услуг по поручению Оператора;</li>
+                                            <li>Персональные данные Пользователей могут быть переданы уполномоченным органам государственной власти Российской Федерации основаниям и в порядке, установленным действующим законодательством Российской Федерации.</li>
+                                        </ol>
+                                    </li>
+
+                                    <li>
+                                        При обработке персональных данных Пользователей Оператор руководствуется:
+                                        <ol>
+                                            <li>Федеральным законом от 27.07.2006 г. № 152-ФЗ «О персональных данных»;</li>
+                                            <li>Постановлением Правительства Российской Федерации от 01.11.2012 г. № 1119 «Об утверждении требований к защите персональных данных и их обработке в информационных системах персональных данных»;</li>
+                                            <li>Приказом ФСТЭК России от 18 февраля 2013 г. № 21 «Об утверждении Состава и содержания организационных и технических мер по обеспечению безопасности персональных данных при их обработке в информационных системах персональных данных»;</li>
+                                            <li>Приказом ФСБ России от 10.07.2014 № 378 «Об утверждении Состава и содержания организационных и технических мер по обеспечению безопасности персональных данных при их обработке в информационных системах персональных данных с использованием средств криптографической защиты информации, необходимых для выполнения установленных Правительством Российской Федерации требований к защите персональных данных для каждого из уровней защищенности».</li>
+                                            <li>Оператор принимает необходимые организационные и технические меры для защиты персональных данных Пользователя от неправомерного или случайного доступа, уничтожения, изменения, блокирования, копирования, распространения, а также от иных неправомерных действий третьих лиц.</li>
+                                            <li>Оператор совместно с Пользователем принимает все необходимые меры по предотвращению убытков или иных отрицательных последствий, вызванных утратой или разглашением персональных данных.</li>
+                                        </ol>
+                                    </li>
+                                </ol>
+                            </li>
+                            <li>
+                                <h2>ОБЯЗАТЕЛЬНОЕ ХРАНЕНИЕ ДАННЫХ</h2>
+                                <ol>
+                                    <li>Права Пользователей, предусмотренные настоящей Политикой, могут быть ограничены в соответствии с требованиями действующего законодательства. В частности, такие ограничения могут предусматривать обязанность Оператора сохранить измененную или удаленную Пользователями информацию на срок, установленный законодательством, и/или передать такую информацию в соответствии с законодательно установленной процедурой государственному органу.</li>
+                                </ol>
+                            </li>
+                            <li>
+                                <h2>СВЕДЕНИЯ ОБ ОБЕСПЕЧЕНИИ БЕЗОПАСНОСТИ ПЕРСОНАЛЬНЫХ ДАННЫХ</h2>
+                                <ol>
+                                    <li>Оператор назначает ответственного за организацию обработки персональных данных для выполнения обязанностей̆, предусмотренных ФЗ «О персональных данных» и принятыми в соответствии с ним нормативными правовыми актами.</li>
+                                    <li>Оператор применяет комплекс правовых, организационных и технических мер по обеспечению безопасности персональных данных для обеспечения конфиденциальности персональных данных и их защиты от неправомерных действий:</li>
+                                    <li>Устанавливает правила доступа к персональным данным, обрабатываемым в информационной системе Оператора, а также обеспечивает регистрацию и учёт всех действий с ними;</li>
+                                    <li>Производит оценку вреда, который может быть причинен Пользователям в случае нарушения ФЗ «О персональных данных»;</li>
+                                    <li>Производит определение угроз безопасности персональных данных при их обработке в информационной системе Оператора;</li>
+                                    <li>Применяет организационные и технические меры и использует средства защиты информации, необходимые для достижения установленного уровня защищенности персональных данных;</li>
+                                    <li>Осуществляет обнаружение фактов несанкционированного доступа к персональным данным и принимает меры по реагированию, включая восстановление персональных данных, модифицированных или уничтоженных вследствие несанкционированного доступа к ним;</li>
+                                    <li>Производит оценку эффективности принимаемых мер по обеспечению безопасности персональных данных до ввода в эксплуатацию информационной системы Оператора;</li>
+                                    <li>Осуществляет внутренний контроль соответствия обработки персональных данных ФЗ «О персональных данных», принятым в соответствии с ним нормативным правовым актам, требованиям к защите персональных данных, Политике, Положению и иным локальным актам, включая контроль за принимаемыми мерами по обеспечению безопасности персональных данных и их уровня защищенности при обработке в информационной системе Оператора.</li>
+                                </ol>
+                            </li>
+                            <li>
+                                <h2>СВЕДЕНИЯ ОБ ОПЕРАТОРЕ</h2>
+                                <ol>
+                                    <li>База данных, содержащая персональные данные Пользователей – граждан Российской Федерации, находится на территории Российской Федерации.</li>
+                                    <li>Для реализации своих прав и законных интересов Пользователи имеют право обратиться к Оператору, направив запрос лично или с представителя по адресу, указанному в пункте 1.1. Политики либо на адрес электронной почты, указанный на Сайте. Запрос должен содержать сведения, указанные в ч. 3 ст. 14 ФЗ «О персональных данных».</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-inner">
+                    <div class="footer-left">
+                        <ul class="footer-logos">
+                            <li>
+                                <a href="./index.html" aria-label="На главную страницу">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/dark-logo.svg" data-theme-image='{"dark": "./images/dark-logo.svg", "light": "./images/light-logo.svg"}' alt="BUFFALO PROTEIN" width="189" height="68" loading="lazy" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" target="_blank" rel="noopener noreferrer">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/b-power-dark.svg" data-theme-image='{"dark": "./images/b-power-dark.svg", "light": "./images/b-power-light.svg"}' alt="B-POWER" width="189" height="68" loading="lazy" />
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="footer-info">
+                            <ul class="footer-info__contacts">
+                                <li>
+                                    <p>Почта</p>
+                                    <a href="mailto:info@mail.ru">info@mail.ru</a>
+                                </li>
+                                <li>
+                                    <p>Телефон горячей линии</p>
+                                    <a href="tel:+78001000000">8 800 100-00-00</a>
+                                </li>
+                            </ul>
+                            <div class="footer-info__socials" aria-label="Социальные сети">
+                                <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="footer-info__social" aria-label="WhatsApp">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/icons/dark-whatsapp.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-whatsapp.svg", "light": "./images/icons/light-whatsapp.svg"}' loading="lazy" />
+                                </a>
+                                <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="footer-info__social" aria-label="Telegram">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/icons/dark-telegram.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-telegram.svg", "light": "./images/icons/light-telegram.svg"}' loading="lazy" />
+                                </a>
+                                <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="footer-info__social" aria-label="ВКонтакте">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/icons/dark-vk.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-vk.svg", "light": "./images/icons/light-vk.svg"}' loading="lazy" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="footer-additional">
+                            <p class="footer-additional__copy">©2012–2025, ООО «Название компании», ИНН/КПП 7810845678/781101001, ОГРН 1234567890</p>
+                            <a href="./policy.html" class="footer-additional__link">Политика конфиденциальности</a>
+                            <a href="./terms-and-conditions.html" class="footer-additional__link">Публичная оферта</a>
+                            <a href="#!" class="footer-additional__link">Политика обработки файлов cookie</a>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <nav class="footer-nav" aria-label="Навигация по сайту">
+                            <h3 class="footer-nav__title">Навигация</h3>
+                            <ul class="footer-nav__menu">
+                                <li><a href="./index.html">Главная</a></li>
+                                <li><a href="./about.html">О нас</a></li>
+                                <li><a href="./loyalty.html">Программа лояльности</a></li>
+                                <li><a href="./shipping-payment.html">Оплата и доставка</a></li>
+                                <li><a href="./faq.html">Вопрос-Ответ</a></li>
+                                <li><a href="./contacts.html">Контакты</a></li>
+                            </ul>
+                        </nav>
+                        <nav class="footer-nav" aria-label="Каталог продукции">
+                            <h3 class="footer-nav__title">Каталог продукции</h3>
+                            <ul class="footer-nav__menu">
+                                <li><a href="./catalog.html">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">Buffalo Whey Gusto Puro — Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a></li>
+                                <li><a href="./catalog.html">+80 High Protein — Buffalo Whey Gusto Puro — Proteine in Polvere</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="footer-mobile">
+                        <p class="footer-mobile__copy">©2012–2025, ООО «Название компании», ИНН/КПП 7810845678/781101001, ОГРН&nbsp;1234567890</p>
+                        <a href="./policy.html" class="footer-mobile__link">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="./js/swiper-bundle.min.js"></script>
+        <script src="./js/phoneinput.js"></script>
+        <script src="./js/glightbox.min.js"></script>
+        <script src="./js/simplebar.min.js"></script>
+        <script src="./js/choices.min.js"></script>
+        <script src="./js/index.js"></script>
+    </body>
+</html>
