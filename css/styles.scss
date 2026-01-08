@@ -1194,6 +1194,7 @@ html[data-theme='light'] .block {
     z-index: 1;
     overflow: hidden;
     color: var(--white-base);
+    background-color: var(--black-default);
 
     .block-info__title {
         margin-bottom: fluid(16px, 20px);
@@ -3167,6 +3168,9 @@ html[data-theme='light'] .modal-product__bonus {
 .simplebar-scrollbar.simplebar-visible:before {
     opacity: 1;
 }
+.simplebar-track.simplebar-horizontal {
+    display: none;
+}
 
 //slider
 .slider {
@@ -4965,6 +4969,7 @@ html[data-theme='light'] .product-item__count-button--plus {
     background: var(--opacity-white);
     border-radius: 10px;
     gap: 14px;
+    height: max-content;
 }
 .cart-product__image {
     background: var(--white-base);
@@ -7880,22 +7885,18 @@ html[data-theme='light'] .back {
         max-height: calc(100svh - 195px);
         overflow: auto;
 
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
         &::-webkit-scrollbar {
+            display: none;
             width: 0;
             height: 0;
             background: transparent;
+            -webkit-appearance: none;
         }
 
-        &::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        &::-webkit-scrollbar-thumb {
-            background: transparent;
-        }
-
-        scrollbar-width: none;
-        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
     }
     // filters
     .filter-actions {
@@ -8235,7 +8236,7 @@ html[data-theme='light'] .back {
         -webkit-line-clamp: 4;
     }
     .review-description {
-        -webkit-line-clamp: 8;
+        -webkit-line-clamp: 6;
     }
     .review-avatar::before {
         background: var(--avatar-background);
