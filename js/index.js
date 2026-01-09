@@ -797,7 +797,7 @@ const lightbox = GLightbox({
     loop: true,
     autoplayVideos: true,
 
-    openEffect: 'zoom',
+    openEffect: 'fade',
     closeEffect: 'fade',
     slideEffect: 'slide',
 
@@ -1079,432 +1079,295 @@ function initSliders() {
     });
 }
 
-//ОТЗЫВЫ
-// Ограничение высоты текста
-function checkTextOverflow() {
-    document.querySelectorAll('.review-description').forEach((desc) => {
-        if (desc.dataset.buttonAdded) return;
+// ОТЗЫВЫ И ВОПРОС-ОТВЕТЫ - модалки
+function initSimpleBar(el) {
+    if (!el) return;
 
-        const originalStyles = {
-            webkitLineClamp: desc.style.webkitLineClamp,
-            display: desc.style.display,
-            overflow: desc.style.overflow,
-            maxHeight: desc.style.maxHeight,
-        };
+    if (el.SimpleBar) {
+        el.SimpleBar.recalculate();
+        return;
+    }
 
-        desc.style.webkitLineClamp = 'none';
-        desc.style.display = 'block';
-        desc.style.overflow = 'visible';
-        desc.style.maxHeight = 'none';
-
-        const lineHeight = parseFloat(getComputedStyle(desc).lineHeight);
-        const contentHeight = desc.scrollHeight;
-        const actualLines = Math.round(contentHeight / lineHeight);
-
-        desc.style.webkitLineClamp = originalStyles.webkitLineClamp;
-        desc.style.display = originalStyles.display;
-        desc.style.overflow = originalStyles.overflow;
-        desc.style.maxHeight = originalStyles.maxHeight;
-
-        if (actualLines > 10) {
-            createModalButton(desc.closest('.review'));
-            desc.dataset.buttonAdded = 'true';
-        }
+    new SimpleBar(el, {
+        autoHide: true,
+        forceVisible: 'y',
     });
 }
 
-// Создание кнопки для открытия мод окна
-function createModalButton(reviewElement) {
-    const existingButton = reviewElement.querySelector('.show-full-btn');
-    if (existingButton) return;
+let savedScrollTop = 0;
+let isScrollLocked = false;
 
-    const button = document.createElement('button');
-    button.className = 'show-full-btn';
-    button.type = 'button';
-    button.innerHTML = 'Показать весь отзыв';
+function lockPageScroll() {
+    if (isScrollLocked) return;
 
-    const reviewDescription = reviewElement.querySelector('.review-description');
-    reviewDescription.parentNode.insertBefore(button, reviewDescription.nextSibling);
+    savedScrollTop = window.scrollY || document.documentElement.scrollTop;
 
-    button.addEventListener('click', () => {
-        openReviewModal(reviewElement);
-    });
-}
+    document.documentElement.style.overflow = 'hidden';
+    document.documentElement.style.position = 'relative';
+    document.documentElement.style.height = '100%';
 
-// Модальное окно с сохранением полной структуры
-function openReviewModal(reviewElement) {
-    let modal = document.getElementById('fullReviewModal');
-
-    if (!modal) {
-        modal = document.createElement('div');
-        modal.id = 'fullReviewModal';
-        modal.className = 'modal';
-        modal.style.display = 'none';
-        modal.style.opacity = '0';
-        modal.style.transition = 'opacity 0.3s ease';
-
-        modal.innerHTML = `
-            <div class="full-modal">
-                <button type="button" class="full-modal__close" aria-label="Закрыть модальное окно" data-modal-close></button>
-                <div class="full-modal__content" id="modalReviewContent"></div>
-            </div>
-        `;
-
-        document.body.appendChild(modal);
-    }
-
-    const reviewClone = document.createElement('article');
-    reviewClone.className = 'review';
-
-    const hasSwiperSlideParent = reviewElement.closest('.swiper-slide') !== null;
-
-    if (hasSwiperSlideParent) {
-        reviewClone.classList.add('review--swiper');
-    }
-
-    const elementsToCopy = ['.review-avatar', '.review-rating', '.review-top', '.review-description', '.review-bottom'];
-
-    elementsToCopy.forEach((selector) => {
-        const element = reviewElement.querySelector(selector);
-        if (element) {
-            const elementClone = element.cloneNode(true);
-
-            if (selector === '.review-description') {
-                elementClone.classList.add('custom-scroll');
-            }
-
-            reviewClone.appendChild(elementClone);
-        }
-    });
-
-    const buttonInClone = reviewClone.querySelector('.show-full-btn');
-    if (buttonInClone) {
-        buttonInClone.remove();
-    }
-
-    const modalContent = modal.querySelector('#modalReviewContent');
-    modalContent.innerHTML = '';
-    modalContent.appendChild(reviewClone);
-
-    const modalDescription = modal.querySelector('.review-description');
-
-    if (modalDescription) {
-        modalDescription.style.webkitLineClamp = 'none';
-        modalDescription.style.overflow = 'hidden';
-        modalDescription.classList.remove('truncated');
-
-        modalDescription.classList.add('custom-scroll');
-        modalDescription.style.overflowY = 'auto';
-        modalDescription.style.overflowX = 'hidden';
-        modalDescription.style.paddingRight = '10px';
-        modalDescription.style.webkitOverflowScrolling = 'touch';
-    }
-    document.querySelectorAll('.custom-scroll').forEach((element) => {
-        new SimpleBar(element, {
-            autoHide: true,
-            forceVisible: 'y',
-        });
-    });
-
-    modal.style.display = 'flex';
-    modal.style.alignItems = 'center';
-    modal.style.justifyContent = 'center';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${savedScrollTop}px`;
+    document.body.style.width = '100%';
     document.body.style.overflow = 'hidden';
 
-    setTimeout(() => {
-        modal.style.opacity = '1';
-    }, 50);
+    isScrollLocked = true;
 
-    const closeBtn = modal.querySelector('[data-modal-close]');
+    // Уведомляем другие компоненты о блокировке скролла
+    document.documentElement.setAttribute('data-scroll-locked', 'true');
+}
 
-    function closeReviewModalHandler() {
-        modal.style.opacity = '0';
-        setTimeout(() => {
-            modal.style.display = 'none';
-            document.body.style.overflow = '';
-        }, 300);
+function unlockPageScroll() {
+    if (!isScrollLocked) return;
+
+    document.documentElement.style.overflow = '';
+    document.documentElement.style.position = '';
+    document.documentElement.style.height = '';
+
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
+
+    window.scrollTo(0, savedScrollTop);
+
+    isScrollLocked = false;
+
+    document.documentElement.removeAttribute('data-scroll-locked');
+}
+
+function initLightbox() {
+    if (window.reviewLightbox) {
+        window.reviewLightbox.destroy();
     }
 
-    closeBtn.addEventListener('click', closeReviewModalHandler);
+    window.reviewLightbox = GLightbox({
+        selector: '#universalModal .glightbox',
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: true,
+        openEffect: 'fade',
+        closeEffect: 'fade',
+        slideEffect: 'slide',
+        moreLength: 60,
+        arrows: true,
+        closeButton: true,
+    });
+}
+
+function getModal() {
+    let modal = document.getElementById('universalModal');
+    if (modal) return modal;
+
+    modal = document.createElement('div');
+    modal.id = 'universalModal';
+    modal.className = 'modal';
+
+    modal.innerHTML = `
+        <div class="full-modal">
+            <button type="button" class="full-modal__close" aria-label="Закрыть"></button>
+            <div class="full-modal__content"></div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
     modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeReviewModalHandler();
+        if (e.target === modal) closeModal();
+    });
+
+    modal.querySelector('.full-modal__close').addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-visible')) {
+            closeModal();
         }
     });
 
-    function escapeHandler(e) {
-        if (e.key === 'Escape') {
-            closeReviewModalHandler();
-        }
-    }
-
-    document.removeEventListener('keydown', modal.escapeHandler);
-    modal.escapeHandler = escapeHandler;
-    document.addEventListener('keydown', escapeHandler);
-
-    setTimeout(() => {
-        closeBtn.focus();
-    }, 400);
-
-    if (typeof GLightbox !== 'undefined') {
-        const newGlightbox = GLightbox({
-            selector: '.modal .glightbox',
-            touchNavigation: true,
-            loop: true,
-        });
-    }
+    return modal;
 }
 
-// Закрытие модального окна
-function closeReviewModal() {
-    const modal = document.getElementById('fullReviewModal');
+function openModal(contentNode, onShown, options = {}) {
+    const modal = getModal();
+    const content = modal.querySelector('.full-modal__content');
+    const fullModal = modal.querySelector('.full-modal');
+
+    fullModal.classList.remove('full-modal--faq');
+    if (options.type === 'faq') {
+        fullModal.classList.add('full-modal--faq');
+    }
+
+    content.innerHTML = '';
+    content.appendChild(contentNode);
+
+    modal.style.display = 'flex';
+
+    requestAnimationFrame(() => {
+        modal.classList.add('is-visible');
+        requestAnimationFrame(() => onShown?.(modal));
+    });
+
+    lockPageScroll();
+}
+
+function closeModal() {
+    const modal = document.getElementById('universalModal');
     if (!modal) return;
 
-    const closeBtn = modal.querySelector('[data-modal-close]');
-    if (closeBtn) {
-        closeBtn.blur();
-    }
-
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
+    modal.classList.remove('is-visible');
 
     setTimeout(() => {
-        const activeButton = document.activeElement;
-        if (!activeButton || activeButton.tagName !== 'BUTTON') {
-            const lastClickedButton = document.querySelector('.show-full-btn:focus');
-            if (lastClickedButton) {
-                lastClickedButton.focus();
-            }
-        }
-    }, 50);
+        modal.style.display = 'none';
+        unlockPageScroll();
+    }, 300);
 }
 
-// Инициализация при загрузке страницы
+function isOverflowing(el) {
+    const style = getComputedStyle(el);
+    const paddingTop = parseFloat(style.paddingTop) || 0;
+    const paddingBottom = parseFloat(style.paddingBottom) || 0;
+
+    const availableHeight = el.clientHeight - paddingTop - paddingBottom;
+
+    return el.scrollHeight > availableHeight + 1;
+}
+
+function updateReview(review) {
+    const desc = review.querySelector('.review-description');
+    if (!desc) return;
+    if (desc.closest('#universalModal')) return;
+
+    const btn = review.querySelector('.show-full-btn');
+
+    if (isOverflowing(desc)) {
+        if (!btn) {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'show-full-btn';
+            button.textContent = 'Показать весь отзыв';
+
+            const btnContainer = document.createElement('div');
+            btnContainer.className = 'show-full-btn-container';
+            btnContainer.appendChild(button);
+
+            desc.after(btnContainer);
+            button.addEventListener('click', () => openReviewModal(review));
+
+            desc.classList.add('has-overflow');
+        }
+    } else {
+        btn?.remove();
+        desc.classList.remove('has-overflow');
+        const container = review.querySelector('.show-full-btn-container');
+        container?.remove();
+    }
+}
+
+function checkReviewsOverflow() {
+    document.querySelectorAll('.review').forEach(updateReview);
+}
+
+function openReviewModal(review) {
+    const clone = review.cloneNode(true);
+    clone.querySelector('.show-full-btn')?.remove();
+
+    openModal(clone, (modal) => {
+        const desc = modal.querySelector('.review-description');
+        if (!desc) return;
+
+        desc.style.webkitLineClamp = 'unset';
+        desc.style.overflow = 'auto';
+        desc.classList.add('custom-scroll');
+
+        initSimpleBar(desc);
+
+        initLightbox();
+    });
+}
+
+function getLineHeight(el) {
+    const style = getComputedStyle(el);
+    let lh = parseFloat(style.lineHeight);
+    if (isNaN(lh)) lh = parseFloat(style.fontSize) * 1.4;
+    return lh;
+}
+
+function updateFaq(slide) {
+    if (slide.closest('#universalModal')) return;
+
+    const question = slide.querySelector('.faq-slide__question p');
+    const wrap = slide.querySelector('.faq-slide__answer-text');
+    const answer = wrap?.querySelector('p');
+    if (!question || !wrap || !answer) return;
+
+    const MAX_LINES = 11;
+
+    const lh = getLineHeight(answer);
+    const qLines = Math.ceil(question.scrollHeight / lh);
+    const aLines = Math.ceil(answer.scrollHeight / lh);
+
+    let btn = slide.querySelector('.show-full-faq-btn');
+
+    if (qLines + aLines > MAX_LINES) {
+        const maxAnswerLines = Math.max(0, MAX_LINES - qLines);
+        wrap.style.maxHeight = `${maxAnswerLines * lh}px`;
+        wrap.style.overflow = 'hidden';
+
+        if (!btn) {
+            btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'show-full-faq-btn';
+            btn.textContent = 'Весь ответ';
+
+            wrap.after(btn);
+            btn.addEventListener('click', () => openFaqModal(slide));
+        }
+    } else {
+        wrap.style.maxHeight = '';
+        wrap.style.overflow = '';
+        btn?.remove();
+    }
+}
+
+function limitFaqText() {
+    document.querySelectorAll('.faq-slide').forEach(updateFaq);
+}
+
+function openFaqModal(slide) {
+    const clone = slide.cloneNode(true);
+    clone.querySelector('.show-full-faq-btn')?.remove();
+
+    openModal(
+        clone,
+        (modal) => {
+            const wrap = modal.querySelector('.faq-slide__answer-text');
+            if (!wrap) return;
+
+            wrap.style.maxHeight = '';
+            wrap.style.overflow = 'auto';
+            wrap.classList.add('custom-scroll');
+
+            initSimpleBar(wrap);
+        },
+        { type: 'faq' }
+    );
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        checkTextOverflow();
-    }, 300);
+    checkReviewsOverflow();
+    limitFaqText();
 
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
-            checkTextOverflow();
-        }, 250);
+            checkReviewsOverflow();
+            limitFaqText();
+        }, 200);
     });
 });
 
-//ВОПРОС-ОТВЕТ
-function limitFaqText() {
-    const faqSlides = document.querySelectorAll('.faq-slide');
-    const MAX_TOTAL_LINES = 11;
-
-    faqSlides.forEach((slide) => {
-        const question = slide.querySelector('.faq-slide__question p');
-        const answerContainer = slide.querySelector('.faq-slide__answer-text');
-        const answerText = answerContainer ? answerContainer.querySelector('p') : null;
-
-        if (!question || !answerText) return;
-
-        answerContainer.classList.add('custom-scroll');
-
-        answerText.style.cssText = '';
-
-        const computed = window.getComputedStyle(answerText);
-        const lineHeight = parseFloat(computed.lineHeight) || parseFloat(computed.fontSize) * 1.5;
-
-        const questionLines = Math.ceil(question.offsetHeight / lineHeight);
-        const answerLines = Math.ceil(answerText.scrollHeight / lineHeight);
-
-        if (questionLines + answerLines > MAX_TOTAL_LINES) {
-            const maxAnswerLines = Math.max(0, MAX_TOTAL_LINES - questionLines);
-
-            if (maxAnswerLines > 0) {
-                const maxHeight = maxAnswerLines * lineHeight;
-                answerContainer.style.maxHeight = `${maxHeight}px`;
-                answerContainer.style.overflow = 'hidden';
-                createFaqButton(slide, answerContainer, maxHeight, answerText.scrollHeight);
-            } else {
-                answerContainer.style.maxHeight = '0';
-                answerContainer.style.overflow = 'hidden';
-                createFaqButton(slide, answerContainer, 0, answerText.scrollHeight);
-            }
-        } else {
-            answerContainer.style.maxHeight = '';
-            answerContainer.style.overflow = '';
-            removeFaqButton(slide);
-        }
-    });
-}
-
-function createFaqButton(faqSlide, answerContainer, maxHeight, fullHeight) {
-    const existingButton = faqSlide.querySelector('.show-full-faq-btn');
-    if (existingButton) {
-        existingButton.dataset.maxHeight = maxHeight;
-        existingButton.dataset.fullHeight = fullHeight;
-        return;
-    }
-
-    const button = document.createElement('button');
-    button.className = 'show-full-faq-btn';
-    button.type = 'button';
-    button.textContent = 'Весь ответ';
-    button.setAttribute('aria-label', 'Открыть полный ответ в модальном окне');
-    button.dataset.maxHeight = maxHeight;
-    button.dataset.fullHeight = fullHeight;
-
-    answerContainer.parentNode.insertBefore(button, answerContainer.nextSibling);
-
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        openFaqModalWindow(faqSlide);
-    });
-}
-
-function removeFaqButton(faqSlide) {
-    const existingBtn = faqSlide.querySelector('.show-full-faq-btn');
-    if (existingBtn) {
-        existingBtn.remove();
-    }
-}
-
-function openFaqModalWindow(faqSlide) {
-    let modal = document.getElementById('faqModalWindow');
-
-    if (!modal) {
-        modal = document.createElement('div');
-        modal.id = 'faqModalWindow';
-        modal.className = 'modal';
-        modal.style.display = 'none';
-        modal.style.opacity = '0';
-        modal.style.transition = 'opacity 0.3s ease';
-
-        modal.innerHTML = `
-            <div class="full-modal full-modal--faq">
-                <button type="button" class="full-modal__close" aria-label="Закрыть модальное окно" data-faq-close></button>
-                <div class="full-modal__content" id="faqModalContent"></div>
-            </div>
-        `;
-
-        document.body.appendChild(modal);
-    }
-
-    const faqClone = faqSlide.cloneNode(true);
-
-    const answerContainer = faqClone.querySelector('.faq-slide__answer-text');
-    const answerText = answerContainer ? answerContainer.querySelector('p') : null;
-
-    if (answerContainer) {
-        answerContainer.style.maxHeight = '';
-        answerContainer.style.overflow = '';
-        answerContainer.classList.add('custom-scroll');
-    }
-
-    if (answerText) {
-        answerText.style.cssText = '';
-    }
-
-    const buttonInClone = faqClone.querySelector('.show-full-faq-btn');
-    if (buttonInClone) {
-        buttonInClone.remove();
-    }
-
-    const modalContent = modal.querySelector('#faqModalContent');
-    modalContent.innerHTML = '';
-    modalContent.appendChild(faqClone);
-
-    if (typeof SimpleBar !== 'undefined' && answerContainer) {
-        new SimpleBar(answerContainer, {
-            autoHide: true,
-            forceVisible: 'y',
-        });
-    }
-
-    modal.style.display = 'flex';
-    modal.style.alignItems = 'center';
-    modal.style.justifyContent = 'center';
-
-    document.body.style.overflow = 'hidden';
-    document.body.classList.add('faq-modal-open');
-
-    setTimeout(() => {
-        modal.style.opacity = '1';
-    }, 50);
-
-    const closeBtn = modal.querySelector('[data-faq-close]');
-
-    function closeHandler() {
-        modal.style.opacity = '0';
-        setTimeout(() => {
-            modal.style.display = 'none';
-
-            // Восстанавливаем прокрутку страницы
-            document.body.style.overflow = '';
-            document.body.style.paddingRight = '';
-            document.body.classList.remove('faq-modal-open');
-        }, 300);
-    }
-
-    closeBtn.addEventListener('click', closeHandler);
-
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            closeHandler();
-        }
-    });
-
-    function escapeHandler(e) {
-        if (e.key === 'Escape') {
-            closeHandler();
-        }
-    }
-
-    // Удаляем старый обработчик, если есть
-    if (modal.escapeHandler) {
-        document.removeEventListener('keydown', modal.escapeHandler);
-    }
-
-    modal.escapeHandler = escapeHandler;
-    document.addEventListener('keydown', escapeHandler);
-
-    setTimeout(() => {
-        closeBtn.focus();
-    }, 400);
-}
-
-function closeFaqModal() {
-    const modal = document.getElementById('faqModalWindow');
-    if (!modal) return;
-
-    const closeBtn = modal.querySelector('[data-faq-close]');
-    if (closeBtn) {
-        closeBtn.blur();
-    }
-
-    modal.style.opacity = '0';
-    setTimeout(() => {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-        document.body.style.paddingRight = '';
-        document.body.classList.remove('faq-modal-open');
-
-        setTimeout(() => {
-            const activeButton = document.activeElement;
-            if (!activeButton || activeButton.tagName !== 'BUTTON') {
-                const lastClickedButton = document.querySelector('.show-full-faq-btn:focus');
-                if (lastClickedButton) {
-                    lastClickedButton.focus();
-                }
-            }
-        }, 50);
-    }, 300);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    limitFaqText();
-    setTimeout(limitFaqText, 500);
-});
+function closeFaqModal() {}
 
 let faqResizeTimeout;
 window.addEventListener('resize', function () {
@@ -1961,7 +1824,7 @@ document.addEventListener('DOMContentLoaded', function () {
     cleanupOldStorageData();
 });
 
-//Открытие закрытие фильтров в соб версии
+//Открытие закрытие фильтров в моб версии
 document.addEventListener('DOMContentLoaded', function () {
     const filterButton = document.querySelector('.catalog-container__filters');
     const closeButton = document.querySelector('.catalog-aside__close');
@@ -2377,6 +2240,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function onScroll() {
+            // Пропускаем обработку если скролл заблокирован
+            if (document.documentElement.hasAttribute('data-scroll-locked')) {
+                return;
+            }
+
             const scroll = window.pageYOffset;
             const dir = scroll > lastScroll ? 'down' : 'up';
             lastScroll = scroll;
@@ -2712,6 +2580,29 @@ function updateActiveClass(isOpen, countryBlock) {
     }
 }
 
+function updateFlag(inputValue, countries) {
+    const flagContainer = document.querySelector('.flag-container .flag-icon, .flag-container .flag-placeholder');
+
+    if (!flagContainer) return;
+
+    if (!inputValue || !inputValue.trim()) {
+        flagContainer.className = 'flag-placeholder';
+        return;
+    }
+
+    const foundCountry = countries.find((country) => {
+        const ruName = country.translations?.ru || '';
+        const currentValue = inputValue.trim().toLowerCase();
+        return ruName.toLowerCase() === currentValue || country.name.toLowerCase() === currentValue;
+    });
+
+    if (foundCountry && foundCountry.iso2) {
+        flagContainer.className = `flag-icon flag-icon-${foundCountry.iso2.toLowerCase()}`;
+    } else {
+        flagContainer.className = 'flag-placeholder';
+    }
+}
+
 function showAllCountries(countries, input, suggestionsDiv, countryBlock) {
     suggestionsDiv.innerHTML = '';
 
@@ -2736,15 +2627,7 @@ function showAllCountries(countries, input, suggestionsDiv, countryBlock) {
 
         div.onclick = () => {
             input.value = countryName;
-
-            const flagContainer = document.querySelector('.flag-container .flag-icon, .flag-container .flag-placeholder');
-
-            if (iso2 && flagContainer) {
-                flagContainer.className = `flag-icon flag-icon-${iso2}`;
-            } else if (flagContainer) {
-                flagContainer.className = 'flag-placeholder';
-            }
-
+            updateFlag(countryName, countries);
             suggestionsDiv.style.display = 'none';
             updateActiveClass(false, countryBlock);
         };
@@ -2793,15 +2676,7 @@ function showFilteredSuggestions(countries, query, input, suggestionsDiv, countr
 
         div.onclick = () => {
             input.value = countryName;
-
-            const flagContainer = document.querySelector('.flag-container .flag-icon, .flag-container .flag-placeholder');
-
-            if (iso2 && flagContainer) {
-                flagContainer.className = `flag-icon flag-icon-${iso2}`;
-            } else if (flagContainer) {
-                flagContainer.className = 'flag-placeholder';
-            }
-
+            updateFlag(countryName, countries);
             suggestionsDiv.style.display = 'none';
             updateActiveClass(false, countryBlock);
         };
@@ -2823,11 +2698,7 @@ async function init() {
 
     const countries = await loadCountries();
 
-    const russia = countries.find((country) => country.iso2 === 'RU' || country.name.toLowerCase() === 'russia' || (country.translations?.ru && country.translations.ru.toLowerCase() === 'россия'));
-
-    if (russia && input) {
-        input.value = russia.translations?.ru || russia.name;
-    }
+    updateFlag(input.value, countries);
 
     let listOpenedByClick = false;
 
@@ -2868,22 +2739,7 @@ async function init() {
 
     input.addEventListener('input', (e) => {
         showFilteredSuggestions(countries, e.target.value, input, suggestionsDiv, countryBlock);
-
-        const currentValue = e.target.value;
-        const foundCountry = countries.find((country) => {
-            const ruName = country.translations?.ru || '';
-            return ruName.toLowerCase() === currentValue.toLowerCase() || country.name.toLowerCase() === currentValue.toLowerCase();
-        });
-
-        const flagContainer = document.querySelector('.flag-container .flag-icon, .flag-container .flag-placeholder');
-
-        if (!currentValue.trim() && flagContainer) {
-            flagContainer.className = 'flag-icon flag-icon-ru';
-        } else if (foundCountry && foundCountry.iso2 && flagContainer) {
-            flagContainer.className = `flag-icon flag-icon-${foundCountry.iso2.toLowerCase()}`;
-        } else if (flagContainer) {
-            flagContainer.className = 'flag-placeholder';
-        }
+        updateFlag(e.target.value, countries);
     });
 
     document.addEventListener('click', (e) => {
@@ -2903,6 +2759,10 @@ async function init() {
 
     input.addEventListener('keydown', () => {
         listOpenedByClick = false;
+    });
+
+    input.addEventListener('change', () => {
+        updateFlag(input.value, countries);
     });
 }
 

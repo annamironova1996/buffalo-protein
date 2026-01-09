@@ -165,3 +165,59 @@ main fieldset,
 footer fieldset {
     border: none;
 }
+
+header input[type='number'],
+main input[type='number'],
+footer input[type='number'] {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: none;
+
+    -moz-appearance: textfield;
+}
+
+header input[type='number']::-webkit-outer-spin-button,
+header input[type='number']::-webkit-inner-spin-button,
+main input[type='number']::-webkit-outer-spin-button,
+main input[type='number']::-webkit-inner-spin-button,
+footer input[type='number']::-webkit-outer-spin-button,
+footer input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+    display: none;
+}
+
+header input[type='number']::-ms-clear,
+header input[type='number']::-ms-reveal,
+main input[type='number']::-ms-clear,
+main input[type='number']::-ms-reveal,
+footer input[type='number']::-ms-clear,
+footer input[type='number']::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+header input[type='number']::-webkit-search-cancel-button,
+header input[type='number']::-webkit-search-decoration,
+main input[type='number']::-webkit-search-cancel-button,
+main input[type='number']::-webkit-search-decoration,
+footer input[type='number']::-webkit-search-cancel-button,
+footer input[type='number']::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+header input[type='number']::-o-clear,
+main input[type='number']::-o-clear,
+footer input[type='number']::-o-clear {
+    display: none;
+}
+
+header input[type='number'],
+main input[type='number'],
+footer input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}

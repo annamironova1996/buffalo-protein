@@ -295,6 +295,7 @@ html[data-theme='light'] .header-top__button-account:active .button-text::before
     position: absolute;
     left: 38px;
     top: 9px;
+    min-width: 14px;
     border: 1px solid var(--opacity-white);
     border-radius: 100%;
     padding: 1px 1px;
@@ -1117,7 +1118,7 @@ html[data-theme='light'] .footer-info__social:active img {
         }
     }
     .header-top__button-count {
-        line-height: 114%;
+        line-height: 100%;
     }
 
     // footer
