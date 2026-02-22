@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <title>Оформление заказа</title>
+        <title>Личный кабинет</title>
 
         <link rel="stylesheet" href="./css/fonts.css" />
 
@@ -25,12 +25,6 @@
         <link rel="stylesheet" href="./css/simplebar.min.css" />
         <link rel="stylesheet" href="./css/choices.min.css" />
         <link rel="stylesheet" href="./css/variables.css" />
-
-        <!-- подключать только для этой страницы  -->
-        <link rel="stylesheet" href="./css/intlTelInput.css" />
-        <link rel="stylesheet" href="./css/flag-icon.min.css" />
-        <!-- !  -->
-
         <link rel="stylesheet" href="./css/template_styles.css" />
         <link rel="stylesheet" href="./css/styles.css" />
     </head>
@@ -530,512 +524,553 @@
             </div>
         </header>
         <main class="main">
-            <section class="back-wrapper">
+            <section class="breadcrumbs">
                 <div class="container">
-                    <a href="./cart.html" class="back"
-                        ><span class="back-text">
-                            <span class="back-text__desktop">Вернуться в корзину</span>
-                            <span class="back-text__mobile">В корзину</span>
-                        </span></a
-                    >
+                    <a href="account.html" type="button" class="breadcrumbs-back">Назад</a>
                 </div>
             </section>
-            <!-- обратите внимание, что в head и в script подключение некоторых библиотек только для этой страницы  -->
-            <section class="section">
+            <section class="account">
                 <div class="container">
-                    <h1 class="title-1 page-title">Оформление заказа</h1>
-                    <div class="grid-container">
-                        <div class="checkout">
-                            <div class="checkout-blocks">
-                                <!-- если элемент допущен к активности, тогда к <div class="checkout-block"> добавляется класс checkout-block--active
-                                        сейчас добавлен checkout-block--active ко всем элементам, чтобы наглядно заказчикам показать верстку
-                                        при натяжке верстки уберите checkout-block--active у всех элементов кроме первого и стили встанут как в макете при неактивированных инпутах -->
-
-                                <!-- к первому элементу добавляется класс checkout-block--main checkout-block--active, тк он изначально открытый при загрузке  -->
-                                <div class="checkout-block checkout-block--main checkout-block--active">
-                                    <div class="checkout-block__info">
-                                        <h2 class="checkout-block__info-title">Ваши контакты</h2>
-                                        <div class="checkout-block__info-description">
-                                            <p>Укажите ваши данные, для получения деталей заказа</p>
-                                        </div>
-                                    </div>
-                                    <div class="checkout-block__hidden">
-                                        <div class="checkout-block__content checkout-block__content--main">
-                                            <div class="checkout-block__content-contact">
-                                                <div class="checkout-block__field checkout-block__field--phone">
-                                                    <label class="visually-hidden" for="your_phone">Выберите код страны и введите ваш номер телефона</label>
-                                                    <input data-phone id="your_phone" name="your_phone" />
-                                                    <input type="hidden" class="phone-full" />
-                                                    <!-- выводить, если есть ошибка  -->
-                                                    <!-- <span class="checkout-block__field-error">Текст ошибки</span> -->
-                                                </div>
-                                                <div class="checkout-block__field checkout-block__field--email">
-                                                    <label class="visually-hidden" for="your_email">Введите вашу электронную почту</label>
-                                                    <input type="email" id="your_email" name="your_email" placeholder="name@mail.com" required />
-                                                    <!-- выводить, если есть ошибка  -->
-                                                    <!-- <span class="checkout-block__field-error">Текст ошибки</span> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                    <div class="account-grid">
+                        <aside class="account-aside">
+                            <nav class="account-aside__nav">
+                                <ul>
+                                    <li><a href="account-orders.html">Мои заказы</a></li>
+                                    <li><a href="account-bonus.html">Бонусный счёт</a></li>
+                                    <li><a href="account-promotional.html">Промокоды</a></li>
+                                    <li><a href="account-check.html">Электронные чеки</a></li>
+                                    <li><a href="account-reviews.html">Отзывы и Вопросы</a></li>
+                                    <li><a href="account-viewed.html" aria-current="page">Просмотренное</a></li>
+                                    <li><a href="account-personal.html">Личные данные</a></li>
+                                    <li><a href="account-notification.html">Настройки уведомлений</a></li>
+                                </ul>
+                            </nav>
+                            <div class="account-aside__bonus">
+                                <div class="account-aside__bonus-image">
+                                    <img src="./images/bonus.svg" alt="Иконка бонусы" width="38" height="38" />
                                 </div>
-
-                                <!-- если элемент допущен к активности, тогда к <div class="checkout-block"> добавляется класс checkout-block--active -->
-                                <div class="checkout-block checkout-block--active">
-                                    <div class="checkout-block__info">
-                                        <h2 class="checkout-block__info-title">Страна и Населенный пункт доставки</h2>
-                                        <div class="checkout-block__info-description"><p>Введите свой телефон и эл. почту, чтобы перейти к выбору страны и города</p></div>
-                                    </div>
-                                    <div class="checkout-block__hidden">
-                                        <div class="checkout-block__content">
-                                            <div class="checkout-block__content-grid">
-                                                <div class="checkout-block__country-wrapper">
-                                                    <div class="checkout-block__country">
-                                                        <div class="flag-container">
-                                                            <span class="flag-icon flag-icon-ru"></span>
-                                                        </div>
-                                                        <label for="country_input" class="visually-hidden">Выберите страну</label>
-                                                        <input type="text" id="country_input" name="country_input" placeholder="Выберите страну" value="Россия" required />
-                                                    </div>
-                                                    <div id="suggestions" class="checkout-block__country-list"></div>
-                                                </div>
-                                                <div class="checkout-block__field">
-                                                    <label class="visually-hidden" for="your_city">Укажите населенный пункт</label>
-                                                    <input type="text" id="your_city" name="your_city" placeholder="Укажите населенный пункт" required />
-                                                    <!-- выводить, если есть ошибка  -->
-                                                    <!-- <span class="checkout-block__field-error">Текст ошибки</span> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- если элемент допущен к активности, тогда к <div class="checkout-block"> добавляется класс checkout-block--active -->
-                                <div class="checkout-block checkout-block--active">
-                                    <div class="checkout-block__info">
-                                        <h2 class="checkout-block__info-title">Способ доставки</h2>
-                                        <div class="checkout-block__info-description"><p>Укажите страну и город доставки, чтобы перейти к выбору страны и города</p></div>
-                                        <!-- выводить, если есть ошибка  -->
-                                        <!-- <p class="checkout-block__content-error">Текст ошибки Необходимо указать способ оплаты</p> -->
-                                    </div>
-                                    <div class="checkout-block__hidden">
-                                        <div class="checkout-block__content">
-                                            <div class="checkout-block__content-grid">
-                                                <div class="checkout-block__delivery checkout-block__radio">
-                                                    <input type="radio" class="visually-hidden" id="checkout_delivery_sdek" name="delivery" value="sdek" />
-                                                    <label for="checkout_delivery_sdek">СДЭК</label>
-                                                    <ul class="checkout-block__delivery-list">
-                                                        <li>
-                                                            <p>Сроки:</p>
-                                                            <span>2–7 дней </span>
-                                                        </li>
-                                                        <li>
-                                                            <p>Стоимость:</p>
-                                                            <span>от 350 ₽ (зависит от адреса)</span>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="checkout-block__delivery-description">
-                                                        <p>Доставка до двери или в ближайший пункт выдачи. СДЭК уведомляет о каждом этапе: сборка, отправка, прибытие в ПВЗ.</p>
-                                                        <p>Идеально подходит для заказов в регионы и крупных городов.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="checkout-block__delivery checkout-block__radio">
-                                                    <input type="radio" class="visually-hidden" id="checkout_delivery_yandex" name="delivery" value="yandex" />
-                                                    <label for="checkout_delivery_yandex">Яндекс.Доставка</label>
-                                                    <ul class="checkout-block__delivery-list">
-                                                        <li>
-                                                            <p>Сроки:</p>
-                                                            <span>2–7 дней </span>
-                                                        </li>
-                                                        <li>
-                                                            <p>Стоимость:</p>
-                                                            <span>от 350 ₽ (зависит от адреса)</span>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="checkout-block__delivery-description">
-                                                        <p>Современная служба, доступная почти во всех городах России. Предлагает удобные временные интервалы и отслеживание в реальном времени.</p>
-                                                        <p>Уведомления о движении заказа приходят в приложении и по SMS.</p>
-                                                    </div>
-                                                </div>
-                                                <div class="checkout-block__delivery checkout-block__radio">
-                                                    <input type="radio" class="visually-hidden" id="checkout_delivery_boxberry" name="delivery" value="boxberry" />
-                                                    <label for="checkout_delivery_boxberry">Boxberry</label>
-                                                    <ul class="checkout-block__delivery-list">
-                                                        <li>
-                                                            <p>Сроки:</p>
-                                                            <span>2–7 дней </span>
-                                                        </li>
-                                                        <li>
-                                                            <p>Стоимость:</p>
-                                                            <span>от 350 ₽ (зависит от адреса)</span>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="checkout-block__delivery-description">
-                                                        <p>Удобная доставка до ближайшего пункта выдачи или постамата. Boxberry работает в большинстве городов России, включая малые населённые пункты.</p>
-                                                        <p>Уведомления о движении заказа приходят в приложении и по SMS.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- если элемент допущен к активности, тогда к <div class="checkout-block"> добавляется класс checkout-block--active -->
-                                <div class="checkout-block checkout-block--active">
-                                    <div class="checkout-block__info">
-                                        <h2 class="checkout-block__info-title">Адрес и дата доставки</h2>
-                                        <div class="checkout-block__info-description"><p>Укажите способ доставки, чтобы указать точный адрес и получить точный расчет стоимости доставки</p></div>
-                                    </div>
-                                    <div class="checkout-block__hidden">
-                                        <div class="checkout-block__content">
-                                            <div class="checkout-block__content-map">
-                                                <!-- вставляется Ваш виджет карты доставки в зависимости от выбранного способа доставки  -->
-                                                <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A6578434f0db136eb4c7a9e87e912e371043ace1f44a0a65dcd9b8d06163ea011&amp;source=constructor" width="100%" height="100%" frameborder="0" title="Карта для выбора адреса доставки" loading="lazy"></iframe>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- если элемент допущен к активности, тогда к <div class="checkout-block"> добавляется класс checkout-block--active -->
-                                <div class="checkout-block checkout-block--active">
-                                    <div class="checkout-block__info">
-                                        <h2 class="checkout-block__info-title">Ваши данные</h2>
-                                        <div class="checkout-block__info-description"><p>Укажите адрес доставки, чтобы указать ваши данные и/или данные получателя</p></div>
-                                    </div>
-                                    <div class="checkout-block__hidden">
-                                        <div class="checkout-block__content">
-                                            <div class="checkout-block__content-grid">
-                                                <div class="checkout-block__field">
-                                                    <label class="visually-hidden" for="your_surname">Введите вашу фамилию</label>
-                                                    <input type="text" id="your_surname" name="your_surname" placeholder="Ваша Фамилия" required />
-                                                    <!-- выводить, если есть ошибка  -->
-                                                    <!-- <span class="checkout-block__field-error">Текст ошибки</span> -->
-                                                </div>
-                                                <div class="checkout-block__field">
-                                                    <label class="visually-hidden" for="your_name">Введите ваше имя</label>
-                                                    <input type="text" id="your_name" name="your_name" placeholder="Ваше Имя" required />
-                                                    <!-- выводить, если есть ошибка  -->
-                                                    <!-- <span class="checkout-block__field-error">Текст ошибки</span> -->
-                                                </div>
-                                            </div>
-                                            <div class="checkout-block__checkbox checkout-block__checkbox--other">
-                                                <input type="checkbox" id="checkout_recipient" name="checkout_recipient" class="visually-hidden" />
-                                                <label for="checkout_recipient">Другой получатель</label>
-                                                <span>Если вы покупаете не для себя, или хотите, чтобы товар забрал другой человек</span>
-                                            </div>
-                                            <div class="checkout-block__recipient" hidden>
-                                                <div class="checkout-block__recipient-info">
-                                                    <div class="checkout-block__content-grid">
-                                                        <div class="checkout-block__field">
-                                                            <label class="visually-hidden" for="recipient_surname">Введите вашу фамилию</label>
-                                                            <input type="text" id="recipient_surname" name="recipient_surname" placeholder="Ваша Фамилия" required />
-                                                            <!-- выводить, если есть ошибка  -->
-                                                            <!-- <span class="checkout-block__field-error">Текст ошибки</span> -->
-                                                        </div>
-                                                        <div class="checkout-block__field">
-                                                            <label class="visually-hidden" for="recipient_name">Введите ваше имя</label>
-                                                            <input type="text" id="recipient_name" name="recipient_name" placeholder="Ваше Имя" required />
-                                                            <!-- выводить, если есть ошибка  -->
-                                                            <!-- <span class="checkout-block__field-error">Текст ошибки</span> -->
-                                                        </div>
-                                                        <div class="checkout-block__field checkout-block__field--phone">
-                                                            <label class="visually-hidden" for="phone_2">Выберите код страны и введите ваш номер телефона</label>
-                                                            <input data-phone id="phone_2" />
-                                                            <input type="hidden" class="phone-full" />
-                                                            <!-- выводить, если есть ошибка  -->
-                                                            <!-- <span class="checkout-block__field-error">Текст ошибки</span> -->
-                                                        </div>
-                                                    </div>
-                                                    <div class="checkout-block__checkbox">
-                                                        <input type="checkbox" id="inform_recipient" name="inform_recipient" class="visually-hidden" />
-                                                        <label for="inform_recipient">Информировать получателя по СМС об изменении статуса заказа</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- если элемент допущен к активности, тогда к <div class="checkout-block"> добавляется класс checkout-block--active -->
-                                <div class="checkout-block checkout-block--active">
-                                    <div class="checkout-block__info">
-                                        <h2 class="checkout-block__info-title">Способ оплаты</h2>
-                                        <div class="checkout-block__info-description"><p>Введите ваши данные чтобы перейти к выбору способа оплаты</p></div>
-                                    </div>
-                                    <div class="checkout-block__hidden">
-                                        <div class="checkout-block__content">
-                                            <div class="checkout-block__content-grid">
-                                                <div class="checkout-block__payment checkout-block__radio">
-                                                    <input type="radio" id="checkout_payment_2" name="payment_method" class="visually-hidden" value="sbp" />
-                                                    <label for="checkout_payment_2">Система Быстрых&nbsp;Платежей&nbsp;(СБП)</label>
-                                                    <!-- выводить, если есть иконка  -->
-                                                    <div class="checkout-block__payment-icons">
-                                                        <img src="./images/main-payment-icon-2.svg" class="checkout-block__payment-icon-sbp" alt="Система быстрых платежей" width="48" height="24" loading="lazy" />
-                                                    </div>
-                                                </div>
-                                                <div class="checkout-block__payment checkout-block__radio">
-                                                    <input type="radio" id="checkout_payment_3" name="payment_method" class="visually-hidden" value="card_online" />
-                                                    <label for="checkout_payment_3">Онлайн оплата картой</label>
-                                                    <!-- выводить, если есть иконка  -->
-                                                    <div class="checkout-block__payment-icons checkout-block__payment-icons--card">
-                                                        <img src="./images/main-payment-icon-3.svg" class="checkout-block__payment-icon-mir" alt="Онлайн оплата картой" width="58" height="18" loading="lazy" />
-                                                        <img src="./images/main-payment-icon-4.svg" class="checkout-block__payment-icon-master" alt="Онлайн оплата картой" width="41" height="24" loading="lazy" />
-                                                        <img src="./images/main-payment-icon-5.svg" class="checkout-block__payment-icon-visa" alt="Онлайн оплата картой" width="56" height="17" loading="lazy" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="checkout-block__bonus">
-                                                <div class="checkout-block__bonus-checkbox">
-                                                    <input type="checkbox" id="checkout_payment_4" name="payment_method" class="visually-hidden" />
-                                                    <label for="checkout_payment_4">Оплатить бонусами</label>
-                                                </div>
-                                                <div class="checkout-block__bonus-toggle" hidden>
-                                                    <div class="checkout-block__content-grid">
-                                                        <div class="checkout-block__bonus-inner">
-                                                            <div class="checkout-block__bonus-icon">
-                                                                <img src="./images/bonus.svg" alt="Иконка бонусы" width="38" height="38" />
-                                                            </div>
-                                                            <div class="checkout-block__bonus-info">
-                                                                <div class="checkout-block__bonus-row">
-                                                                    <p class="checkout-block__bonus-title">На вашем счету:</p>
-                                                                    <span class="checkout-block__bonus-count">1 298 бонусов</span>
-                                                                </div>
-                                                                <div class="checkout-block__bonus-row">
-                                                                    <p class="checkout-block__bonus-title">Списать:</p>
-                                                                    <input id="bonus_amount" name="bonus_amount" type="number" value="1000" class="checkout-block__bonus-input" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- если элемент допущен к активности, тогда к <div class="checkout-block"> добавляется класс checkout-block--active -->
-                                <div class="checkout-block checkout-block--active">
-                                    <div class="checkout-block__info">
-                                        <h2 class="checkout-block__info-title">Комментарий к закзу</h2>
-                                        <div class="checkout-block__info-description"><p>Выберите способ оплаты чтобы перейти к вводу комментария</p></div>
-                                    </div>
-                                    <div class="checkout-block__hidden">
-                                        <div class="checkout-block__content">
-                                            <div class="checkout-block__field">
-                                                <textarea id="checkout_message" name="checkout_message" placeholder="Здесь вы можете указать необходимую информацию (не обязательно)"></textarea>
-                                            </div>
-                                            <div class="checkout-block__checkbox checkout-block__checkbox--custom">
-                                                <input type="checkbox" id="subscribe_news" name="subscribe_news" class="visually-hidden" />
-                                                <label for="subscribe_news">Подписаться на новости и скидки</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="submit" class="checkout-button base-button" disabled>Оформить заказ</button>
-                            <div class="checkout-policy">
-                                <p>Нажимая «Оформить заказ», вы соглашаетесь с <a href="./terms-and-conditions.html">условиями публичной оферты</a> и <a href="./policy.html">политикой конфиденциальности</a></p>
-                            </div>
-                        </div>
-
-                        <aside class="card card--checkout" aria-label="Ваш заказ">
-                            <div class="card-info">
-                                <h2 class="card-title">Ваш заказ</h2>
-                                <div class="mini-products">
-                                    <article class="mini-product">
-                                        <div class="mini-product__row">
-                                            <div class="mini-product__image">
-                                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="110" height="110" />
-                                            </div>
-                                            <div class="mini-product__info">
-                                                <h2 class="mini-product__title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </h2>
-                                                <ul class="mini-product__optionals">
-                                                    <li>Шоколад</li>
-                                                    <li>900 г</li>
-                                                </ul>
-                                            </div>
-                                            <button type="button" class="mini-product__remove">
-                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <g>
-                                                        <path d="M14.168 4.9974H18.3346V6.66406H16.668V17.4974C16.668 17.9576 16.2949 18.3307 15.8346 18.3307H4.16797C3.70774 18.3307 3.33464 17.9576 3.33464 17.4974V6.66406H1.66797V4.9974H5.83463V2.4974C5.83463 2.03716 6.20773 1.66406 6.66797 1.66406H13.3346C13.7949 1.66406 14.168 2.03716 14.168 2.4974V4.9974ZM15.0013 6.66406H5.0013V16.6641H15.0013V6.66406ZM11.1798 11.6638L12.653 13.137L11.4745 14.3155L10.0013 12.8423L8.52813 14.3155L7.34965 13.137L8.8228 11.6638L7.34965 10.1907L8.52813 9.01223L10.0013 10.4853L11.4745 9.01223L12.653 10.1907L11.1798 11.6638ZM7.5013 3.33073V4.9974H12.5013V3.33073H7.5013Z" fill="white" />
-                                                    </g>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <div class="mini-product__details">
-                                            <div class="mini-product__quantity">
-                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--minus" aria-label="Уменьшить количество" disabled=""></button>
-
-                                                <input type="number" class="mini-product__quantity-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" />
-
-                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--plus" aria-label="Увеличить количество"></button>
-                                            </div>
-
-                                            <div class="mini-product__pricing">
-                                                <div class="mini-product__prices">
-                                                    <p class="mini-product__price mini-product__price--new">5 990 ₽</p>
-                                                    <!-- если есть цена без скидки, то выводить  -->
-                                                    <p class="mini-product__price mini-product__price--old">6 490 ₽</p>
-                                                    <p class="mini-product__discount" aria-label="Скидка 10%">— 10%</p>
-                                                </div>
-                                                <div class="mini-product__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                    <article class="mini-product">
-                                        <div class="mini-product__row">
-                                            <div class="mini-product__image">
-                                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="110" height="110" />
-                                            </div>
-                                            <div class="mini-product__info">
-                                                <h2 class="mini-product__title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </h2>
-                                                <ul class="mini-product__optionals">
-                                                    <li>Шоколад</li>
-                                                    <li>900 г</li>
-                                                </ul>
-                                            </div>
-                                            <button type="button" class="mini-product__remove">
-                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <g>
-                                                        <path d="M14.168 4.9974H18.3346V6.66406H16.668V17.4974C16.668 17.9576 16.2949 18.3307 15.8346 18.3307H4.16797C3.70774 18.3307 3.33464 17.9576 3.33464 17.4974V6.66406H1.66797V4.9974H5.83463V2.4974C5.83463 2.03716 6.20773 1.66406 6.66797 1.66406H13.3346C13.7949 1.66406 14.168 2.03716 14.168 2.4974V4.9974ZM15.0013 6.66406H5.0013V16.6641H15.0013V6.66406ZM11.1798 11.6638L12.653 13.137L11.4745 14.3155L10.0013 12.8423L8.52813 14.3155L7.34965 13.137L8.8228 11.6638L7.34965 10.1907L8.52813 9.01223L10.0013 10.4853L11.4745 9.01223L12.653 10.1907L11.1798 11.6638ZM7.5013 3.33073V4.9974H12.5013V3.33073H7.5013Z" fill="white" />
-                                                    </g>
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <div class="mini-product__details">
-                                            <div class="mini-product__quantity">
-                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--minus" aria-label="Уменьшить количество" disabled=""></button>
-
-                                                <input type="number" class="mini-product__quantity-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" />
-
-                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--plus" aria-label="Увеличить количество"></button>
-                                            </div>
-
-                                            <div class="mini-product__pricing">
-                                                <div class="mini-product__prices">
-                                                    <p class="mini-product__price mini-product__price--new">5 990 ₽</p>
-                                                    <!-- если есть цена без скидки, то выводить  -->
-                                                    <p class="mini-product__price mini-product__price--old">6 490 ₽</p>
-                                                    <p class="mini-product__discount" aria-label="Скидка 10%">— 10%</p>
-                                                </div>
-                                                <div class="mini-product__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            </div>
-                            <div class="card-info">
-                                <div class="card-list">
-                                    <div class="card-list__item">
-                                        <span class="card-list__item-title">2 товара</span>
-                                        <p class="card-list__item-sum">12 480 ₽</p>
-                                    </div>
-                                    <div class="card-list__item card-list__item--discount">
-                                        <div class="discount-toggle">
-                                            <button type="button" class="discount-toggle__button" aria-expanded="false">Выгода</button>
-                                            <span class="discount-amount">- 500 ₽</span>
-                                        </div>
-
-                                        <div class="discount-details" hidden>
-                                            <ul class="discount-breakdown">
-                                                <li>
-                                                    <span class="discount-breakdown__title">Скидка по акции</span>
-                                                    <p class="discount-breakdown__subtitle">-500 ₽</p>
-                                                </li>
-                                                <li>
-                                                    <span class="discount-breakdown__title">Скидка по промокоду</span>
-                                                    <p class="discount-breakdown__subtitle">-500 ₽</p>
-                                                </li>
-                                                <li>
-                                                    <span class="discount-breakdown__title">Бонусами</span>
-                                                    <p class="discount-breakdown__subtitle">-1 000 ₽</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="result">
-                                    <span class="result__title">Итого</span>
-                                    <p class="result__sum">10 980 ₽</p>
-                                </div>
-                                <button type="submit" class="card-button base-button" disabled>Оформить заказ</button>
-                                <div class="card-policy">
-                                    <p>Нажимая «Оформить заказ», вы соглашаетесь с <a href="./terms-and-conditions.html">условиями публичной оферты</a> и <a href="./policy.html">политикой конфиденциальности</a></p>
+                                <div class="account-aside__bonus-info">
+                                    <h2 class="account-aside__bonus-title">На вашем счету:</h2>
+                                    <p class="account-aside__bonus-quantity">1 298 бонусов</p>
+                                    <a href="account-bonus.html" class="account-aside__bonus-link">Подробнее</a>
                                 </div>
                             </div>
                         </aside>
-                    </div>
-                </div>
-            </section>
+                        <div class="account-content">
+                            <div class="account-content__top">
+                                <h1 class="title-2 account-title">Просмотренные товары</h1>
+                            </div>
+                            <div class="account-content__block">
+                                <!-- выводить, если есть просмотренные товары  -->
+                                <div class="catalog-products">
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <span class="badge badge-hit" aria-label="Хит продаж">HIT</span>
+                                                <!-- выводить, если скидка  -->
+                                                <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            </div>
 
-            <!-- Ответы на часто задаваемые вопросы -->
-            <section class="section">
-                <div class="container">
-                    <div class="info">
-                        <h2 class="title-2">Ответы на часто задаваемые вопросы</h2>
-                    </div>
+                                            <div class="product-image">
+                                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
+                                            </div>
 
-                    <ul class="faqs-list faqs-list--grid">
-                        <li class="faq-item">
-                            <div class="faq-item__question">
-                                <button type="button" class="faq-item__button">Чем отличается буйволиный протеин от обычного?</button>
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                        <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                        <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                        <!-- и так по аналогии для остальных вариантов -->
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Карамельный латте</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                <li>1 Shaker Esclusivo B-Power</li>
+                                                <li>2 Bustine Gusto Cioccolato</li>
+                                                <li>2 Bustine Gusto Puro</li>
+                                            </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <span class="badge badge-hit" aria-label="Хит продаж">HIT</span>
+                                                <!-- выводить, если скидка  -->
+                                                <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-2.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                        <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                        <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                        <!-- и так по аналогии для остальных вариантов -->
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Шоколад</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                <li>1 Shaker Esclusivo B-Power</li>
+                                                <li>2 Bustine Gusto Cioccolato</li>
+                                                <li>2 Bustine Gusto Puro</li>
+                                            </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <!-- <span class="badge badge-hit" aria-label="Хит продаж">HIT</span> -->
+                                                <!-- выводить, если скидка  -->
+                                                <!-- <span class="badge badge-sale" aria-label="Скидка">SALE</span> -->
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-3.webp" alt="+80 High Protein con Stevia — БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                        <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                        <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                        <!-- и так по аналогии для остальных вариантов -->
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Ваниль</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">+80 High Protein con Stevia — БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                <li>1 Shaker Esclusivo B-Power</li>
+                                                <li>2 Bustine Gusto Cioccolato</li>
+                                                <li>2 Bustine Gusto Puro</li>
+                                            </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <!-- <span class="badge badge-hit" aria-label="Хит продаж">HIT</span> -->
+                                                <!-- выводить, если скидка  -->
+                                                <span class="badge badge-sale" aria-label="Скидка">SALE</span>
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-9.webp" alt="Box Promo Caffè +80 Buffalo Whey — протеиновые протеиновые батончики по 1 кг + омаджо 1 шейкер, 2 бустине чокколато и 2 порции пуро" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                        <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                        <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                        <!-- и так по аналогии для остальных вариантов -->
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Карамельный латте, Ваниль и Шоколад</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">Box Promo Caffè +80 Buffalo Whey — протеиновые протеиновые батончики по 1 кг + омаджо 1 шейкер, 2 бустине чокколато и 2 порции пуро</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <!-- <div class="product-option">
+                                                <p class="product-option__title">Вес/г</p>
+                                                <div class="product-option__list" role="group">
+                                                    <p class="visually-hidden">Выберите вес</p>
+                                                    <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                    <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                </div>
+                                            </div> -->
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span>
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <!-- <span class="badge badge-hit" aria-label="Хит продаж">HIT</span> -->
+                                                <!-- выводить, если скидка  -->
+                                                <span class="badge badge-sale" aria-label="Скидка">SALE</span>
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-10.webp" alt="Box Promo Caffè +80 Buffalo Whey — протеиновые протеиновые батончики по 1 кг + омаджо 1 шейкер, 2 бустине чокколато и 2 порции пуро" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                        <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                        <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                        <!-- и так по аналогии для остальных вариантов -->
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Карамельный латте, Ваниль и Шоколад</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">Box Promo Caffè +80 Buffalo Whey — протеиновые протеиновые батончики по 1 кг + омаджо 1 шейкер, 2 бустине чокколато и 2 порции пуро</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <!-- <div class="product-option">
+                                                <p class="product-option__title">Вес/г</p>
+                                                <div class="product-option__list" role="group">
+                                                    <p class="visually-hidden">Выберите вес</p>
+                                                    <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                    <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                </div>
+                                            </div> -->
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span>
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <!-- <div class="product-not-available">Нет в наличии</div> -->
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <!-- <span class="badge badge-hit" aria-label="Хит продаж">HIT</span> -->
+                                                <!-- выводить, если скидка  -->
+                                                <span class="badge badge-sale" aria-label="Скидка">SALE</span>
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-10.webp" alt="Box Promo Caffè +80 Buffalo Whey — протеиновые протеиновые батончики по 1 кг + омаджо 1 шейкер, 2 бустине чокколато и 2 порции пуро" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                        <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                        <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                        <!-- и так по аналогии для остальных вариантов -->
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Карамельный латте, Ваниль и Шоколад</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">Box Promo Caffè +80 Buffalo Whey — протеиновые протеиновые батончики по 1 кг + омаджо 1 шейкер, 2 бустине чокколато и 2 порции пуро</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <!-- <div class="product-option">
+                                                <p class="product-option__title">Вес/г</p>
+                                                <div class="product-option__list" role="group">
+                                                    <p class="visually-hidden">Выберите вес</p>
+                                                    <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                    <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                </div>
+                                            </div> -->
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <ul class="product-list">
+                                                    <li>1 Shaker Esclusivo B-Power</li>
+                                                    <li>2 Bustine Gusto Cioccolato</li>
+                                                    <li>2 Bustine Gusto Puro</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <p class="product-price product-price__old">6 490 ₽</p>
+                                                    <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span>
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                    <article class="product">
+                                        <!-- выводить, если товара нет в наличии, тогда применятся все стили для товара которого нет в наличии  -->
+                                        <div class="product-not-available">Нет в наличии</div>
+                                        <div class="product-info">
+                                            <!-- выводить, если есть бейджи  -->
+                                            <div class="product-badges">
+                                                <!-- выводить, если хит  -->
+                                                <!-- <span class="badge badge-hit" aria-label="Хит продаж">HIT</span> -->
+                                                <!-- выводить, если скидка  -->
+                                                <span class="badge badge-sale" aria-label="Скидка">SALE</span>
+                                            </div>
+
+                                            <div class="product-image">
+                                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
+                                            </div>
+
+                                            <div class="product-content">
+                                                <div class="product-top">
+                                                    <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                        <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                        <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                        <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                        <!-- и так по аналогии для остальных вариантов -->
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                        <span class="star" aria-hidden="true"></span>
+                                                    </div>
+                                                    <a href="./reviews.html" class="product-link">23 отзыва</a>
+                                                </div>
+
+                                                <div class="product-flavor">
+                                                    <p>Карамельный латте</p>
+                                                </div>
+
+                                                <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
+
+                                                <!-- выводить, если есть выбор граммовки  -->
+                                                <div class="product-option">
+                                                    <p class="product-option__title">Вес/г</p>
+                                                    <div class="product-option__list" role="group">
+                                                        <p class="visually-hidden">Выберите вес</p>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">750</button>
+                                                        <button type="button" class="product-option__button" aria-pressed="false">1 020</button>
+                                                    </div>
+                                                </div>
+                                                <!-- выводить, если этот товар - набор  -->
+                                                <!-- <ul class="product-list">
+                                                <li>1 Shaker Esclusivo B-Power</li>
+                                                <li>2 Bustine Gusto Cioccolato</li>
+                                                <li>2 Bustine Gusto Puro</li>
+                                            </ul> -->
+                                            </div>
+                                        </div>
+
+                                        <div class="product-bottom">
+                                            <div class="product-row">
+                                                <div class="product-prices">
+                                                    <p class="product-price product-price__new">5 990 ₽</p>
+                                                    <!-- выводить в случае, если товар со скидкой -->
+                                                    <!-- <p class="product-price product-price__old">6 490 ₽</p>
+                                                <span class="product-discount" aria-label="Скидка 10 процентов">— 10%</span> -->
+                                                </div>
+                                                <p class="product-bonus">+ 168 бонусов</p>
+                                            </div>
+
+                                            <button type="button" class="product-button base-button" data-open="modal-add-product"><span class="product-button__text">В корзину</span></button>
+                                        </div>
+                                    </article>
+                                </div>
+
+                                <!-- выводить, если нет просмотренных товаров -->
+                                <!-- <div class="account-appeal">
+                                    <div class="appeal">
+                                        <div class="appeal-content">
+                                            <h3 class="appeal-content__title">Вы ещё не просматривали товары</h3>
+                                            <div class="appeal-content__text">
+                                                <p>Здесь будут отображаться товары, которые вы смотрели ранее.</p>
+                                                <p>Это удобно — вы всегда сможете вернуться к интересным позициям.</p>
+                                            </div>
+                                            <a href="./catalog.html" class="appeal-content__button base-button">Перейти в каталог</a>
+                                        </div>
+                                    </div>
+                                </div> -->
                             </div>
-                            <div class="faq-item__answer" hidden>
-                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
-                            </div>
-                        </li>
-                        <li class="faq-item">
-                            <div class="faq-item__question">
-                                <button type="button" class="faq-item__button">
-                                    Содержится ли в продукте лактоза?<br />
-                                    Подойдёт ли он при непереносимости молока?
-                                </button>
-                            </div>
-                            <div class="faq-item__answer" hidden>
-                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
-                            </div>
-                        </li>
-                        <li class="faq-item">
-                            <div class="faq-item__question">
-                                <button type="button" class="faq-item__button">Как хранить продукт и каков срок годности?</button>
-                            </div>
-                            <div class="faq-item__answer" hidden>
-                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
-                            </div>
-                        </li>
-                        <li class="faq-item">
-                            <div class="faq-item__question">
-                                <button type="button" class="faq-item__button">Как можно проверить подлинность продукта?</button>
-                            </div>
-                            <div class="faq-item__answer" hidden>
-                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
-                            </div>
-                        </li>
-                        <li class="faq-item">
-                            <div class="faq-item__question">
-                                <button type="button" class="faq-item__button">В какие регионы вы доставляете?</button>
-                            </div>
-                            <div class="faq-item__answer" hidden>
-                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
-                            </div>
-                        </li>
-                        <li class="faq-item">
-                            <div class="faq-item__question">
-                                <button type="button" class="faq-item__button">Сколько времени занимает доставка?</button>
-                            </div>
-                            <div class="faq-item__answer" hidden>
-                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
-                            </div>
-                        </li>
-                        <li class="faq-item">
-                            <div class="faq-item__question">
-                                <button type="button" class="faq-item__button">Каковы варианты и стоимость доставки?</button>
-                            </div>
-                            <div class="faq-item__answer" hidden>
-                                <div class="faq-item__answer-text"><p>Продукт позиционируется как безлактозный (или с минимальным следовым содержанием лактозы в зависимости от партии и технологического процесса). Щадящая обработка и специфика буйволиного молока снижают риск пищевой непереносимости. Тем не менее, при тяжёлой лактозной непереносимости или аллергии на молочные белки мы рекомендуем проконсультироваться с врачом и, при необходимости, протестировать продукт в малой порции.</p></div>
-                            </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
@@ -1150,13 +1185,113 @@
             </div>
         </footer>
 
-        <!-- подключать только для этой страницы  -->
-        <script src="./js/intlTelInput.min.js"></script>
-        <script src="./js/cleave.min.js"></script>
-        <script src="./js/utils.js"></script>
-        <!-- !  -->
-
-        <script src="https://cdn.jsdelivr.net/npm/countries-states-cities-database@1.0.0/dist/index.min.js"></script>
+        <!-- модальное окно при клике на кнопку "в корзину" -->
+        <div class="modal modal-bg-close" id="modal-add-product" aria-hidden="true">
+            <div class="modal-inner">
+                <button type="button" role="dialog" aria-modal="true" class="modal-close" aria-label="Закрыть модальное окно"></button>
+                <div class="modal-content">
+                    <div class="modal-content__poduct">
+                        <h2 class="modal-title">Товар добавлен в корзину</h2>
+                        <article class="modal-product">
+                            <div class="modal-product__image">
+                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="116" height="116" loading="lazy" />
+                            </div>
+                            <div class="modal-product__content">
+                                <div class="modal-product__info">
+                                    <h4 class="modal-product__title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </h4>
+                                    <div class="modal-product__bottom">
+                                        <div class="modal-product__additional modal-product__flavor"><p>Шоколад</p></div>
+                                        <div class="modal-product__additional modal-product__option"><p>900 г</p></div>
+                                    </div>
+                                </div>
+                                <div class="modal-product__info">
+                                    <div class="modal-product__prices">
+                                        <p class="modal-product__price modal-product__price--new">5 990 ₽</p>
+                                        <!-- если есть старая цена, то выводить modal-product__price--old и modal-product__discount -->
+                                        <p class="modal-product__price modal-product__price--old">6 490 ₽</p>
+                                        <div class="modal-product__discount"><span class="modal-product__discount-badge">— 10%</span></div>
+                                    </div>
+                                    <div class="modal-product__bonus"><p>+ 168 бонусов</p></div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="modal-content__recommendation">
+                        <h3 class="modal-subtitle">Рекомендуем</h3>
+                        <div class="recommendation swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <article class="recommendation-product">
+                                        <div class="recommendation-product__info">
+                                            <div class="recommendation-product__image">
+                                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="156" height="120" loading="lazy" />
+                                            </div>
+                                            <div class="recommendation-product__flavor">
+                                                <p>Шоколад</p>
+                                            </div>
+                                            <a href="./product.html" class="recommendation-product__title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
+                                        </div>
+                                        <div class="recommendation-product__prices">
+                                            <p class="recommendation-product__price recommendation-product__price--new">5 990 ₽</p>
+                                            <!-- если есть старая цена, то выводить recommendation-product__price--old и modal-product__discount -->
+                                            <p class="recommendation-product__price recommendation-product__price--old">6 490 ₽</p>
+                                            <span class="recommendation-product__discount" aria-label="Скидка 10 процентов">— 10%</span>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="recommendation-product">
+                                        <div class="recommendation-product__info">
+                                            <div class="recommendation-product__image">
+                                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="156" height="120" loading="lazy" />
+                                            </div>
+                                            <div class="recommendation-product__flavor">
+                                                <p>Шоколад</p>
+                                            </div>
+                                            <a href="./product.html" class="recommendation-product__title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
+                                        </div>
+                                        <div class="recommendation-product__prices">
+                                            <p class="recommendation-product__price recommendation-product__price--new">5 990 ₽</p>
+                                            <!-- если есть старая цена, то выводить recommendation-product__price--old и modal-product__discount -->
+                                            <p class="recommendation-product__price recommendation-product__price--old">6 490 ₽</p>
+                                            <span class="recommendation-product__discount" aria-label="Скидка 10 процентов">— 10%</span>
+                                        </div>
+                                    </article>
+                                </div>
+                                <div class="swiper-slide">
+                                    <article class="recommendation-product">
+                                        <div class="recommendation-product__info">
+                                            <div class="recommendation-product__image">
+                                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="156" height="120" loading="lazy" />
+                                            </div>
+                                            <div class="recommendation-product__flavor">
+                                                <p>Шоколад</p>
+                                            </div>
+                                            <a href="./product.html" class="recommendation-product__title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
+                                        </div>
+                                        <div class="recommendation-product__prices">
+                                            <p class="recommendation-product__price recommendation-product__price--new">5 990 ₽</p>
+                                            <!-- если есть старая цена, то выводить recommendation-product__price--old и modal-product__discount -->
+                                            <p class="recommendation-product__price recommendation-product__price--old">6 490 ₽</p>
+                                            <span class="recommendation-product__discount" aria-label="Скидка 10 процентов">— 10%</span>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-fixed">
+                        <div class="modal-fixed__info">
+                            <p>В корзине <b>1 товар</b> на сумму <b>5 990 ₽</b></p>
+                        </div>
+                        <div class="modal-fixed__buttons">
+                            <button type="button" class="modal-fixed__button opacity-button" data-close-modal>Продолжить покупки</button>
+                            <a href="./cart.html" class="modal-fixed__button base-button">Перейти в корзину</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script src="./js/swiper-bundle.min.js"></script>
         <script src="./js/libphonenumber-js.min.js"></script>

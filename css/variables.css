@@ -14,6 +14,7 @@
     --gray-dark: #5a5a5a;
     --input-base: #f8f5f0;
     --modal-background: rgba(22, 22, 22, 0.4);
+    --green-base: #4fad50;
 }
 
 :root[data-theme='dark'] {
@@ -62,13 +63,19 @@
     --checkout-radio: #6e6e70;
     --checkout-checkbox: #6e6e70;
     --custom-border: #6e6e70;
-    --custom-background: #c6c5c5;
+    --custom-background: #fff;
     --comparison-border: rgba(255, 255, 255, 0.1);
     --comparison-background: #323232;
     --cart-count: #161616;
     --card-border: #4a4a4c;
     --section-background: linear-gradient(180deg, rgba(74, 74, 76, 0) 0%, #4a4a4c 100%);
     --black-white: #161616;
+    --background-plask: #323232;
+    --backgorund-hover: rgba(50, 50, 50, 0.4);
+    --delete-photo: #161616;
+    --toggle-content: #6e6e70;
+    --questions-section: rgba(255, 255, 255, 0.07);
+    --placeholder-bg: #6e6e70;
 }
 
 :root[data-theme='light'] {
@@ -117,11 +124,18 @@
     --checkout-radio: #e1dfda;
     --checkout-checkbox: #a6a6a6;
     --custom-border: #f7f7f7;
-    --custom-background: #fff;
+    --custom-background: #c6c5c5;
     --comparison-border: rgba(0, 12, 29, 0.15);
     --comparison-background: #f8f5f0;
     --cart-count: #ed0004;
     --card-border: #f0f0f0;
     --section-background: linear-gradient(180deg, rgba(248, 245, 240, 0) 0%, #f8f5f0 100%);
     --black-white: #fff;
+    --background-plask: #ece5d8;
+    --backgorund-hover: rgba(255, 255, 255, 0.4);
+    --checkbox-background: #c6c5c5;
+    --delete-photo: #c6c5c5;
+    --toggle-content: #fff;
+    --questions-section: #fbfaf7;
+    --placeholder-bg: #cfbe9f;
 }

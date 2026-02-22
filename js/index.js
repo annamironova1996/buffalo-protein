@@ -31,8 +31,12 @@ const updateAllToggleButtons = (theme) => {
             toggle.setAttribute('aria-pressed', 'false');
 
             const buttonText = toggle.querySelector('.header-theme__button-text');
+            const authButtonText = document.querySelector('.auth-theme__button-text');
             if (buttonText) {
                 buttonText.textContent = 'Dark';
+            }
+            if (authButtonText) {
+                authButtonText.textContent = 'Dark';
             }
         } else {
             toggle.setAttribute('data-theme', 'dark');
@@ -41,8 +45,12 @@ const updateAllToggleButtons = (theme) => {
             toggle.setAttribute('aria-pressed', 'true');
 
             const buttonText = toggle.querySelector('.header-theme__button-text');
+            const authButtonText = document.querySelector('.auth-theme__button-text');
             if (buttonText) {
                 buttonText.textContent = 'Light';
+            }
+            if (authButtonText) {
+                authButtonText.textContent = 'Light';
             }
         }
     });
@@ -323,6 +331,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!searchInput.contains(e.target) && !resultElement.contains(e.target)) {
                 resultElement.classList.remove('header-bottom__result--active');
                 updateInputWidth();
+                document.querySelector('.header-bottom__input').value = '';
             }
         });
     }
@@ -1901,6 +1910,36 @@ document.addEventListener('DOMContentLoaded', function () {
         if (e.target.closest('[data-open="modal-add-product"]')) {
             openModal('modal-add-product');
         }
+        if (e.target.closest('[data-open="modal-add-review"]')) {
+            if (e.target.closest('input')) {
+                setTimeout(() => {
+                    openModal('modal-add-review');
+
+                    const value = e.target.getAttribute('value');
+                    const modal = document.querySelector('.modal--add-review');
+                    const inputs = modal.querySelectorAll('.rating-star input');
+                    inputs.forEach((input) => {
+                        if (input.value === value) {
+                            input.checked = true;
+                        }
+                    });
+                }, 400);
+            } else {
+                openModal('modal-add-review');
+            }
+        }
+        if (e.target.closest('[data-open="modal-delete-review"]')) {
+            openModal('modal-delete-review');
+        }
+        if (e.target.closest('[data-open="modal-delete-question"]')) {
+            openModal('modal-delete-question');
+        }
+        if (e.target.closest('[data-open="modal-add-question"]')) {
+            openModal('modal-add-question');
+        }
+        if (e.target.closest('[data-open="auth-modal"]')) {
+            openModal('auth-modal');
+        }
 
         if (e.target.closest('.modal-close') || e.target.classList.contains('modal-bg-close') || e.target.closest('[data-close-modal]')) {
             closeModal();
@@ -2094,7 +2133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //Слайдер табов "описание, состав ..." на странице товара
 document.addEventListener('DOMContentLoaded', function () {
     let isMobile = window.innerWidth < 580;
-    let allowCentering = false; // 🔥 ключевой флаг
+    let allowCentering = false;
 
     const tabsContainer = document.querySelector('.product-item__tabs');
     if (!tabsContainer) return;
@@ -2106,7 +2145,6 @@ document.addEventListener('DOMContentLoaded', function () {
         touchStartPreventDefault: false,
         touchMoveStopPropagation: false,
 
-        // ❌ ВАЖНО: при старте центрирование ВЫКЛ
         centeredSlides: false,
         slideToClickedSlide: false,
         centeredSlidesBounds: false,
@@ -2319,27 +2357,37 @@ document.addEventListener('DOMContentLoaded', () => {
 //Слайдер блоков на странице корзины
 document.addEventListener('DOMContentLoaded', function () {
     let cartSwiper = null;
-    const cartBlocksElement = document.querySelector('.cart-blocks--mobile');
+    const cartBlocksElement = document.querySelector('.cart-blocks--slider');
+    const breakpoint = 1025;
 
     function initSwiper() {
-        if (window.innerWidth <= 1151) {
-            if (!cartSwiper && cartBlocksElement) {
-                cartSwiper = new Swiper('.cart-blocks--mobile', {
-                    slidesPerView: 'auto',
-                    loop: false,
-                    speed: 300,
-                    grabCursor: true,
-                });
-            }
-        } else {
-            destroySwiper();
-        }
-    }
-
-    function destroySwiper() {
         if (cartSwiper) {
             cartSwiper.destroy(true, true);
             cartSwiper = null;
+        }
+
+        if (window.innerWidth < breakpoint && cartBlocksElement) {
+            cartSwiper = new Swiper('.cart-blocks--slider', {
+                slidesPerView: 'auto',
+                loop: false,
+                speed: 300,
+            });
+        }
+    }
+
+    function handleResize() {
+        const shouldBeActive = window.innerWidth < breakpoint;
+        const isActive = cartSwiper !== null;
+
+        if (shouldBeActive && !isActive) {
+            initSwiper();
+        } else if (!shouldBeActive && isActive) {
+            cartSwiper.destroy(true, true);
+            cartSwiper = null;
+
+            if (cartBlocksElement) {
+                cartBlocksElement.classList.remove('swiper', 'swiper-initialized');
+            }
         }
     }
 
@@ -2348,7 +2396,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let resizeTimeout;
     window.addEventListener('resize', function () {
         clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(initSwiper, 150);
+        resizeTimeout = setTimeout(handleResize, 150);
     });
 });
 
@@ -2773,15 +2821,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const bonusBlocks = document.querySelectorAll('.checkout-block__bonus');
 
     bonusBlocks.forEach((bonusBlock) => {
-        const bonusRadio = bonusBlock.querySelector('.checkout-block__bonus-checkbox input[type="radio"]');
+        // Находим input (radio или checkbox)
+        const bonusInput = bonusBlock.querySelector('.checkout-block__bonus-checkbox input[type="radio"], .checkout-block__bonus-checkbox input[type="checkbox"]');
         const toggleBlock = bonusBlock.querySelector('.checkout-block__bonus-toggle');
 
-        if (!bonusRadio || !toggleBlock) return;
-
-        const radioName = bonusRadio.getAttribute('name');
-        if (!radioName) return;
-
-        const allRadiosInGroup = document.querySelectorAll(`input[type="radio"][name="${radioName}"]`);
+        if (!bonusInput || !toggleBlock) return;
 
         toggleBlock.style.transition = 'opacity 0.3s ease, max-height 0.3s ease';
         toggleBlock.style.overflow = 'hidden';
@@ -2818,7 +2862,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        if (bonusRadio.checked) {
+        // Инициализация начального состояния
+        if (bonusInput.checked) {
             showBonusBlock();
         } else {
             toggleBlock.hidden = true;
@@ -2826,14 +2871,13 @@ document.addEventListener('DOMContentLoaded', function () {
             toggleBlock.style.maxHeight = '0';
         }
 
-        allRadiosInGroup.forEach((radio) => {
-            radio.addEventListener('change', function () {
-                if (this === bonusRadio) {
-                    showBonusBlock();
-                } else {
-                    hideBonusBlock();
-                }
-            });
+        // Единый обработчик для обоих типов input
+        bonusInput.addEventListener('change', function () {
+            if (this.checked) {
+                showBonusBlock();
+            } else {
+                hideBonusBlock();
+            }
         });
     });
 });
@@ -3114,3 +3158,527 @@ function slideToggle(element, duration = 300) {
         }, duration);
     }
 }
+
+//копирование кода заказа
+document.addEventListener('DOMContentLoaded', function () {
+    const buttons = document.querySelectorAll('.order-code');
+    buttons.forEach((button) => {
+        button.addEventListener('click', async function () {
+            try {
+                navigator.clipboard.writeText(button.textContent);
+                showNotification('copy');
+            } catch (e) {}
+        });
+    });
+});
+
+//Появление/скрытие нотификации
+function showNotification(attr) {
+    const notification = document.querySelector(`[data-notification="${attr}"]`);
+    if (notification) {
+        notification.classList.add('notification--active');
+        setTimeout(() => {
+            notification.classList.remove('notification--active');
+        }, 4000);
+    }
+}
+
+// Табы на странице аккаунта - бонусы
+document.addEventListener('DOMContentLoaded', function () {
+    const accountTabs = document.querySelector('.account-tabs');
+    if (accountTabs) {
+        accountTabs.addEventListener('click', function (e) {
+            const target = e.target;
+            const tabContentId = target.getAttribute('data-account-tab');
+            const tabContenElement = document.querySelector(`[data-account-content="${tabContentId}"]`);
+            if (tabContenElement) {
+                const accountTabs = document.querySelectorAll('.account-tab');
+                accountTabs.forEach((el) => {
+                    el.classList.remove('account-tab--active');
+                });
+                target.classList.add('account-tab--active');
+                const tabContens = document.querySelectorAll('.account-tabs__content');
+                tabContens.forEach((el) => {
+                    el.hidden = true;
+                    el.classList.remove('account-tabs__content--active');
+                });
+                tabContenElement.hidden = false;
+                tabContenElement.classList.add('account-tabs__content--active');
+            }
+        });
+    }
+});
+
+// слайдер на странице аккаунта
+document.addEventListener('DOMContentLoaded', function () {
+    const salesSlider = new Swiper('.sales-slider .swiper', {
+        slidesPerView: 'auto',
+        spaceBetween: 12,
+
+        navigation: {
+            nextEl: '.sales-slider__button-next',
+            prevEl: '.sales-slider__button-prev',
+        },
+
+        breakpoints: {
+            1571: {
+                slidesPerView: 3,
+                spaceBetween: 18,
+            },
+        },
+
+        speed: 300,
+    });
+});
+
+// копирование промокда при клике на кнопку "скопировать"
+document.addEventListener('DOMContentLoaded', function () {
+    const accountPromotionals = document.querySelector('.account-promotionals');
+    if (accountPromotionals) {
+        accountPromotionals.addEventListener('click', function (e) {
+            const target = e.target;
+            const clipboardText = target.getAttribute('data-clipboard-text');
+            if (clipboardText) {
+                navigator.clipboard.writeText(clipboardText);
+                showNotification('copy');
+            }
+        });
+    }
+});
+
+// дата рождения
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-validate="date"]').forEach((el) => {
+        let isDeleting = false;
+
+        el.addEventListener('keydown', function (e) {
+            if (e.key === 'Backspace' || e.key === 'Delete') {
+                isDeleting = true;
+            }
+        });
+
+        el.addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            let day = '';
+            let month = '';
+            let year = '';
+
+            if (isDeleting) {
+                if (value.length >= 2) {
+                    day = value.slice(0, 2);
+                    if (value.length >= 4) {
+                        month = value.slice(2, 4);
+                        if (value.length >= 6) {
+                            year = value.slice(4, 8);
+                        }
+                    }
+                }
+                isDeleting = false;
+            } else {
+                if (value.length > 0) {
+                    day = value.slice(0, 2);
+                    if (parseInt(day) > 31) day = '31';
+
+                    if (value.length >= 2) {
+                        month = value.slice(2, 4);
+                        if (parseInt(month) > 12) month = '12';
+                    }
+
+                    if (value.length >= 4) {
+                        year = value.slice(4, 8);
+
+                        if (year.length >= 3) {
+                            const currentYear = new Date().getFullYear();
+                            if (parseInt(year) > currentYear) {
+                                year = currentYear.toString();
+                            }
+                            if (parseInt(year) < currentYear - 100) {
+                                year = (currentYear - 100).toString();
+                            }
+                        }
+                    }
+                }
+            }
+
+            let formatted = '';
+            if (day) formatted += day;
+            if (month) formatted += '.' + month;
+            if (year) formatted += '.' + year;
+
+            e.target.value = formatted;
+        });
+    });
+});
+
+// добавление изображений в модальном окне отзыва
+document.addEventListener('DOMContentLoaded', function () {
+    const modalPhotos = document.querySelector('.modal-photos');
+    if (!modalPhotos) return;
+
+    const fileInput = modalPhotos.querySelector('input[type="file"]');
+    const swiperWrapper = document.querySelector('.photo-swiper .swiper-wrapper');
+
+    const MAX_FILES = 7;
+    let selectedFiles = [];
+    let existingFiles = [];
+    let photoSwiper = null;
+
+    function initPhotoSwiper() {
+        if (photoSwiper) {
+            photoSwiper.destroy(true, true);
+        }
+
+        photoSwiper = new Swiper('.photo-swiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 8,
+            freeMode: true,
+            speed: 500,
+        });
+    }
+
+    function collectExistingFiles() {
+        const existingSlides = swiperWrapper.querySelectorAll('.swiper-slide');
+        existingFiles = [];
+
+        existingSlides.forEach((slide) => {
+            const removeBtn = slide.querySelector('.remove-btn');
+            if (removeBtn) {
+                const filename = removeBtn.dataset.filename;
+                if (filename) {
+                    existingFiles.push(filename);
+                }
+            }
+        });
+    }
+
+    function initExistingRemoveButtons() {
+        const removeButtons = document.querySelectorAll('.modal-photo-item .remove-btn');
+
+        removeButtons.forEach((btn) => {
+            btn.removeEventListener('click', handleRemoveClick);
+
+            btn.addEventListener('click', handleRemoveClick);
+        });
+    }
+
+    function handleRemoveClick(e) {
+        e.stopPropagation();
+        const btn = e.currentTarget;
+        const slide = btn.closest('.swiper-slide');
+        const filename = btn.dataset.filename;
+
+        if (slide && filename) {
+            removeExistingFile(filename, slide);
+        }
+    }
+
+    function removeExistingFile(filename, slide) {
+        slide.remove();
+
+        existingFiles = existingFiles.filter((f) => f !== filename);
+
+        updateDeletedFilesAttribute(filename);
+
+        if (photoSwiper) {
+            photoSwiper.update();
+        }
+    }
+
+    function updateDeletedFilesAttribute(filename) {
+        const deletedInput = document.querySelector('.deleted-files-input');
+        if (deletedInput) {
+            let deletedFiles = deletedInput.value ? JSON.parse(deletedInput.value) : [];
+            deletedFiles.push(filename);
+            deletedInput.value = JSON.stringify(deletedFiles);
+        }
+    }
+
+    function handleNewFiles(newFiles) {
+        if (selectedFiles.length + existingFiles.length + newFiles.length > MAX_FILES) {
+            showNotification('limit');
+            return;
+        }
+
+        newFiles.forEach((file) => {
+            if (file.type.startsWith('image/')) {
+                selectedFiles.push(file);
+                displayPreviewWithLoader(file);
+            }
+        });
+
+        updateFileInput();
+    }
+
+    function updateFileInput() {
+        const dataTransfer = new DataTransfer();
+        selectedFiles.forEach((file) => {
+            dataTransfer.items.add(file);
+        });
+        fileInput.files = dataTransfer.files;
+    }
+
+    function displayPreviewWithLoader(file) {
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+
+        const photoItem = document.createElement('div');
+        photoItem.className = 'modal-photo-item loading';
+
+        photoItem.innerHTML = `
+            <img src="" alt="${file.name}">
+            <div class="photo-loader">
+                <div class="loader-spinner"></div>
+                <button type="button" class="remove-btn-loader" data-filename="${file.name}" aria-label="Удалить фотографию ${file.name}"></button>
+            </div>
+        `;
+
+        slide.appendChild(photoItem);
+        swiperWrapper.appendChild(slide);
+
+        if (photoSwiper) {
+            photoSwiper.update();
+        }
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const img = photoItem.querySelector('img');
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+
+        const removeBtnLoader = photoItem.querySelector('.remove-btn-loader');
+        removeBtnLoader.addEventListener('click', function (e) {
+            e.stopPropagation();
+            removeNewFile(file, slide);
+        });
+
+        simulateLoaderRemoval(file, photoItem, slide);
+    }
+
+    function simulateLoaderRemoval(file, photoItem, slide) {
+        setTimeout(() => {
+            if (slide && slide.parentNode) {
+                photoItem.classList.remove('loading');
+
+                const loader = photoItem.querySelector('.photo-loader');
+                if (loader) {
+                    loader.remove();
+                }
+
+                const removeBtn = document.createElement('button');
+                removeBtn.type = 'button';
+                removeBtn.className = 'remove-btn';
+                removeBtn.setAttribute('data-filename', file.name);
+                removeBtn.setAttribute('aria-label', `Удалить фотографию ${file.name}`);
+
+                removeBtn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    removeNewFile(file, slide);
+                });
+
+                photoItem.appendChild(removeBtn);
+
+                if (photoSwiper) {
+                    photoSwiper.update();
+                }
+            }
+        }, 2000);
+    }
+
+    function removeNewFile(file, slide) {
+        selectedFiles = selectedFiles.filter((f) => f.name !== file.name);
+        slide.remove();
+        updateFileInput();
+
+        if (photoSwiper) {
+            photoSwiper.update();
+        }
+    }
+
+    collectExistingFiles();
+    initPhotoSwiper();
+    initExistingRemoveButtons();
+
+    modalPhotos.addEventListener('click', () => {
+        fileInput.click();
+    });
+
+    fileInput.addEventListener('change', (e) => {
+        const newFiles = Array.from(e.target.files);
+        handleNewFiles(newFiles);
+
+        fileInput.value = '';
+    });
+
+    const observer = new MutationObserver(() => {
+        initExistingRemoveButtons();
+    });
+
+    observer.observe(swiperWrapper, {
+        childList: true,
+        subtree: true,
+    });
+});
+
+// слайдер в мод окне "Спасибо, что поделились впечатлением!"
+document.addEventListener('DOMContentLoaded', function () {
+    const othersSwiper = new Swiper('.others', {
+        slidesPerView: 'auto',
+    });
+});
+
+// кнопки редактировать отзыв/вопрос и удалить на странице аккаунта "отзывы и вопросы"
+document.addEventListener('DOMContentLoaded', function () {
+    const accountContentBlock = document.querySelector('.account-content__block');
+    if (!accountContentBlock) return;
+
+    accountContentBlock.addEventListener('click', function (e) {
+        const target = e.target;
+        if (target.closest('.account-block__toggle-button')) {
+            const parent = target.closest('.account-block');
+            if (!parent) return;
+            const content = parent.querySelector('.account-block__toggle-content');
+            if (!content.classList.contains('account-block__toggle-content--active')) {
+                allToggleClose();
+                target.classList.add('account-block__toggle-button--active');
+                content.classList.add('account-block__toggle-content--active');
+            } else {
+                allToggleClose();
+            }
+        }
+    });
+
+    document.addEventListener('click', function (e) {
+        const target = e.target;
+        if (!target.closest('.account-block__buttons')) {
+            allToggleClose();
+        }
+    });
+
+    function allToggleClose() {
+        const activeContents = document.querySelectorAll('.account-block__toggle-content--active');
+        const activeButtons = document.querySelectorAll('.account-block__toggle-button--active');
+
+        activeContents.forEach((content) => {
+            content.classList.remove('account-block__toggle-content--active');
+        });
+        activeButtons.forEach((button) => {
+            button.classList.remove('account-block__toggle-button--active');
+        });
+    }
+});
+
+// переворот модального окна авторизации
+document.addEventListener('DOMContentLoaded', function () {
+    const card = document.getElementById('flip-contents');
+    const flipButtons = document.querySelectorAll('.flip-btn');
+    if (!flipButtons) return;
+    flipButtons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            const direction = button.dataset.flip;
+
+            if (direction === 'auth-code') {
+                card.classList.add('flipped');
+            } else {
+                card.classList.remove('flipped');
+            }
+        });
+    });
+});
+
+// 4 инпута (код) в модальном окне авторищации
+document.addEventListener('DOMContentLoaded', function () {
+    const inputs = document.querySelectorAll('.auth-form__inputs input');
+    if (!inputs) return;
+    inputs.forEach((input, index) => {
+        input.addEventListener('input', (e) => {
+            if (e.target.value.length > 1) {
+                e.target.value = e.target.value.slice(-1);
+            }
+
+            if (e.target.value.length === 1 && index < inputs.length - 1) {
+                inputs[index + 1].focus();
+            }
+        });
+
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                inputs[index - 1].focus();
+            }
+        });
+
+        input.addEventListener('keypress', (e) => {
+            if (!/\d/.test(e.key)) {
+                e.preventDefault();
+            }
+        });
+    });
+});
+
+// иммитация отправки номера телефона на странице authorization
+document.addEventListener('DOMContentLoaded', function () {
+    const elements = document.querySelectorAll('[data-auth]');
+    const phoneForm = document.querySelector('.auth-form--phone');
+    const codeForm = document.querySelector('.auth-form--code');
+
+    if (!elements) return;
+    elements.forEach((element) => {
+        element.addEventListener('click', function () {
+            const attr = element.getAttribute('data-auth');
+            if (!attr && !phoneForm && !codeForm) return;
+            if (attr === 'code') {
+                phoneForm.style.display = 'none';
+                codeForm.style.display = 'block';
+            }
+            if (attr === 'phone') {
+                phoneForm.style.display = 'block';
+                codeForm.style.display = 'none';
+            }
+        });
+    });
+});
+
+// открытие/закрытие мини-аккаунта при наведении на кнопку "личный кабинет"
+document.addEventListener('DOMContentLoaded', function () {
+    const miniAccount = document.querySelector('.header-top__mini-account');
+    const accountPopup = document.querySelector('.header-top__account');
+
+    if (!miniAccount && !accountPopup) return;
+    miniAccount.addEventListener('mouseenter', function () {
+        accountPopup.classList.add('is-visible');
+        accountPopup.hidden = false;
+    });
+    miniAccount.addEventListener('mouseleave', function () {
+        accountPopup.classList.remove('is-visible');
+        accountPopup.hidden = true;
+    });
+});
+
+// плавный спуск по якорю на старнице товара
+document.addEventListener('DOMContentLoaded', function () {
+    const scrollLinks = document.querySelectorAll('.product-item__faqs-link, .product-item__rating-link');
+
+    scrollLinks.forEach((link) => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            const header = document.querySelector('.header');
+            const headerHeight = header ? header.offsetHeight : 0;
+
+            if (targetElement) {
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth',
+                });
+            }
+        });
+    });
+});

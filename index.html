@@ -41,7 +41,7 @@
                         </button>
                         <a href="./index.html" class="header-logo" aria-label="На главную страницу">
                             <!-- изображение для темной и светлой версии  -->
-                            <img src="./images/dark-logo.svg" data-theme-image='{"dark": "./images/dark-logo.svg", "light": "./images/light-logo.svg"}' alt="BUFFALO PROTEIN" width="188" height="68" />
+                            <img src="./images/dark-logo.svg" data-theme-image='{"dark": "./images/dark-logo.svg", "light": "./images/light-logo.svg"}' alt="BUFFALO PROTEIN" width="200" height="68" />
                         </a>
                     </div>
                     <div class="header-top__right">
@@ -87,10 +87,10 @@
                                                     <article class="mini-product">
                                                         <div class="mini-product__row">
                                                             <div class="mini-product__image">
-                                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="110" height="110" />
+                                                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="110" height="110" />
                                                             </div>
                                                             <div class="mini-product__info">
-                                                                <h2 class="mini-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</h2>
+                                                                <h2 class="mini-product__title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</h2>
                                                                 <ul class="mini-product__optionals">
                                                                     <li>Шоколад</li>
                                                                     <li>900 г</li>
@@ -127,10 +127,10 @@
                                                     <article class="mini-product">
                                                         <div class="mini-product__row">
                                                             <div class="mini-product__image">
-                                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="110" height="110" />
+                                                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="110" height="110" />
                                                             </div>
                                                             <div class="mini-product__info">
-                                                                <h2 class="mini-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</h2>
+                                                                <h2 class="mini-product__title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</h2>
                                                                 <ul class="mini-product__optionals">
                                                                     <li>Шоколад</li>
                                                                     <li>900 г</li>
@@ -206,12 +206,67 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="./account.html" class="button main-button header-top__button-account">
-                                <!-- выводить, если пользователь не авторизован  -->
-                                <span class="button-text">Войти</span>
-                                <!-- выводить, если пользователь авторизован  -->
-                                <!-- <span class="button-text">Личный кабинет</span> -->
+                            <!-- выводить, если пользователь не авторизован -->
+                            <!-- (комп версия)  -->
+                            <!-- <button class="button main-button header-top__button-account header-top__button-account--desktop" data-open="auth-modal">
+                                    <span class="button-text">Войти</span>
+                                </button> -->
+                            <!-- (моб версия)  -->
+                            <!-- <a href="authorization.html" class="button main-button header-top__button-account header-top__button-account--mobile">
+                                    <span class="button-text">Войти</span>
+                                </a> -->
+                            <!-- ! -->
+
+                            <!-- выводить, если пользователь авторизован  -->
+                            <!-- (комп версия)  -->
+                            <div class="header-top__mini-account">
+                                <a href="account-orders.html" class="button main-button header-top__button-account header-top__button-account--desktop">
+                                    <span class="button-text">Личный кабинет</span>
+                                </a>
+                                <div class="header-top__account" hidden>
+                                    <div class="mini-account" aria-label="Мини аккаунт">
+                                        <div class="card-account">
+                                            <div class="card-account__person">
+                                                <div class="card-account__placeholder">
+                                                    <p>ИФ</p>
+                                                </div>
+                                                <div class="card-account__info">
+                                                    <p class="card-account__info-title">Имя Фамилия</p>
+                                                    <p class="card-account__info-phone">+7 (987)-654-32-10</p>
+                                                </div>
+                                            </div>
+                                            <div class="card-account__bonus">
+                                                <div class="account-aside__bonus-image">
+                                                    <img src="./images/bonus.svg" alt="Иконка бонусы" width="38" height="38" />
+                                                </div>
+                                                <div class="account-aside__bonus-info">
+                                                    <h2 class="account-aside__bonus-title">На вашем счету:</h2>
+                                                    <p class="account-aside__bonus-quantity">1 298 бонусов</p>
+                                                    <a href="account-bonus.html" class="account-aside__bonus-link">Подробнее</a>
+                                                </div>
+                                            </div>
+                                            <nav class="card-account__nav">
+                                                <ul>
+                                                    <li><a href="account-orders.html">Мои заказы</a></li>
+                                                    <li><a href="account-bonus.html">Бонусный счёт</a></li>
+                                                    <li><a href="account-promotional.html">Промокоды</a></li>
+                                                    <li><a href="account-check.html">Электронные чеки</a></li>
+                                                    <li><a href="account-reviews.html">Отзывы и Вопросы</a></li>
+                                                    <li><a href="account-viewed.html">Просмотренное</a></li>
+                                                    <li><a href="account-personal.html">Личные данные</a></li>
+                                                    <li><a href="account-notification.html">Настройки уведомлений</a></li>
+                                                </ul>
+                                            </nav>
+                                            <a href="#!" class="card-account__logout">Выйти</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- (моб версия)  -->
+                            <a href="account.html" class="button main-button header-top__button-account header-top__button-account--mobile">
+                                <span class="button-text">Личный кабинет</span>
                             </a>
+                            <!-- ! -->
                         </div>
                     </div>
                 </div>
@@ -281,11 +336,11 @@
                                 <div class="header-bottom__result-products">
                                     <article class="result-product">
                                         <a href="./product.html" class="result-product__image">
-                                            <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="100" height="100" loading="lazy" />
+                                            <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="100" height="100" loading="lazy" />
                                         </a>
                                         <div class="result-product__info">
                                             <p class="result-product__additional">Шоколад</p>
-                                            <a href="./product.html" class="result-product__title"> Buffalo Whey Gusto Cioccolato — Proteine in Polvere </a>
+                                            <a href="./product.html" class="result-product__title"> БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
                                             <div class="result-product__row">
                                                 <div class="result-product__prices">
                                                     <p class="result-product__price result-product__price--new">
@@ -308,11 +363,11 @@
                                     </article>
                                     <article class="result-product">
                                         <a href="./product.html" class="result-product__image">
-                                            <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="100" height="100" loading="lazy" />
+                                            <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="100" height="100" loading="lazy" />
                                         </a>
                                         <div class="result-product__info">
                                             <p class="result-product__additional">Ваниль</p>
-                                            <a href="./product.html" class="result-product__title"> Buffalo Whey Gusto Cioccolato — Proteine in Polvere </a>
+                                            <a href="./product.html" class="result-product__title"> БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
                                             <div class="result-product__row">
                                                 <div class="result-product__prices">
                                                     <p class="result-product__price result-product__price--new">
@@ -335,11 +390,11 @@
                                     </article>
                                     <article class="result-product">
                                         <a href="./product.html" class="result-product__image">
-                                            <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="100" height="100" loading="lazy" />
+                                            <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="100" height="100" loading="lazy" />
                                         </a>
                                         <div class="result-product__info">
                                             <p class="result-product__additional">Карамельный латте</p>
-                                            <a href="./product.html" class="result-product__title"> Buffalo Whey Gusto Cioccolato — Proteine in Polvere </a>
+                                            <a href="./product.html" class="result-product__title"> БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
                                             <div class="result-product__row">
                                                 <div class="result-product__prices">
                                                     <p class="result-product__price result-product__price--new">
@@ -473,8 +528,8 @@
                 <div class="container">
                     <div class="banner-content" style="background-image: url('./video/video-1.gif')">
                         <div class="banner-content__top">
-                            <h1 class="banner-content__title title-1">Уникальный протеин из молока буйволицы — B•POWER</h1>
-                            <p class="banner-content__text">Без лактозы, без ГМО, с повышенным содержанием лактоферрина.<br />Протеин, который не найти в других магазинах.</p>
+                            <h1 class="banner-content__title title-1">B•POWER — Уникальный протеин из молока буйволиц</h1>
+                            <p class="banner-content__text">Без ароматизаторов. Без ГМО. С повышенным содержанием лактоферрина.<br />Сывороточный протеин, который можно купить только у нас.</p>
                         </div>
                         <a href="./catalog.html" class="banner-content__btn button main-button" aria-label="Перейти в каталог продукции B•POWER">Перейти в каталог</a>
                     </div>
@@ -488,7 +543,7 @@
                             <h2 class="info-column__title" data-scroll-title>Почему B•POWER</h2>
                             <p class="info-column__subtitle" data-scroll-trigger>Протеин, созданный природой. Совершенствованный наукой.</p>
                         </div>
-                        <div class="info-description"><p>B•POWER — единственный в России протеин на основе буйволиного молока, произведённый в Италии. Это премиальный продукт, разработанный для тех, кто выбирает не просто белок, а качество и пользу.</p></div>
+                        <div class="info-description"><p>B•POWER — единственный в России протеин на&nbsp;основе буйволиного молока, произведённый в Италии. Это премиальный продукт, разработанный для тех, кто выбирает не просто белок, а качество и пользу.</p></div>
                     </div>
                     <div class="blocks blocks-repeat" aria-label="Почему B•POWER">
                         <article class="block">
@@ -497,7 +552,7 @@
                             </div>
                             <div class="block-info">
                                 <h3 class="block-info__title title-3">Больше лактоферрина</h3>
-                                <div class="block-info__subtitle"><p>Содержит в 2 раза больше лактоферрина, чем обычный сывороточный протеин. Этот природный белок укрепляет иммунитет, поддерживает микрофлору кишечника и защищает организм от вирусов.</p></div>
+                                <div class="block-info__subtitle"><p>Содержит в 2 раза больше лактоферрина, чем обычный сывороточный протеин. Этот&nbsp;природный белок укрепляет иммунитет, поддерживает микрофлору кишечника и защищает организм от&nbsp;вирусов.</p></div>
                             </div>
                         </article>
                         <article class="block block--accent">
@@ -506,7 +561,7 @@
                             </div>
                             <div class="block-info">
                                 <h3 class="block-info__title title-3">Меньше аллергенов</h3>
-                                <div class="block-info__subtitle"><p>Количество бета-лактоглобулина снижено в 3 раза — это главный аллерген коровьего молока. Благодаря этому B•POWER подходит людям с чувствительным пищеварением и непереносимостью белка.</p></div>
+                                <div class="block-info__subtitle"><p>Количество бета-лактоглобулина снижено в&nbsp;3 раза — это главный аллерген коровьего молока. Благодаря этому B•POWER подходит людям с чувствительным пищеварением и&nbsp;непереносимостью белка.</p></div>
                             </div>
                         </article>
                         <article class="block">
@@ -515,7 +570,7 @@
                             </div>
                             <div class="block-info">
                                 <h3 class="block-info__title title-3">Аминокислотный баланс</h3>
-                                <div class="block-info__subtitle"><p>Оптимальный профиль BCAA и глутамина поддерживает рост и восстановление мышц, обеспечивая стабильную энергию и быстрое восстановление после тренировок.</p></div>
+                                <div class="block-info__subtitle"><p>Оптимальный профиль BCAA и глутамина поддерживает рост и&nbsp;восстановление мышц, обеспечивая стабильную энергию и&nbsp;быстрое восстановление после тренировок.</p></div>
                             </div>
                         </article>
                         <article class="block">
@@ -533,7 +588,7 @@
                             </div>
                             <div class="block-info">
                                 <h3 class="block-info__title title-3">Итальянское качество</h3>
-                                <div class="block-info__subtitle"><p>Производится в Италии по щадящей технологии ультрафильтрации,которая сохраняет природную структуру белков и все биоактивные компоненты молока.</p></div>
+                                <div class="block-info__subtitle"><p>Производится в Италии по щадящей технологии ультрафильтрации, которая сохраняет природную структуру белков и все биоактивные компоненты молока.</p></div>
                             </div>
                         </article>
                         <article class="block block--accent">
@@ -573,9 +628,9 @@
                             <div class="swiper-slide">
                                 <button type="button" class="categories-tab">
                                     <div class="categories-tab__image">
-                                        <img src="./images/categories-5.webp" alt="Протеин Ванильный" width="44" height="44" />
+                                        <img src="./images/categories-5.webp" alt="Протеин Натуральный" width="44" height="44" />
                                     </div>
-                                    <span class="categories-tab__text">Ванильный</span>
+                                    <span class="categories-tab__text">Натуральный</span>
                                 </button>
                             </div>
 
@@ -591,9 +646,9 @@
                             <div class="swiper-slide">
                                 <button type="button" class="categories-tab">
                                     <div class="categories-tab__image">
-                                        <img src="./images/categories-7.webp" alt="Протеин Карамельный латте" width="44" height="44" />
+                                        <img src="./images/categories-7.webp" alt="Протеин Кофе" width="44" height="44" />
                                     </div>
-                                    <span class="categories-tab__text">Карамельный латте</span>
+                                    <span class="categories-tab__text">Кофе</span>
                                 </button>
                             </div>
 
@@ -626,12 +681,16 @@
                                                     <!-- </div> -->
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-5.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-5.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -645,7 +704,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -694,12 +753,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-2.webp" alt="+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-2.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -713,7 +776,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -762,12 +825,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-1.webp" alt="+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -781,7 +848,7 @@
                                                             <p>Карамельный латте</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -830,12 +897,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-4.webp" alt="+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-4.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -849,7 +920,7 @@
                                                             <p>Ваниль</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -898,12 +969,16 @@
                                                     <!-- </div> -->
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-5.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-5.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -917,7 +992,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -966,12 +1041,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-2.webp" alt="+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-2.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -985,7 +1064,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -1034,12 +1113,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-1.webp" alt="+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -1053,7 +1136,7 @@
                                                             <p>Карамельный латте</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -1102,12 +1185,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-4.webp" alt="+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-4.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -1121,7 +1208,7 @@
                                                             <p>Ваниль</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -1182,12 +1269,16 @@
                                                     <!-- </div> -->
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-5.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-5.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -1201,7 +1292,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -1250,12 +1341,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-2.webp" alt="+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-2.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -1269,7 +1364,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -1318,12 +1413,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-1.webp" alt="+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -1337,7 +1436,7 @@
                                                             <p>Карамельный латте</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -1386,12 +1485,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-4.webp" alt="+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-4.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -1405,7 +1508,7 @@
                                                             <p>Ваниль</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -1454,12 +1557,16 @@
                                                     <!-- </div> -->
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-5.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-5.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -1473,7 +1580,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -1522,12 +1629,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-2.webp" alt="+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-2.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -1541,7 +1652,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -1590,12 +1701,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-1.webp" alt="+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -1609,7 +1724,7 @@
                                                             <p>Карамельный латте</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -1658,12 +1773,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-4.webp" alt="+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-4.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -1677,7 +1796,7 @@
                                                             <p>Ваниль</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -1738,12 +1857,16 @@
                                                     <!-- </div> -->
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-5.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-5.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -1757,7 +1880,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -1806,12 +1929,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-2.webp" alt="+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-2.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -1825,7 +1952,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -1874,12 +2001,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-1.webp" alt="+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -1893,7 +2024,7 @@
                                                             <p>Карамельный латте</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -1942,12 +2073,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-4.webp" alt="+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-4.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -1961,7 +2096,7 @@
                                                             <p>Ваниль</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -2010,12 +2145,16 @@
                                                     <!-- </div> -->
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-5.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-5.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -2029,7 +2168,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -2078,12 +2217,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-2.webp" alt="+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-2.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -2097,7 +2240,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -2146,12 +2289,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-1.webp" alt="+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -2165,7 +2312,7 @@
                                                             <p>Карамельный латте</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -2214,12 +2361,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-4.webp" alt="+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-4.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -2233,7 +2384,7 @@
                                                             <p>Ваниль</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -2294,12 +2445,16 @@
                                                     <!-- </div> -->
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-5.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-5.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -2313,7 +2468,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -2362,12 +2517,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-2.webp" alt="+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-2.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -2381,7 +2540,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -2430,12 +2589,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-1.webp" alt="+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -2449,7 +2612,7 @@
                                                             <p>Карамельный латте</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -2498,12 +2661,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-4.webp" alt="+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-4.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -2517,7 +2684,7 @@
                                                             <p>Ваниль</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -2566,12 +2733,16 @@
                                                     <!-- </div> -->
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-5.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-5.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -2585,7 +2756,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -2634,12 +2805,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-2.webp" alt="+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-2.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -2653,7 +2828,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -2702,12 +2877,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-1.webp" alt="+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -2721,7 +2900,7 @@
                                                             <p>Карамельный латте</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -2770,12 +2949,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-4.webp" alt="+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-4.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -2789,7 +2972,7 @@
                                                             <p>Ваниль</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -2850,12 +3033,16 @@
                                                     <!-- </div> -->
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-5.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-5.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -2869,7 +3056,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -2918,12 +3105,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-2.webp" alt="+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-2.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -2937,7 +3128,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -2986,12 +3177,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-1.webp" alt="+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -3005,7 +3200,7 @@
                                                             <p>Карамельный латте</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -3054,12 +3249,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-4.webp" alt="+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-4.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -3073,7 +3272,7 @@
                                                             <p>Ваниль</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -3122,12 +3321,16 @@
                                                     <!-- </div> -->
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-5.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-5.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -3141,7 +3344,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -3190,12 +3393,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-2.webp" alt="+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-2.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -3209,7 +3416,7 @@
                                                             <p>Шоколад</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -3258,12 +3465,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-1.webp" alt="+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -3277,7 +3488,7 @@
                                                             <p>Карамельный латте</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -3326,12 +3537,16 @@
                                                     </div>
 
                                                     <div class="product-image">
-                                                        <img src="./images/product-4.webp" alt="+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere" width="410" height="348" />
+                                                        <img src="./images/product-4.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»" width="410" height="348" />
                                                     </div>
 
                                                     <div class="product-content">
                                                         <div class="product-top">
                                                             <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                                <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                                <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                                <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                                <!-- и так по аналогии для остальных вариантов -->
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
                                                                 <span class="star" aria-hidden="true"></span>
@@ -3345,7 +3560,7 @@
                                                             <p>Ваниль</p>
                                                         </div>
 
-                                                        <a href="./product.html" class="product-title">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a>
+                                                        <a href="./product.html" class="product-title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a>
 
                                                         <!-- выводить, если есть выбор граммовки  -->
                                                         <div class="product-option">
@@ -3398,8 +3613,8 @@
                         <div class="info-column">
                             <h2 class="info-column__title" data-scroll-title>Сравнение сывороточных протеинов</h2>
                             <p class="info-column__subtitle" data-scroll-trigger>
-                                ПРИ ВСЁМ БОГАТСТВЕ ВЫБОРА ПРОТЕИНОВ АЛЬТЕРНАТИВЫ <br />
-                                B-POWER НЕТ
+                                ПРИ ВСЁМ БОГАТСТВЕ ВЫБОРА ПРОТЕИНОВ<br />
+                                АЛЬТЕРНАТИВЫ B-POWER НЕТ
                             </p>
                         </div>
                     </div>
@@ -3587,14 +3802,17 @@
                 </div>
             </section>
             <!-- Система лояльности B•POWER -->
-            <section class="section">
+            <section class="section section--loyalty">
                 <div class="container">
                     <div class="info">
                         <div class="info-column">
                             <h2 class="info-column__title" data-scroll-title>Система лояльности B•POWER</h2>
-                            <p class="info-column__subtitle" data-scroll-trigger>Зарабатывай бонусы — покупай с выгодой</p>
+                            <p class="info-column__subtitle" data-scroll-trigger>
+                                Зарабатывай бонусы — <br />
+                                покупай с выгодой
+                            </p>
                         </div>
-                        <div class="info-description"><p>Мы ценим вашу лояльность. Каждый заказ с B•POWER — это не только премиальное качество, но и реальные привилегии.</p></div>
+                        <div class="info-description"><p>Мы ценим вашу лояльность. Каждый заказ с&nbsp;B•POWER — это не только премиальное качество, но и реальные привилегии.</p></div>
                     </div>
                     <div class="blocks blocks-column" aria-label="Система лояльности B•POWER">
                         <article class="block block--accent block--banner">
@@ -3632,7 +3850,11 @@
                     <div class="info">
                         <div class="info-column">
                             <h2 class="info-column__title" data-scroll-title>Происхождение имеет значение</h2>
-                            <p class="info-column__subtitle" data-scroll-trigger>ИСТОЧНИК СИЛЫ — ПРОТЕИН ИЗ&nbsp;МОЛОКА БУЙВОЛИЦ</p>
+                            <p class="info-column__subtitle" data-scroll-trigger>
+                                ИСТОЧНИК СИЛЫ —<br />
+                                СЫВОРОТОЧНЫЙ ПРОТЕИН<br />
+                                ИЗ МОЛОКА БУЙВОЛИЦ
+                            </p>
                         </div>
                     </div>
                     <div class="blocks-swiper swiper" aria-label="Происхождение B•POWER">
@@ -3642,7 +3864,7 @@
                                     <div class="block-info">
                                         <h3 class="block-info__title title-3">ЧИСТЫЙ ПРОТЕИН ИЗ&nbsp;МОЛОКА БУЙВОЛИЦ</h3>
                                         <div class="block-info__subtitle">
-                                            <p>BUFFALO WHEY производится из молока буйволиц средиземноморской породы, выращенных на неинтенсивных фермах в регионе D.O.P. Campana Buffalo Mozzarella — том самом, где&nbsp;рождается легендарная итальянская моцарелла. <br />Каждая порция протеина сохраняет природную ценность и богатый состав этого уникального молока.</p>
+                                            <p>B-POWER BUFFALO WHEY PROTEIN производится из молока буйволиц средиземноморской породы, выращенных на неинтенсивных фермах в регионе D.O.P. Campana Buffalo Mozzarella — том самом, где рождается легендарная итальянская моцарелла. Каждая порция протеина сохраняет природную ценность и богатый состав этого уникального молока.</p>
                                         </div>
                                     </div>
                                 </article>
@@ -3667,7 +3889,7 @@
                                             Сила традиций<br />
                                             и инноваций
                                         </h3>
-                                        <div class="block-info__subtitle"><p>BUFFALO WHEY объединяет итальянское молочное наследие&nbsp;и&nbsp;современные технологии фильтрации, которые позволяют сохранить вкус, аромат и питательные свойства буйволиного молока без потери качества.</p></div>
+                                        <div class="block-info__subtitle"><p>B-POWER BUFFALO WHEY PROTEIN объединяет итальянское молочное наследие и современные технологии фильтрации, которые позволяют сохранить вкус, аромат и питательные свойства буйволиного молока без потери качества.</p></div>
                                     </div>
                                 </article>
                             </div>
@@ -3682,7 +3904,10 @@
                         <div class="info">
                             <div class="info-column">
                                 <h2 class="info-column__title" data-scroll-title>Отзывы покупателей</h2>
-                                <p class="info-column__subtitle" data-scroll-trigger>Что говорят те, кто уже попробовал</p>
+                                <p class="info-column__subtitle" data-scroll-trigger>
+                                    Что говорят те, кто уже<br />
+                                    попробовал
+                                </p>
                             </div>
                         </div>
                         <div class="slider slider--review slider--avatar">
@@ -3695,6 +3920,10 @@
                                             </div>
                                             <div class="review-rating">
                                                 <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                    <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                    <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                    <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                    <!-- и так по аналогии для остальных вариантов -->
                                                     <i class="star"></i>
                                                     <i class="star"></i>
                                                     <i class="star"></i>
@@ -3764,6 +3993,10 @@
                                             </div>
                                             <div class="review-rating">
                                                 <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                    <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                    <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                    <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                    <!-- и так по аналогии для остальных вариантов -->
                                                     <i class="star"></i>
                                                     <i class="star"></i>
                                                     <i class="star"></i>
@@ -3833,6 +4066,10 @@
                                             </div>
                                             <div class="review-rating">
                                                 <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                    <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                    <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                    <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                    <!-- и так по аналогии для остальных вариантов -->
                                                     <i class="star"></i>
                                                     <i class="star"></i>
                                                     <i class="star"></i>
@@ -3863,6 +4100,10 @@
                                             </div>
                                             <div class="review-rating">
                                                 <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                    <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                    <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                    <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                    <!-- и так по аналогии для остальных вариантов -->
                                                     <i class="star"></i>
                                                     <i class="star"></i>
                                                     <i class="star"></i>
@@ -3932,6 +4173,10 @@
                                             </div>
                                             <div class="review-rating">
                                                 <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                    <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                    <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                    <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                    <!-- и так по аналогии для остальных вариантов -->
                                                     <i class="star"></i>
                                                     <i class="star"></i>
                                                     <i class="star"></i>
@@ -4001,6 +4246,10 @@
                                             </div>
                                             <div class="review-rating">
                                                 <div class="stars" aria-label="Рейтинг: 5 из 5 звёзд">
+                                                    <!-- если у товара 5 из 5 звезд, тогда все span c классом star  -->
+                                                    <!-- если у товара 4 из 5 звезд, тогда 4 первых span c классом star, а последняя с классом star star-empty  -->
+                                                    <!-- если у товара 3 из 5 звезд, тогда 3 первых span c классом star, а последние 2 с классом star star-empty  -->
+                                                    <!-- и так по аналогии для остальных вариантов -->
                                                     <i class="star"></i>
                                                     <i class="star"></i>
                                                     <i class="star"></i>
@@ -4039,7 +4288,7 @@
                         <div class="info">
                             <div class="info-column">
                                 <h2 class="info-column__title" data-scroll-title>Официальный дистрибьютор</h2>
-                                <p class="info-column__subtitle" data-scroll-trigger>ЭКСКЛЮЗИВНЫЙ ПОСТАВЩИК B‑POWER В&nbsp;РОССИЮ</p>
+                                <p class="info-column__subtitle" data-scroll-trigger>ЭКСКЛЮЗИВНЫЙ ПОСТАВЩИК <br />B‑POWER В РОССИЮ</p>
                             </div>
                         </div>
                         <div class="blocks blocks-column blocks-info" aria-label="Официальный дистрибьютор B•POWER">
@@ -4049,7 +4298,7 @@
                                         <h3 class="block-info__title title-3">ПОКУПАЯ У НАС ВЫ ПОЛУЧАЕТЕ ГАРАНТИРОВАНО КАЧЕСТВЕННЫЙ ОРИГИНАЛЬНЫЙ ПРОДУКТ</h3>
                                         <div class="block-info__subtitle"><p>Мы — единственные, кто имеет прямой контракт с итальянским производителем B•POWER. Вся продукция поставляется напрямую с завода, с оригинальной маркировкой и QR-кодом подлинности.</p></div>
                                     </div>
-                                    <a href="#!" target="_blank" rel="noopener noreferrer" class="block-link button main-button" aria-label="Перейти на официальный сайт B•POWER (откроется в новой вкладке)">Проверить подлинность</a>
+                                    <a href="#!" target="_blank" rel="noopener noreferrer" class="block-link button base-button" aria-label="Перейти на официальный сайт B•POWER (откроется в новой вкладке)">Проверить подлинность</a>
                                 </div>
                             </article>
                             <article class="block block--accent block--info">
@@ -4062,7 +4311,7 @@
                                             <p>
                                                 B•POWER — итальянский бренд спортивного питания премиум-класса, <br />
                                                 Созданный на основе молока буйволиц D.O.P. Campana Buffalo. <br />
-                                                Компания сочетает традиции итальянского молочного производства и современные технологии фильтрации,создавая продукты, которые отличаются чистотой, безопасностью и высокой биодоступностью белка.
+                                                Компания сочетает традиции итальянского молочного производства и современные технологии фильтрации, создавая продукты, которые отличаются чистотой, безопасностью и высокой биодоступностью белка.
                                             </p>
                                         </div>
                                     </div>
@@ -4074,7 +4323,7 @@
                             <article class="block block--video block--info" data-bg="./video/video-2.gif">
                                 <div class="block-wrapper">
                                     <div class="block-info">
-                                        <h3 class="block-info__title title-3">Натуральный. Уникальный. Гипоаллергенный. Больше, чем протеин</h3>
+                                        <h3 class="block-info__title title-3">Натуральный. Уникальный. Гипоаллергенный. Больше чем протеин</h3>
                                         <div class="block-info__subtitle">
                                             <p>Забудь о тяжёлых, искусственных смесях. B•POWER — это новое поколение белка: чистый состав, европейское качество и максимум пользы. <br />Попробуй протеин, который меняет представление о спортивном питании.</p>
                                         </div>
@@ -4170,20 +4419,12 @@
             <div class="container">
                 <div class="footer-inner">
                     <div class="footer-left">
-                        <ul class="footer-logos">
-                            <li>
-                                <a href="./index.html" aria-label="На главную страницу">
-                                    <!-- изображение для темной и светлой версии  -->
-                                    <img src="./images/dark-logo.svg" data-theme-image='{"dark": "./images/dark-logo.svg", "light": "./images/light-logo.svg"}' alt="BUFFALO PROTEIN" width="189" height="68" loading="lazy" />
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#!" target="_blank" rel="noopener noreferrer">
-                                    <!-- изображение для темной и светлой версии  -->
-                                    <img src="./images/b-power-dark.svg" data-theme-image='{"dark": "./images/b-power-dark.svg", "light": "./images/b-power-light.svg"}' alt="B-POWER" width="189" height="68" loading="lazy" />
-                                </a>
-                            </li>
-                        </ul>
+                        <div class="footer-logo">
+                            <a href="./index.html" aria-label="На главную страницу">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/dark-logo.svg" data-theme-image='{"dark": "./images/dark-logo.svg", "light": "./images/light-logo.svg"}' alt="BUFFALO PROTEIN" width="200" height="68" loading="lazy" />
+                            </a>
+                        </div>
                         <div class="footer-info">
                             <ul class="footer-info__contacts">
                                 <li>
@@ -4211,39 +4452,75 @@
                             </div>
                         </div>
                         <div class="footer-additional">
-                            <p class="footer-additional__copy">©2012–2025, ООО «Название компании», ИНН/КПП 7810845678/781101001, ОГРН 1234567890</p>
-                            <a href="./policy.html" class="footer-additional__link">Политика конфиденциальности</a>
-                            <a href="./terms-and-conditions.html" class="footer-additional__link">Публичная оферта</a>
-                            <a href="#!" class="footer-additional__link">Политика обработки файлов cookie</a>
+                            <p class="footer-additional__copy">©2012–2025, ООО «Название компании», ИНН/КПП 7810845678/781101001, ОГРН&nbsp;1234567890</p>
+                            <nav class="footer-additional__nav">
+                                <ul>
+                                    <li><a href="#!">Политика обработки персональных данных</a></li>
+                                    <li><a href="#!">Правила обмена и возврата товара</a></li>
+                                    <li><a href="./policy.html">Политика конфиденциальности</a></li>
+                                    <li><a href="#!">Правила продажи/оплаты</a></li>
+                                    <li><a href="./terms-and-conditions.html">Публичная оферта интернет-магазина</a></li>
+                                    <li><a href="#!">Реквизиты продавца</a></li>
+                                    <li><a href="#!">Политика обработки файлов cookie</a></li>
+                                    <li><a href="#!">Правила доставки</a></li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                     <div class="footer-right">
-                        <nav class="footer-nav" aria-label="Навигация по сайту">
-                            <h3 class="footer-nav__title">Навигация</h3>
-                            <ul class="footer-nav__menu">
-                                <li><a href="./index.html">Главная</a></li>
-                                <li><a href="./about.html">О нас</a></li>
-                                <li><a href="./loyalty.html">Программа лояльности</a></li>
-                                <li><a href="./shipping-payment.html">Оплата и доставка</a></li>
-                                <li><a href="./faq.html">Вопрос-Ответ</a></li>
-                                <li><a href="./contacts.html">Контакты</a></li>
-                            </ul>
-                        </nav>
+                        <div class="footer-col">
+                            <nav class="footer-nav" aria-label="Навигация по сайту">
+                                <h3 class="footer-nav__title">Навигация</h3>
+                                <ul class="footer-nav__menu">
+                                    <li><a href="./index.html">Главная</a></li>
+                                    <li><a href="./about.html">О нас</a></li>
+                                    <li><a href="./loyalty.html">Программа лояльности</a></li>
+                                    <li><a href="./shipping-payment.html">Оплата и доставка</a></li>
+                                    <li><a href="./faq.html">Вопрос-Ответ</a></li>
+                                    <li><a href="./contacts.html">Контакты</a></li>
+                                </ul>
+                            </nav>
+                            <nav class="footer-nav" aria-label="Способы оплаты">
+                                <h3 class="footer-nav__title">Принимаем к оплате</h3>
+                                <ul class="footer-nav__payments">
+                                    <li>
+                                        <img src="./images/payment-1.svg" width="74" height="23" alt="оплата картой МИР" />
+                                    </li>
+                                    <li>
+                                        <img src="./images/payment-2.svg" width="53" height="31" alt="оплата картой MasterCard" />
+                                    </li>
+                                    <li>
+                                        <img src="./images/payment-3.svg" width="69" height="21" alt="оплата картой VISA" />
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                         <nav class="footer-nav" aria-label="Каталог продукции">
                             <h3 class="footer-nav__title">Каталог продукции</h3>
                             <ul class="footer-nav__menu">
-                                <li><a href="./product.html">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a></li>
-                                <li><a href="./product.html">Buffalo Whey Gusto Puro — Proteine in Polvere</a></li>
-                                <li><a href="./product.html">+80 High Protein — Buffalo Whey Gusto Caffè- Proteine in Polvere</a></li>
-                                <li><a href="./product.html">+80 High Protein — Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a></li>
-                                <li><a href="./product.html">+80 High Protein senza Edulcoranti — Buffalo Whey Gusto Puro — Proteine in Polvere</a></li>
-                                <li><a href="./product.html">+80 High Protein — Buffalo Whey Gusto Puro — Proteine in Polvere</a></li>
+                                <li><a href="./product.html">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a></li>
+                                <li><a href="./product.html">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a></li>
+                                <li><a href="./product.html">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a></li>
+                                <li><a href="./product.html">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a></li>
+                                <li><a href="./product.html">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a></li>
+                                <li><a href="./product.html">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a></li>
                             </ul>
                         </nav>
                     </div>
                     <div class="footer-mobile">
                         <p class="footer-mobile__copy">©2012–2025, ООО «Название компании», ИНН/КПП 7810845678/781101001, ОГРН&nbsp;1234567890</p>
-                        <a href="./policy.html" class="footer-mobile__link">Политика конфиденциальности</a>
+                        <nav class="footer-additional__nav">
+                            <ul>
+                                <li><a href="#!">Политика обработки персональных данных</a></li>
+                                <li><a href="./policy.html">Политика конфиденциальности</a></li>
+                                <li><a href="./terms-and-conditions.html">Публичная оферта интернет-магазина</a></li>
+                                <li><a href="#!">Политика обработки файлов cookie</a></li>
+                                <li><a href="#!">Правила обмена и возврата товара</a></li>
+                                <li><a href="#!">Правила доставки</a></li>
+                                <li><a href="#!">Правила продажи/оплаты</a></li>
+                                <li><a href="#!">Реквизиты продавца</a></li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -4258,11 +4535,11 @@
                         <h2 class="modal-title">Товар добавлен в корзину</h2>
                         <article class="modal-product">
                             <div class="modal-product__image">
-                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="116" height="116" loading="lazy" />
+                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="116" height="116" loading="lazy" />
                             </div>
                             <div class="modal-product__content">
                                 <div class="modal-product__info">
-                                    <h4 class="modal-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</h4>
+                                    <h4 class="modal-product__title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</h4>
                                     <div class="modal-product__bottom">
                                         <div class="modal-product__additional modal-product__flavor"><p>Шоколад</p></div>
                                         <div class="modal-product__additional modal-product__option"><p>900 г</p></div>
@@ -4288,12 +4565,12 @@
                                     <article class="recommendation-product">
                                         <div class="recommendation-product__info">
                                             <div class="recommendation-product__image">
-                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="156" height="120" loading="lazy" />
+                                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="156" height="120" loading="lazy" />
                                             </div>
                                             <div class="recommendation-product__flavor">
                                                 <p>Шоколад</p>
                                             </div>
-                                            <a href="./product.html" class="recommendation-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                            <a href="./product.html" class="recommendation-product__title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
                                         </div>
                                         <div class="recommendation-product__prices">
                                             <p class="recommendation-product__price recommendation-product__price--new">5 990 ₽</p>
@@ -4307,12 +4584,12 @@
                                     <article class="recommendation-product">
                                         <div class="recommendation-product__info">
                                             <div class="recommendation-product__image">
-                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="156" height="120" loading="lazy" />
+                                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="156" height="120" loading="lazy" />
                                             </div>
                                             <div class="recommendation-product__flavor">
                                                 <p>Шоколад</p>
                                             </div>
-                                            <a href="./product.html" class="recommendation-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                            <a href="./product.html" class="recommendation-product__title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
                                         </div>
                                         <div class="recommendation-product__prices">
                                             <p class="recommendation-product__price recommendation-product__price--new">5 990 ₽</p>
@@ -4326,12 +4603,12 @@
                                     <article class="recommendation-product">
                                         <div class="recommendation-product__info">
                                             <div class="recommendation-product__image">
-                                                <img src="./images/product-1.webp" alt="Buffalo Whey Gusto Cioccolato — Proteine in Polvere" width="156" height="120" loading="lazy" />
+                                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="156" height="120" loading="lazy" />
                                             </div>
                                             <div class="recommendation-product__flavor">
                                                 <p>Шоколад</p>
                                             </div>
-                                            <a href="./product.html" class="recommendation-product__title">Buffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                            <a href="./product.html" class="recommendation-product__title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a>
                                         </div>
                                         <div class="recommendation-product__prices">
                                             <p class="recommendation-product__price recommendation-product__price--new">5 990 ₽</p>
@@ -4369,7 +4646,67 @@
             </div>
         </div>
 
+        <!-- модальное окно авторизации (для комп версии) -->
+        <div class="modal auth-modal" id="auth-modal">
+            <div class="auth-modal__contents">
+                <div class="auth-modal__content modal-bg-close" id="flip-contents">
+                    <div class="auth-modal__phone">
+                        <button type="button" role="dialog" aria-modal="true" class="modal-close" aria-label="Закрыть модальное окно"></button>
+                        <div class="auth-modal__logo">
+                            <!-- изображение для темной и светлой версии  -->
+                            <img src="./images/dark-auth-logo.svg" data-theme-image='{"dark": "./images/dark-auth-logo.svg", "light": "./images/light-auth-logo.svg"}' alt="BUFFALO PROTEIN" width="188" height="68" />
+                        </div>
+                        <div class="auth-form">
+                            <h2 class="auth-form__title">Авторизация</h2>
+                            <h3 class="auth-form__action">Введите номер телефона</h3>
+                            <p class="auth-form__decription">Введите номер мобильного телефона для получения одноразового кода доступа.</p>
+                            <form class="auth-form__container">
+                                <div class="auth-form__row auth-form__row--phone">
+                                    <label for="auth-phone" class="visually-hidden">Введите номер мобильного телефона</label>
+                                    <input type="text" name="auth-phone" id="auth-phone" data-tel-input placeholder="Номер телефона" />
+                                    <!-- выводить, если есть ошибка  -->
+                                    <!-- <span class="auth-form__error">Текст ошибки</span> -->
+                                </div>
+                                <!-- data-flip="auth-code" переворачивает мод окно, для этого установлен button type="button" -->
+                                <!-- если для для отправки нужен будет button type="submit" переиграйте js логику в файле index.js  -->
+                                <button type="button" class="auth-form__button base-button flip-btn" data-flip="auth-code">Получить код</button>
+                                <p class="auth-form__policy">Нажимая на кнопку «Получить код», Вы соглашаетесь с условиями <a href="policy.html">политики конфиденциальности</a></p>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="auth-modal__code">
+                        <button type="button" role="dialog" aria-modal="true" class="modal-close" aria-label="Закрыть модальное окно"></button>
+                        <div class="auth-modal__logo">
+                            <!-- изображение для темной и светлой версии  -->
+                            <img src="./images/dark-auth-logo.svg" data-theme-image='{"dark": "./images/dark-auth-logo.svg", "light": "./images/light-auth-logo.svg"}' alt="BUFFALO PROTEIN" width="188" height="68" />
+                        </div>
+                        <div class="auth-form">
+                            <h2 class="auth-form__title">Авторизация</h2>
+                            <h3 class="auth-form__action">Введите код из SMS</h3>
+                            <p class="auth-form__decription">На номер <b>+7 (987) 654-32-10</b> отправлен SMS-код подтверждения</p>
+                            <form class="auth-form__container">
+                                <div class="auth-form__row auth-form__row--code">
+                                    <div class="auth-form__inputs">
+                                        <input type="text" inputmode="numeric" pattern="\d*" name="auth-code-1" id="auth-code-1" />
+                                        <input type="text" inputmode="numeric" pattern="\d*" name="auth-code-2" id="auth-code-2" />
+                                        <input type="text" inputmode="numeric" pattern="\d*" name="auth-code-3" id="auth-code-3" />
+                                        <input type="text" inputmode="numeric" pattern="\d*" name="auth-code-4" id="auth-code-4" />
+                                    </div>
+                                    <!-- выводить, если есть ошибка  -->
+                                    <!-- <span class="auth-form__error">Текст ошибки</span> -->
+                                </div>
+                                <button type="button" class="auth-form__button base-button">Отправить</button>
+                                <button type="button" class="auth-form__button auth-form__button--border">Запросить повторный код</button>
+                            </form>
+                        </div>
+                        <button type="button" class="auth-form__back flip-btn" data-flip="auth-phone">Вернуться ко входу</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script src="./js/swiper-bundle.min.js"></script>
+        <script src="./js/libphonenumber-js.min.js"></script>
         <script src="./js/phoneinput.js"></script>
         <script src="./js/glightbox.min.js"></script>
         <script src="./js/simplebar.min.js"></script>
