@@ -9956,6 +9956,7 @@ html[data-theme='light'] .account-block__button--delete {
     flex-shrink: 0;
 
     img {
+        border-radius: inherit;
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -12312,8 +12313,9 @@ html[data-theme='light'] .auth-theme__button-text::before {
         display: inline-block;
     }
     .account-block__product {
+        display: flex;
+        flex-direction: column;
         background: transparent;
-        grid-template-columns: 100%;
         border-radius: 0;
         padding: 0;
     }
