@@ -1934,6 +1934,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (e.target.closest('[data-open="modal-delete-question"]')) {
             openModal('modal-delete-question');
         }
+        if (e.target.closest('[data-open="modal-edit-question"]')) {
+            openModal('modal-edit-question');
+        }
         if (e.target.closest('[data-open="modal-add-question"]')) {
             openModal('modal-add-question');
         }
@@ -1960,12 +1963,20 @@ document.addEventListener('DOMContentLoaded', function () {
         const modal = document.getElementById(modalId);
         if (!modal) return;
 
+        const scrollY = window.scrollY;
+
+       
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollY}px`;
         document.body.style.overflow = 'hidden';
+        document.body.style.width = '100%';
         document.body.style.paddingRight = window.innerWidth - document.documentElement.clientWidth + 'px';
 
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
+        
         activeModal = modal;
+        activeModal.dataset.scrollY = scrollY; 
 
         initSwiper();
     }
@@ -1981,8 +1992,15 @@ document.addEventListener('DOMContentLoaded', function () {
         activeModal.classList.remove('is-open');
         activeModal.setAttribute('aria-hidden', 'true');
 
+        const scrollY = parseInt(activeModal.dataset.scrollY || '0');
+
+        document.body.style.position = '';
+        document.body.style.top = '';
         document.body.style.overflow = '';
+        document.body.style.width = '';
         document.body.style.paddingRight = '';
+
+        window.scrollTo(0, scrollY);
 
         activeModal = null;
     }
@@ -3680,5 +3698,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             }
         });
+    });
+});
+
+// Выбрать все чекбоксы на странице корзины
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleButton = document.querySelector('.cart-top__toggle');
+    const checkboxes = document.querySelectorAll('.cart-product__checkbox input');
+    if (!toggleButton || !checkboxes) return;
+    toggleButton.addEventListener('click', function (e) {
+        if (e.target.closest('input')) {
+            checkboxes.forEach((checkbox) => {
+                e.target.closest('input').checked === true ? (checkbox.checked = true) : (checkbox.checked = false);
+            });
+        }
     });
 });

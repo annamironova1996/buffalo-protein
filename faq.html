@@ -874,49 +874,46 @@
             </div>
         </footer>
 
-        <!-- модальное окно для создания / редактирования вопроса на продукт  -->
-        <div class="modal modal-bg-close modal--gray modal--add-question" id="modal-add-question" aria-hidden="true">
+        <!-- модальное окно для редактирования вопроса на продукт  -->
+        <div class="modal modal-bg-close modal--add-question" id="modal-add-question" aria-hidden="true">
             <div class="modal-inner">
                 <button type="button" role="dialog" aria-modal="true" class="modal-close" aria-label="Закрыть модальное окно"></button>
                 <div class="modal-content">
+                    <h2 class="modal-title">Задайте свой вопрос</h2>
+
                     <form class="modal-content__form">
-                        <article class="modal-product">
-                            <div class="modal-product__image">
-                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="116" height="116" loading="lazy" />
-                            </div>
-                            <div class="modal-product__content">
-                                <div class="modal-product__info">
-                                    <h4 class="modal-product__title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </h4>
-                                    <div class="modal-product__bottom">
-                                        <div class="modal-product__additional modal-product__flavor"><p>Шоколад</p></div>
-                                        <div class="modal-product__additional modal-product__option"><p>900 г</p></div>
-                                    </div>
-                                </div>
-                                <div class="modal-product__info">
-                                    <div class="modal-product__prices">
-                                        <p class="modal-product__price modal-product__price--new">5 990 ₽</p>
-                                        <!-- если есть старая цена, то выводить modal-product__price--old и modal-product__discount -->
-                                        <p class="modal-product__price modal-product__price--old">6 490 ₽</p>
-                                        <div class="modal-product__discount"><span class="modal-product__discount-badge">— 10%</span></div>
-                                    </div>
-                                    <div class="modal-product__bonus"><p>+ 168 бонусов</p></div>
-                                </div>
-                            </div>
-                        </article>
-                        <div class="modal-row">
-                            <label for="product-modal-message" class="modal-label">Задайте вопрос о товаре</label>
-                            <textarea id="product-modal-message" name="product-modal-message" placeholder="Напишите свой вопрос" class="modal-textarea modal-validate"></textarea>
+                        <div class="modal-row modal-row--question modal-row--name">
+                            <label for="modal-question-name" class="visually-hidden">Введите Ваше Имя</label>
+                            <input type="text" id="modal-question-name" placeholder="Ваше Имя" />
                             <!-- выводить, если есть ошибка  -->
                             <!-- <span class="modal-row__error">Текст ошибки</span> -->
-                            <p class="modal-message">Пришлем уведомление, когда поступит ответ</p>
                         </div>
-                        <div class="modal-fixed">
-                            <!-- кнопка будет disabled до тех пор, пока все поля не будут валидны  -->
-                            <!-- обратите внимание, ниже есть мод окно, которое отображается после успешной отправки вопроса  -->
-                            <button type="submit" class="modal-button__submit base-button" disabled>Отправить отзыв</button>
-                            <p class="modal-policy">Перед отправкой отзыва, пожалуйста, ознакомьтесь с <a href="#!">правилами публикации</a></p>
+                        <div class="modal-row modal-row--question modal-row--phone">
+                            <label for="modal-question-phone" class="visually-hidden">Введите Ваш Номер телефона</label>
+                            <input type="text" id="modal-question-phone" placeholder="Номер телефона" data-tel-input />
+                            <!-- выводить, если есть ошибка  -->
+                            <!-- <span class="modal-row__error">Текст ошибки</span> -->
+                        </div>
+                        <div class="modal-row modal-row--question modal-row--email">
+                            <label for="modal-question-email" class="visually-hidden">Введите Ваш Email</label>
+                            <input type="email" id="modal-question-email" placeholder="Email" data-tel-input />
+                            <!-- выводить, если есть ошибка  -->
+                            <!-- <span class="modal-row__error">Текст ошибки</span> -->
+                        </div>
+                        <div class="modal-row modal-row--question modal-row--message">
+                            <label for="modal-question-message" class="visually-hidden">Напишите свой вопрос</label>
+                            <textarea id="modal-question-message" placeholder="Напишите свой вопрос" data-tel-input></textarea>
+                            <!-- выводить, если есть ошибка  -->
+                            <!-- <span class="modal-row__error">Текст ошибки</span> -->
                         </div>
                     </form>
+                    <div class="modal-fixed">
+                        <!-- кнопка будет disabled до тех пор, пока все поля не будут валидны  -->
+                        <!-- обратите внимание, ниже есть мод окно, которое отображается после успешной отправки вопроса  -->
+                        <button type="submit" class="modal-button__submit base-button" disabled>Отправить вопрос</button>
+                        <p class="modal-message">Пришлем уведомление, когда поступит ответ<br /></p>
+                        <p class="modal-policy">Перед отправкой вопроса, пожалуйста, ознакомьтесь с <a href="#!">правилами публикации</a></p>
+                    </div>
                 </div>
             </div>
         </div>

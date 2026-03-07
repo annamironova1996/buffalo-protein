@@ -339,6 +339,10 @@ html[data-theme='light'] .header-top__button-account:active .button-text::before
     -webkit-transform: scaleY(1);
     transform: scaleY(1);
 }
+.header-top__account .card-account__nav {
+    max-height: fluid(0px, 550px);
+    overflow-y: auto;
+}
 .header-bottom {
     display: flex;
     align-items: flex-start;
@@ -1050,7 +1054,7 @@ html[data-theme='light'] .footer-info__social:active img {
     gap: fluid(13px, 14px) fluid(10px, 14px);
 
     img {
-        max-height: fluid(20px,31px);
+        max-height: fluid(20px, 31px);
         width: auto;
     }
 }
@@ -1236,7 +1240,7 @@ html[data-theme='light'] .footer-info__social:active img {
     .footer-col {
         justify-content: flex-start;
     }
-    .footer-nav__payments { 
+    .footer-nav__payments {
         padding-top: 6px;
     }
 }
