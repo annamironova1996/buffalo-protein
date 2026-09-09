@@ -565,13 +565,55 @@
                                     <div class="account-order__info">
                                         <div class="account-order__info-top">
                                             <!-- добавлять account-order__info-status--canceled - если заказ отменен  -->
+                                            <p class="account-order__info-status account-order__info-status--canceled" aria-label="Статус заказа: Создан, но не оплачен">Создан, но не оплачен</p>
+                                            <time datetime="2026-01-01" class="account-order__info-date">01 января 2026</time>
+                                        </div>
+                                        <button type="button" aria-label="Скопировать номер заказа" class="order-code">18131191-0053</button>
+                                        <!-- кнопки для комп версии  -->
+                                        <div class="account-order__info-buttons account-order__info-buttons--desktop">
+                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
+                                            <a href="order-unpaid.html" class="account-order__info-button base-button">Перейти к оплате</a>
+                                            <a href="account-order.html" class="account-order__info-button account-order__info-button--border">Подробнее о заказе</a>
+                                        </div>
+                                    </div>
+                                    <div class="account-order__products">
+                                        <!-- максимальное количество товаров для показа - 4 штук -->
+                                        <!-- если товаров больше 4, то есть 5 и более, то выводим здесь 3 последних товара и выводим элемент account-order__product-count (он есть после всех товаров)  -->
+                                        <a href="product.html" class="account-order__product">
+                                            <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="117" height="100" />
+                                        </a>
+                                        <a href="product.html" class="account-order__product">
+                                            <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="117" height="100" />
+                                        </a>
+                                        <a href="product.html" class="account-order__product">
+                                            <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="117" height="100" />
+                                        </a>
+                                        <a href="product.html" class="account-order__product">
+                                            <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="117" height="100" />
+                                        </a>
+
+                                        <!-- выводится только в случае, если кол-во товаров в заказе больше 4, то есть 5 и более  -->
+                                        <!-- количество товаров всего заказа - 3 = цифра в элементе account-order__product-count -->
+                                        <!-- <div class="account-order__product-count">еще 2</div> -->
+                                    </div>
+                                    <!-- кнопки для моб версии  -->
+                                    <div class="account-order__info-buttons account-order__info-buttons--mobile">
+                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
+                                        <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a>
+                                        <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
+                                    </div>
+                                </div>
+                                <div class="account-order">
+                                    <div class="account-order__info">
+                                        <div class="account-order__info-top">
+                                            <!-- добавлять account-order__info-status--canceled - если заказ отменен  -->
                                             <p class="account-order__info-status" aria-label="Статус заказа: Получен">Получен</p>
                                             <time datetime="2026-01-01" class="account-order__info-date">01 января 2026</time>
                                         </div>
                                         <button type="button" aria-label="Скопировать номер заказа" class="order-code">18131191-0053</button>
                                         <!-- кнопки для комп версии  -->
                                         <div class="account-order__info-buttons account-order__info-buttons--desktop">
-                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                             <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a>
                                             <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                         </div>
@@ -598,7 +640,7 @@
                                     </div>
                                     <!-- кнопки для моб версии  -->
                                     <div class="account-order__info-buttons account-order__info-buttons--mobile">
-                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                         <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a>
                                         <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                     </div>
@@ -613,7 +655,7 @@
                                         <button type="button" aria-label="Скопировать номер заказа" class="order-code">18131191-0053</button>
                                         <!-- кнопки для комп версии  -->
                                         <div class="account-order__info-buttons account-order__info-buttons--desktop">
-                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                             <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a>
                                             <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                         </div>
@@ -637,7 +679,7 @@
                                     </div>
                                     <!-- кнопки для моб версии  -->
                                     <div class="account-order__info-buttons account-order__info-buttons--mobile">
-                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                         <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a>
                                         <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                     </div>
@@ -652,7 +694,7 @@
                                         <button type="button" aria-label="Скопировать номер заказа" class="order-code">18131191-0053</button>
                                         <!-- кнопки для комп версии  -->
                                         <div class="account-order__info-buttons account-order__info-buttons--desktop">
-                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                             <!-- <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a> -->
                                             <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                         </div>
@@ -673,7 +715,7 @@
                                     </div>
                                     <!-- кнопки для моб версии  -->
                                     <div class="account-order__info-buttons account-order__info-buttons--mobile">
-                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                         <!-- <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a> -->
                                         <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                     </div>
@@ -688,7 +730,7 @@
                                         <button type="button" aria-label="Скопировать номер заказа" class="order-code">18131191-0053</button>
                                         <!-- кнопки для комп версии  -->
                                         <div class="account-order__info-buttons account-order__info-buttons--desktop">
-                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                             <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a>
                                             <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                         </div>
@@ -715,7 +757,7 @@
                                     </div>
                                     <!-- кнопки для моб версии  -->
                                     <div class="account-order__info-buttons account-order__info-buttons--mobile">
-                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                         <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a>
                                         <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                     </div>
@@ -730,7 +772,7 @@
                                         <button type="button" aria-label="Скопировать номер заказа" class="order-code">18131191-0053</button>
                                         <!-- кнопки для комп версии  -->
                                         <div class="account-order__info-buttons account-order__info-buttons--desktop">
-                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                             <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a>
                                             <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                         </div>
@@ -754,7 +796,7 @@
                                     </div>
                                     <!-- кнопки для моб версии  -->
                                     <div class="account-order__info-buttons account-order__info-buttons--mobile">
-                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                         <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a>
                                         <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                     </div>
@@ -769,7 +811,7 @@
                                         <button type="button" aria-label="Скопировать номер заказа" class="order-code">18131191-0053</button>
                                         <!-- кнопки для комп версии  -->
                                         <div class="account-order__info-buttons account-order__info-buttons--desktop">
-                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                             <!-- <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a> -->
                                             <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                         </div>
@@ -790,7 +832,7 @@
                                     </div>
                                     <!-- кнопки для моб версии  -->
                                     <div class="account-order__info-buttons account-order__info-buttons--mobile">
-                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                         <!-- <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a> -->
                                         <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                     </div>
@@ -805,7 +847,7 @@
                                         <button type="button" aria-label="Скопировать номер заказа" class="order-code">18131191-0053</button>
                                         <!-- кнопки для комп версии  -->
                                         <div class="account-order__info-buttons account-order__info-buttons--desktop">
-                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                             <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a>
                                             <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                         </div>
@@ -832,7 +874,7 @@
                                     </div>
                                     <!-- кнопки для моб версии  -->
                                     <div class="account-order__info-buttons account-order__info-buttons--mobile">
-                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                         <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a>
                                         <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                     </div>
@@ -847,7 +889,7 @@
                                         <button type="button" aria-label="Скопировать номер заказа" class="order-code">18131191-0053</button>
                                         <!-- кнопки для комп версии  -->
                                         <div class="account-order__info-buttons account-order__info-buttons--desktop">
-                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                             <!-- <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a> -->
                                             <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                         </div>
@@ -868,7 +910,7 @@
                                     </div>
                                     <!-- кнопки для моб версии  -->
                                     <div class="account-order__info-buttons account-order__info-buttons--mobile">
-                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                         <!-- <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a> -->
                                         <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                     </div>
@@ -883,7 +925,7 @@
                                         <button type="button" aria-label="Скопировать номер заказа" class="order-code">18131191-0053</button>
                                         <!-- кнопки для комп версии  -->
                                         <div class="account-order__info-buttons account-order__info-buttons--desktop">
-                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                             <!-- <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a> -->
                                             <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                         </div>
@@ -907,7 +949,7 @@
                                     </div>
                                     <!-- кнопки для моб версии  -->
                                     <div class="account-order__info-buttons account-order__info-buttons--mobile">
-                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                         <!-- <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a> -->
                                         <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                     </div>
@@ -922,7 +964,7 @@
                                         <button type="button" aria-label="Скопировать номер заказа" class="order-code">18131191-0053</button>
                                         <!-- кнопки для комп версии  -->
                                         <div class="account-order__info-buttons account-order__info-buttons--desktop">
-                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                            <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                             <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a>
                                             <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                         </div>
@@ -949,7 +991,7 @@
                                     </div>
                                     <!-- кнопки для моб версии  -->
                                     <div class="account-order__info-buttons account-order__info-buttons--mobile">
-                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен" -->
+                                        <!-- эта кнопка выводится только в том случае, если не все товары еще оценены и статус заказа "получен или Создан, но не оплачен" -->
                                         <a href="account-order.html" class="account-order__info-button base-button">Оценить товары</a>
                                         <a href="checkout.html" class="account-order__info-button account-order__info-button--border">Повторить заказ</a>
                                     </div>

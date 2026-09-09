@@ -121,10 +121,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function getMaxWidth() {
         const screenWidth = window.innerWidth;
-        if (screenWidth >= 1920) return 620;
-        if (screenWidth >= 1635) return 560;
-        if (screenWidth >= 1570) return 500;
-        return 460;
+        if (screenWidth >= 1920) return 560;
+        if (screenWidth >= 1635) return 500;
+        if (screenWidth >= 1570) return 460;
+        return 400;
     }
 
     function getMaxVisibleItems() {
@@ -1965,7 +1965,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const scrollY = window.scrollY;
 
-       
         document.body.style.position = 'fixed';
         document.body.style.top = `-${scrollY}px`;
         document.body.style.overflow = 'hidden';
@@ -1974,9 +1973,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
-        
+
         activeModal = modal;
-        activeModal.dataset.scrollY = scrollY; 
+        activeModal.dataset.scrollY = scrollY;
 
         initSwiper();
     }
@@ -3712,5 +3711,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 e.target.closest('input').checked === true ? (checkbox.checked = true) : (checkbox.checked = false);
             });
         }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const articleSwiper = new Swiper('.article-swiper', {
+        slidesPerView: "auto",
+        spaceBetween: 20,
     });
 });

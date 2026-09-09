@@ -15,6 +15,7 @@
     --input-base: #f8f5f0;
     --modal-background: rgba(22, 22, 22, 0.4);
     --green-base: #4fad50;
+    --badge-bg: #e8d9bd;
 }
 
 :root[data-theme='dark'] {
@@ -76,6 +77,9 @@
     --toggle-content: #6e6e70;
     --questions-section: rgba(255, 255, 255, 0.07);
     --placeholder-bg: #6e6e70;
+    --card-hover: #323232;
+    --table-header: #323232;
+    --comments-button: #161616;
 }
 
 :root[data-theme='light'] {
@@ -138,4 +142,7 @@
     --toggle-content: #fff;
     --questions-section: #fbfaf7;
     --placeholder-bg: #cfbe9f;
+    --card-hover: #f2ede5;
+    --table-header: #fbfaf7;
+      --comments-button: #f8f5f0;
 }

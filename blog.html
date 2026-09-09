@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <title>Блог</title>
+
+        <link rel="stylesheet" href="./css/fonts.css" />
+
+        <!-- определение темы до загрузки дома  -->
+        <script>
+            (function () {
+                const theme = localStorage.getItem('styleMode') || 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+
+                if (theme === 'light') {
+                    document.documentElement.classList.add('light-mode');
+                }
+            })();
+        </script>
+
+        <link rel="stylesheet" href="./css/reset.css" />
+        <link rel="stylesheet" href="./css/swiper-bundle.css" />
+        <link rel="stylesheet" href="./css/glightbox.min.css" />
+        <link rel="stylesheet" href="./css/simplebar.min.css" />
+        <link rel="stylesheet" href="./css/choices.min.css" />
+        <link rel="stylesheet" href="./css/variables.css" />
+        <link rel="stylesheet" href="./css/template_styles.css" />
+        <link rel="stylesheet" href="./css/styles.css" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <div class="header-top">
+                    <div class="header-top__left">
+                        <button type="button" class="header-mobile__button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu" title="Нажмите чтобы открыть меню">
+                            <span class="visually-hidden">Меню</span>
+                            <span class="header-mobile__button-line"></span>
+                            <span class="header-mobile__button-line"></span>
+                            <span class="header-mobile__button-line"></span>
+                        </button>
+                        <a href="./index.html" class="header-logo" aria-label="На главную страницу">
+                            <!-- изображение для темной и светлой версии  -->
+                            <img src="./images/dark-logo.svg" data-theme-image='{"dark": "./images/dark-logo.svg", "light": "./images/light-logo.svg"}' alt="BUFFALO PROTEIN" width="200" height="68" />
+                        </a>
+                    </div>
+                    <div class="header-top__right">
+                        <button type="button" class="header-theme__button toggle-theme" aria-label="Включить cветлую тему" data-theme="dark" title="Включить светлую тему"><span class="header-theme__button-text">Light</span></button>
+                        <address class="header-top__info" aria-label="Контактная информация">
+                            <a href="tel:+78001000000" class="header-top__info-phone">8 800 100-00-00</a>
+                            <p class="header-top__info-datetime">
+                                Режим работы:
+                                <time datetime="09:00">09:00</time>–<time datetime="17:30">17:30</time>
+                            </p>
+                        </address>
+                        <div class="header-top__socials" aria-label="Социальные сети">
+                            <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="header-top__social" aria-label="WhatsApp">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/icons/dark-whatsapp.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-whatsapp.svg", "light": "./images/icons/light-whatsapp.svg"}' />
+                            </a>
+                            <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="header-top__social" aria-label="Telegram">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/icons/dark-telegram.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-telegram.svg", "light": "./images/icons/light-telegram.svg"}' />
+                            </a>
+                            <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="header-top__social" aria-label="ВКонтакте">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/icons/dark-vk.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-vk.svg", "light": "./images/icons/light-vk.svg"}' />
+                            </a>
+                        </div>
+                        <div class="header-top__buttons">
+                            <!-- мини-корзна -->
+                            <div class="header-top__mini-cart">
+                                <a href="./cart.html" class="button opacity-button header-top__button-cart" aria-label="Корзина, 2 товара" aria-describedby="cart-counter-mobile">
+                                    <!-- счетчик кол-ва товаров в корзине (если в корзине товаров больше 9, то лучше выводить 9+)
+                                     если в корзине нет товаров, то не выводить этот элемент -->
+                                    <span class="header-top__button-count" id="cart-counter-mobile">2</span>
+                                    <!-- !  -->
+                                    <span class="button-text" aria-hidden="true">Корзина</span>
+                                </a>
+                                <div class="header-top__card" hidden>
+                                    <div class="card card--mini" aria-label="Мини корзина">
+                                        <!-- если в корзине есть товары, тогда выводить card-content -->
+                                        <div class="card-content">
+                                            <div class="card-info">
+                                                <h2 class="card-title">В корзине 2 товара</h2>
+                                                <div class="mini-products custom-scroll">
+                                                    <article class="mini-product">
+                                                        <div class="mini-product__row">
+                                                            <div class="mini-product__image">
+                                                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="110" height="110" />
+                                                            </div>
+                                                            <div class="mini-product__info">
+                                                                <h2 class="mini-product__title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </h2>
+                                                                <ul class="mini-product__optionals">
+                                                                    <li>Шоколад</li>
+                                                                    <li>900 г</li>
+                                                                </ul>
+                                                            </div>
+                                                            <button type="button" class="mini-product__remove">
+                                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g>
+                                                                        <path d="M14.168 4.9974H18.3346V6.66406H16.668V17.4974C16.668 17.9576 16.2949 18.3307 15.8346 18.3307H4.16797C3.70774 18.3307 3.33464 17.9576 3.33464 17.4974V6.66406H1.66797V4.9974H5.83463V2.4974C5.83463 2.03716 6.20773 1.66406 6.66797 1.66406H13.3346C13.7949 1.66406 14.168 2.03716 14.168 2.4974V4.9974ZM15.0013 6.66406H5.0013V16.6641H15.0013V6.66406ZM11.1798 11.6638L12.653 13.137L11.4745 14.3155L10.0013 12.8423L8.52813 14.3155L7.34965 13.137L8.8228 11.6638L7.34965 10.1907L8.52813 9.01223L10.0013 10.4853L11.4745 9.01223L12.653 10.1907L11.1798 11.6638ZM7.5013 3.33073V4.9974H12.5013V3.33073H7.5013Z" fill="white" />
+                                                                    </g>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                        <div class="mini-product__details">
+                                                            <div class="mini-product__quantity">
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--minus" aria-label="Уменьшить количество" disabled=""></button>
+
+                                                                <input type="number" class="mini-product__quantity-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" />
+
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--plus" aria-label="Увеличить количество"></button>
+                                                            </div>
+
+                                                            <div class="mini-product__pricing">
+                                                                <div class="mini-product__prices">
+                                                                    <p class="mini-product__price mini-product__price--new">5 990 ₽</p>
+                                                                    <!-- если есть цена без скидки, то выводить  -->
+                                                                    <p class="mini-product__price mini-product__price--old">6 490 ₽</p>
+                                                                    <p class="mini-product__discount" aria-label="Скидка 10%">— 10%</p>
+                                                                </div>
+                                                                <div class="mini-product__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                    <article class="mini-product">
+                                                        <div class="mini-product__row">
+                                                            <div class="mini-product__image">
+                                                                <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="110" height="110" />
+                                                            </div>
+                                                            <div class="mini-product__info">
+                                                                <h2 class="mini-product__title">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </h2>
+                                                                <ul class="mini-product__optionals">
+                                                                    <li>Шоколад</li>
+                                                                    <li>900 г</li>
+                                                                </ul>
+                                                            </div>
+                                                            <button type="button" class="mini-product__remove">
+                                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <g>
+                                                                        <path d="M14.168 4.9974H18.3346V6.66406H16.668V17.4974C16.668 17.9576 16.2949 18.3307 15.8346 18.3307H4.16797C3.70774 18.3307 3.33464 17.9576 3.33464 17.4974V6.66406H1.66797V4.9974H5.83463V2.4974C5.83463 2.03716 6.20773 1.66406 6.66797 1.66406H13.3346C13.7949 1.66406 14.168 2.03716 14.168 2.4974V4.9974ZM15.0013 6.66406H5.0013V16.6641H15.0013V6.66406ZM11.1798 11.6638L12.653 13.137L11.4745 14.3155L10.0013 12.8423L8.52813 14.3155L7.34965 13.137L8.8228 11.6638L7.34965 10.1907L8.52813 9.01223L10.0013 10.4853L11.4745 9.01223L12.653 10.1907L11.1798 11.6638ZM7.5013 3.33073V4.9974H12.5013V3.33073H7.5013Z" fill="white" />
+                                                                    </g>
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                        <div class="mini-product__details">
+                                                            <div class="mini-product__quantity">
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--minus" aria-label="Уменьшить количество" disabled=""></button>
+
+                                                                <input type="number" class="mini-product__quantity-input" name="quantity" value="1" min="1" max="99" aria-label="Количество товара" />
+
+                                                                <button type="button" class="mini-product__quantity-btn mini-product__quantity-btn--plus" aria-label="Увеличить количество"></button>
+                                                            </div>
+
+                                                            <div class="mini-product__pricing">
+                                                                <div class="mini-product__prices">
+                                                                    <p class="mini-product__price mini-product__price--new">5 990 ₽</p>
+                                                                    <!-- если есть цена без скидки, то выводить  -->
+                                                                    <!-- <p class="mini-product__price mini-product__price--old">6 490 ₽</p> -->
+                                                                    <!-- <p class="mini-product__discount" aria-label="Скидка 10%">— 10%</p> -->
+                                                                </div>
+                                                                <div class="mini-product__bonus" aria-label="Начислится 168 бонусных баллов">+ 168 бонусов</div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                            </div>
+                                            <div class="card-info">
+                                                <div class="card-list">
+                                                    <div class="card-list__item">
+                                                        <span class="card-list__item-title">2 товара</span>
+                                                        <p class="card-list__item-sum">12 480 ₽</p>
+                                                    </div>
+                                                    <div class="card-list__item card-list__item--discount">
+                                                        <div class="discount-toggle">
+                                                            <button type="button" class="discount-toggle__button" aria-expanded="false">Выгода</button>
+                                                            <span class="discount-amount">- 500 ₽</span>
+                                                        </div>
+
+                                                        <div class="discount-details" hidden>
+                                                            <ul class="discount-breakdown">
+                                                                <li>
+                                                                    <span class="discount-breakdown__title">Скидка по акции</span>
+                                                                    <p class="discount-breakdown__subtitle">-500 ₽</p>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="result">
+                                                    <span class="result__title">Итого</span>
+                                                    <p class="result__sum">10 980 ₽</p>
+                                                </div>
+                                                <a href="./cart.html" type="submit" class="card-button base-button">Перейти в корзину</a>
+                                            </div>
+                                        </div>
+                                        <!-- если в корзине нет товаров, тогда выводить card-empty -->
+                                        <!-- <div class="card-empty">
+                                            <div class="card-empty__text">
+                                                <p>В корзине пока пусто.</p>
+                                                <p>Найдите нужный товар в каталоге.</p>
+                                            </div>
+                                            <a href="./catalog.html" class="card-button base-button">Каталог товаров</a>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- выводить, если пользователь не авторизован -->
+                            <!-- (комп версия)  -->
+                            <!-- <button class="button main-button header-top__button-account header-top__button-account--desktop" data-open="auth-modal">
+                                    <span class="button-text">Войти</span>
+                                </button> -->
+                            <!-- (моб версия)  -->
+                            <!-- <a href="authorization.html" class="button main-button header-top__button-account header-top__button-account--mobile">
+                                    <span class="button-text">Войти</span>
+                                </a> -->
+                            <!-- ! -->
+
+                            <!-- выводить, если пользователь авторизован  -->
+                            <!-- (комп версия)  -->
+                            <div class="header-top__mini-account">
+                                <a href="account-orders.html" class="button main-button header-top__button-account header-top__button-account--desktop">
+                                    <span class="button-text">Личный кабинет</span>
+                                </a>
+                                <div class="header-top__account" hidden>
+                                    <div class="mini-account" aria-label="Мини аккаунт">
+                                        <div class="card-account">
+                                            <div class="card-account__person">
+                                                <div class="card-account__placeholder">
+                                                    <p>ИФ</p>
+                                                </div>
+                                                <div class="card-account__info">
+                                                    <p class="card-account__info-title">Имя Фамилия</p>
+                                                    <p class="card-account__info-phone">+7 (987)-654-32-10</p>
+                                                </div>
+                                            </div>
+                                            <div class="card-account__bonus">
+                                                <div class="account-aside__bonus-image">
+                                                    <img src="./images/bonus.svg" alt="Иконка бонусы" width="38" height="38" />
+                                                </div>
+                                                <div class="account-aside__bonus-info">
+                                                    <h2 class="account-aside__bonus-title">На вашем счету:</h2>
+                                                    <p class="account-aside__bonus-quantity">1 298 бонусов</p>
+                                                    <a href="account-bonus.html" class="account-aside__bonus-link">Подробнее</a>
+                                                </div>
+                                            </div>
+                                            <nav class="card-account__nav">
+                                                <ul>
+                                                    <li><a href="account-orders.html">Мои заказы</a></li>
+                                                    <li><a href="account-bonus.html">Бонусный счёт</a></li>
+                                                    <li><a href="account-promotional.html">Промокоды</a></li>
+                                                    <li><a href="account-check.html">Электронные чеки</a></li>
+                                                    <li><a href="account-reviews.html">Отзывы и Вопросы</a></li>
+                                                    <li><a href="account-viewed.html">Просмотренное</a></li>
+                                                    <li><a href="account-personal.html">Личные данные</a></li>
+                                                    <li><a href="account-notification.html">Настройки уведомлений</a></li>
+                                                </ul>
+                                            </nav>
+                                            <a href="#!" class="card-account__logout">Выйти</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- (моб версия)  -->
+                            <a href="account.html" class="button main-button header-top__button-account header-top__button-account--mobile">
+                                <span class="button-text">Личный кабинет</span>
+                            </a>
+                            <!-- ! -->
+                        </div>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <nav class="header-bottom__nav" aria-label="Основная навигация">
+                        <ul class="header-bottom__menu">
+                            <li>
+                                <a href="./catalog.html" class="header-bottom__menu-item--active">Каталог товаров</a>
+                                <ul aria-hidden="true">
+                                    <li><a href="./catalog.html">Протеин B•POWER</a></li>
+                                    <li><a href="./catalog.html">Аксессуары (или иначе назвать, Шейкер)</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="./about.html">О нас</a>
+                                <ul aria-hidden="true">
+                                    <li><a href="./about.html">О нас тестовая</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="./loyalty.html">Программа лояльности</a>
+                            </li>
+                            <li>
+                                <a href="./shipping-payment.html">Оплата и доставка</a>
+                            </li>
+                            <li>
+                                <a href="./faq.html">Вопрос-Ответ</a>
+                            </li>
+                            <li>
+                                <a href="./reviews.html">Отзывы</a>
+                            </li>
+                            <li>
+                                <a href="./contacts.html">Контакты</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <form action="" method="" role="search" class="header-bottom__search-form">
+                        <div class="header-bottom__search-wrapper">
+                            <label for="header-search" class="visually-hidden">Поиск по сайту</label>
+                            <input type="search" id="header-search" name="q" class="header-bottom__input" placeholder="Поиск по сайту" aria-label="Поиск по сайту" autocomplete="off" aria-controls="search-results" aria-expanded="false" />
+                            <button type="submit" class="visually-hidden">Найти</button>
+                        </div>
+                        <!-- результат поиска  -->
+                        <div class="header-bottom__result" aria-live="polite" aria-atomic="false" hidden>
+                            <section class="header-bottom__result-wrapper" aria-labelledby="popular-searches-title">
+                                <h3 id="popular-searches-title" class="header-bottom__result-title">Часто ищут</h3>
+                                <ul class="header-bottom__result-list" role="list">
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                    <li>
+                                        <a href="./product.html" class="header-bottom__result-link"><b>Bu</b>ffalo Whey Gusto Cioccolato — Proteine in Polvere</a>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="header-bottom__result-wrapper" aria-labelledby="popular-products-title">
+                                <h3 id="popular-products-title" class="header-bottom__result-title">Популярные товары</h3>
+                                <div class="header-bottom__result-products">
+                                    <article class="result-product">
+                                        <a href="./product.html" class="result-product__image">
+                                            <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="100" height="100" loading="lazy" />
+                                        </a>
+                                        <div class="result-product__info">
+                                            <p class="result-product__additional">Шоколад</p>
+                                            <a href="./product.html" class="result-product__title"> БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»  </a>
+                                            <div class="result-product__row">
+                                                <div class="result-product__prices">
+                                                    <p class="result-product__price result-product__price--new">
+                                                        <span class="visually-hidden">Цена:</span>
+                                                        5 990 ₽
+                                                    </p>
+                                                    <!-- если есть старая цена, тогда просто добавляются эти два элемента и новая цена автоматически становится красного цвета  -->
+                                                    <!-- <p class="result-product__price result-product__price--old">
+                                                        <span class="visually-hidden">Старая цена:</span>
+                                                        6 490 ₽
+                                                    </p>
+                                                    <span class="result-product__discount" aria-label="Скидка 10%"> — 10% </span> -->
+                                                </div>
+                                                <p class="result-product__bonuses">
+                                                    <span class="visually-hidden">Начисляется бонусов:</span>
+                                                    + 168 бонусов
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="result-product">
+                                        <a href="./product.html" class="result-product__image">
+                                            <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="100" height="100" loading="lazy" />
+                                        </a>
+                                        <div class="result-product__info">
+                                            <p class="result-product__additional">Ваниль</p>
+                                            <a href="./product.html" class="result-product__title"> БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»  </a>
+                                            <div class="result-product__row">
+                                                <div class="result-product__prices">
+                                                    <p class="result-product__price result-product__price--new">
+                                                        <span class="visually-hidden">Цена:</span>
+                                                        5 990 ₽
+                                                    </p>
+                                                    <!-- если есть старая цена, тогда просто добавляются эти два элемента и новая цена автоматически становится красного цвета  -->
+                                                    <p class="result-product__price result-product__price--old">
+                                                        <span class="visually-hidden">Старая цена:</span>
+                                                        6 490 ₽
+                                                    </p>
+                                                    <span class="result-product__discount" aria-label="Скидка 10%"> — 10% </span>
+                                                </div>
+                                                <p class="result-product__bonuses">
+                                                    <span class="visually-hidden">Начисляется бонусов:</span>
+                                                    + 168 бонусов
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                    <article class="result-product">
+                                        <a href="./product.html" class="result-product__image">
+                                            <img src="./images/product-1.webp" alt="БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» " width="100" height="100" loading="lazy" />
+                                        </a>
+                                        <div class="result-product__info">
+                                            <p class="result-product__additional">Карамельный латте</p>
+                                            <a href="./product.html" class="result-product__title"> БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»  </a>
+                                            <div class="result-product__row">
+                                                <div class="result-product__prices">
+                                                    <p class="result-product__price result-product__price--new">
+                                                        <span class="visually-hidden">Цена:</span>
+                                                        5 990 ₽
+                                                    </p>
+                                                    <!-- если есть старая цена, тогда просто добавляются эти два элемента и новая цена автоматически становится красного цвета  -->
+                                                    <!-- <p class="result-product__price result-product__price--old">
+                                                        <span class="visually-hidden">Старая цена:</span>
+                                                        6 490 ₽
+                                                    </p>
+                                                    <span class="result-product__discount" aria-label="Скидка 10%"> — 10% </span> -->
+                                                </div>
+                                                <p class="result-product__bonuses">
+                                                    <span class="visually-hidden">Начисляется бонусов:</span>
+                                                    + 168 бонусов
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                        </div>
+                    </form>
+                </div>
+                <div class="header-mobile" id="mobile-menu" hidden>
+                    <div class="header-mobile__wrapper">
+                        <form action="/search" method="GET" role="search" class="header-mobile__search-form">
+                            <div class="header-mobile__search-wrapper">
+                                <label for="header-mobile-search" class="visually-hidden">Поиск по сайту</label>
+                                <input type="search" id="header-mobile-search" name="q" class="header-mobile__input" placeholder="Поиск по сайту" aria-label="Поиск по сайту" autocomplete="off" />
+                            </div>
+                        </form>
+                        <div class="header-mobile__menu">
+                            <!-- меню первого уровня -->
+                            <nav class="header-mobile__main-menu" aria-label="Основная навигация">
+                                <ul>
+                                    <li>
+                                        <a href="./catalog.html">Каталог товаров</a>
+                                        <button type="button" class="header-mobile__open-btn" aria-label="Открыть подменю каталога" aria-expanded="false" aria-controls="mobile-submenu-catalog">
+                                            <span class="visually-hidden">Открыть подменю</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <a href="./about.html">О нас</a>
+                                        <button type="button" class="header-mobile__open-btn" aria-label="Открыть подменю о нас" aria-expanded="false" aria-controls="mobile-submenu-about">
+                                            <span class="visually-hidden">Открыть подменю</span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <a href="./loyalty.html">Программа лояльности</a>
+                                    </li>
+                                    <li>
+                                        <a href="./shipping-payment.html">Оплата и доставка</a>
+                                    </li>
+                                    <li>
+                                        <a href="./faq.html">Вопрос-Ответ</a>
+                                    </li>
+                                    <li>
+                                        <a href="./reviews.html">Отзывы</a>
+                                    </li>
+                                    <li>
+                                        <a href="./contacts.html">Контакты</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <!-- Подменю для каталога -->
+                            <nav class="header-mobile__submenu-nav" id="mobile-submenu-catalog" aria-label="Подменю каталога" hidden>
+                                <button type="button" class="header-mobile__back-btn" aria-label="Назад к основному меню">Назад</button>
+                                <h2 class="header-mobile__submenu-title">Каталог товаров</h2>
+                                <ul class="header-mobile__submenu">
+                                    <li>
+                                        <a href="./catalog.html">Протеин</a>
+                                    </li>
+                                    <li>
+                                        <a href="./catalog.html">Аксессуары (или иначе назвать, Шейкер)</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <!-- Подменю для "О нас" -->
+                            <nav class="header-mobile__submenu-nav" id="mobile-submenu-about" aria-label="Подменю о нас" hidden>
+                                <button type="button" class="header-mobile__back-btn" aria-label="Назад к основному меню">Назад</button>
+                                <h2 class="header-mobile__submenu-title">О нас</h2>
+                                <ul class="header-mobile__submenu">
+                                    <li>
+                                        <a href="./about.html">О компании</a>
+                                    </li>
+                                    <li>
+                                        <a href="./about.html">Наша команда</a>
+                                    </li>
+                                    <li>
+                                        <a href="./about.html">История</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="header-mobile__bottom">
+                            <div class="header-mobile__inner">
+                                <address class="header-mobile__info" aria-label="Контактная информация">
+                                    <a href="tel:+78001000000" class="header-mobile__info-phone">8 800 100-00-00</a>
+                                    <p class="header-mobile__info-datetime">
+                                        Режим работы:
+                                        <time datetime="09:00">09:00</time>–<time datetime="17:30">17:30</time>
+                                    </p>
+                                </address>
+                                <div class="header-mobile__socials" aria-label="Социальные сети">
+                                    <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="header-mobile__social" aria-label="WhatsApp">
+                                        <!-- изображение для темной и светлой версии  -->
+                                        <img src="./images/icons/dark-whatsapp.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-whatsapp.svg", "light": "./images/icons/light-whatsapp.svg"}' />
+                                    </a>
+                                    <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="header-mobile__social" aria-label="Telegram">
+                                        <!-- изображение для темной и светлой версии  -->
+                                        <img src="./images/icons/dark-telegram.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-telegram.svg", "light": "./images/icons/light-telegram.svg"}' />
+                                    </a>
+                                    <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="header-mobile__social" aria-label="ВКонтакте">
+                                        <!-- изображение для темной и светлой версии  -->
+                                        <img src="./images/icons/dark-vk.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-vk.svg", "light": "./images/icons/light-vk.svg"}' />
+                                    </a>
+                                </div>
+                            </div>
+                            <button type="button" class="header-theme__button toggle-theme" aria-label="Включить cветлую тему" data-theme="dark" title="Включить светлую тему"><span class="header-theme__button-text">Light</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <section class="breadcrumbs">
+                <div class="container">
+                    <nav class="breadcrumbs-nav" aria-label="Хлебные крошки">
+                        <ul class="breadcrumbs-list">
+                            <li><a href="./index.html">Главная</a></li>
+                            <li><span>Блог</span></li>
+                        </ul>
+                    </nav>
+                    <button type="button" class="breadcrumbs-back" onclick="history.back()">Назад</button>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <h1 class="title-1 page-title">Блог</h1>
+
+                    <div class="row row--blog">
+                        <nav class="blog-navogation" aria-label="Фильтры вопросов">
+                            <ul class="tabs" role="list">
+                                <li><button type="button" class="active">Все</button></li>
+                                <li><button type="button">Статьи</button></li>
+                                <li><button type="button">Полезно знать</button></li>
+                                <li><button type="button">Продукция</button></li>
+                                <li><button type="button">Новости компании</button></li>
+                                <li><button type="button">Мы в СМИ</button></li>
+                            </ul>
+                        </nav>
+                        <button type="button" class="catalog-container__filters"><span class="catalog-container__filters-text">Фильтры</span></button>
+                        <div class="sorting">
+                            <select class="sorting-select" name="select_faqs" data-select>
+                                <option value="По популярности">По популярности</option>
+                                <option value="По рейтингу">По рейтингу</option>
+                                <option value="Сначала дешевле">Сначала дешевле</option>
+                                <option value="Сначала дороже">Сначала дороже</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="blog">
+                        <aside class="catalog-aside blog-aside" aria-label="Фильтры товаров">
+                            <button class="catalog-aside__close">Назад</button>
+                            <h2 class="catalog-aside__title">Фильтры</h2>
+
+                            <form class="catalog-aside__form" method="get" action="#" id="filters-form">
+                                <fieldset class="filter-group">
+                                    <legend class="filter-group__title">
+                                        <button type="button" class="filter-group__toggle filter-group__toggle--active" aria-expanded="true" aria-controls="category-filters">Категории</button>
+                                    </legend>
+
+                                    <div class="filter-group__content" id="category-filters">
+                                        <div class="filter-option">
+                                            <input id="category-1" name="category[]" type="checkbox" value="Статьи" class="visually-hidden" />
+                                            <label for="category-1" class="filter-option__label">Статьи</label>
+                                        </div>
+
+                                        <div class="filter-option">
+                                            <input id="category-2" name="category[]" type="checkbox" value="Полезно знать" class="visually-hidden" />
+                                            <label for="category-2" class="filter-option__label">Полезно знать</label>
+                                        </div>
+
+                                        <div class="filter-option">
+                                            <input id="category-3" name="category[]" type="checkbox" value="Продукция" class="visually-hidden" />
+                                            <label for="category-3" class="filter-option__label">Продукция</label>
+                                        </div>
+
+                                        <div class="filter-option">
+                                            <input id="category-4" name="category[]" type="checkbox" value="Новости компании" class="visually-hidden" />
+                                            <label for="category-4" class="filter-option__label">Новости компании</label>
+                                        </div>
+
+                                        <div class="filter-option">
+                                            <input id="category-5" name="category[]" type="checkbox" value="Мы в СМИ" class="visually-hidden" />
+                                            <label for="category-5" class="filter-option__label">Мы в СМИ</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <div class="filter-actions" hidden>
+                                    <div class="filter-actions__buttons">
+                                        <button type="submit" class="filter-button filter-button--apply">Применить <span class="filter-button__text">фильтры</span></button>
+                                        <button type="reset" class="filter-button filter-button--reset">Сбросить</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </aside>
+                        <div class="blog-grid">
+                            <a href="article.html" class="blog-card">
+                                <ul class="blog-card__badges">
+                                    <!-- Выводить, если Статьи -->
+                                    <span class="badge badge-blog badge-articles">Статьи</span>
+                                    <!-- Выводить, если Полезно знать -->
+                                    <!-- <span class="badge badge-blog badge-useful">Полезно знать</span> -->
+                                    <!-- Выводить, если Продукция -->
+                                    <span class="badge badge-blog badge-products">Продукция</span>
+                                    <!-- Выводить, если Новости компании -->
+                                    <!-- <span class="badge badge-blog badge-news">Новости компании</span> -->
+                                </ul>
+                                <div class="blog-card__image">
+                                    <img src="./images/blog-card-1.webp" alt="Почему буйволиный протеин — новый взгляд на спортивное питание" width="564" height="340" />
+                                </div>
+                                <div class="blog-card__content">
+                                    <h2 class="blog-card__title">Почему буйволиный протеин — новый взгляд на спортивное питание</h2>
+                                    <p>Буйволиное молоко — необычная основа для сывороточного протеина. Разбираемся, чем такой источник белка отличается от привычного коровьего молока и почему на него обращают внимание.</p>
+                                </div>
+                                <div class="blog-card__meta article-meta">
+                                    <time datetime="2026-08-18" class="article-meta__date">18 августа 2026</time>
+                                    <ul class="article-meta__stats">
+                                        <li class="article-meta__stat article-meta__stat--views">281</li>
+                                        <li class="article-meta__stat article-meta__stat--comments">12</li>
+                                    </ul>
+                                </div>
+                            </a>
+                            <a href="article.html" class="blog-card">
+                                <ul class="blog-card__badges">
+                                    <!-- Выводить, если Статьи -->
+                                    <!-- <span class="badge badge-blog badge-articles">Статьи</span> -->
+                                    <!-- Выводить, если Полезно знать -->
+                                    <span class="badge badge-blog badge-useful">Полезно знать</span>
+                                    <!-- Выводить, если Продукция -->
+                                    <span class="badge badge-blog badge-products">Продукция</span>
+                                    <!-- Выводить, если Новости компании -->
+                                    <!-- <span class="badge badge-blog badge-news">Новости компании</span> -->
+                                </ul>
+                                <div class="blog-card__image">
+                                    <img src="./images/blog-card-2.webp" alt="Буйволиное молоко: что делает его особенным?" width="564" height="340" />
+                                </div>
+                                <div class="blog-card__content">
+                                    <h2 class="blog-card__title">Буйволиное молоко: что делает его особенным?</h2>
+                                    <p>Высокая пищевая ценность и богатый природный состав делают буйволиное молоко интересным ингредиентом для продуктов премиального сегмента. Рассказываем о его особенностях и происхождении.</p>
+                                </div>
+                                <div class="blog-card__meta article-meta">
+                                    <time datetime="2026-08-12" class="article-meta__date">12 августа 2026</time>
+                                    <ul class="article-meta__stats">
+                                        <li class="article-meta__stat article-meta__stat--views">1 248</li>
+                                        <li class="article-meta__stat article-meta__stat--comments">31</li>
+                                    </ul>
+                                </div>
+                            </a>
+                            <a href="article.html" class="blog-card">
+                                <ul class="blog-card__badges">
+                                    <!-- Выводить, если Статьи -->
+                                    <!-- <span class="badge badge-blog badge-articles">Статьи</span> -->
+                                    <!-- Выводить, если Полезно знать -->
+                                    <!-- <span class="badge badge-blog badge-useful">Полезно знать</span> -->
+                                    <!-- Выводить, если Продукция -->
+                                    <!-- <span class="badge badge-blog badge-products">Продукция</span> -->
+                                    <!-- Выводить, если Новости компании -->
+                                    <span class="badge badge-blog badge-news">Новости компании</span>
+                                </ul>
+                                <div class="blog-card__image">
+                                    <img src="./images/blog-card-3.webp" alt="B•POWER: премиальный протеин из Италии" width="564" height="340" />
+                                </div>
+                                <div class="blog-card__content">
+                                    <h2 class="blog-card__title">B•POWER: премиальный протеин из Италии</h2>
+                                    <p>Знакомимся с брендом, который объединил итальянские технологии производства и необычную основу — сыворотку буйволиного молока.</p>
+                                </div>
+                                <div class="blog-card__meta article-meta">
+                                    <time datetime="2026-07-29" class="article-meta__date">29 июля 2026</time>
+                                    <ul class="article-meta__stats">
+                                        <li class="article-meta__stat article-meta__stat--views">2 104</li>
+                                        <li class="article-meta__stat article-meta__stat--comments">31</li>
+                                    </ul>
+                                </div>
+                            </a>
+                            <a href="article.html" class="blog-card">
+                                <ul class="blog-card__badges">
+                                    <!-- Выводить, если Статьи -->
+                                    <!-- <span class="badge badge-blog badge-articles">Статьи</span> -->
+                                    <!-- Выводить, если Полезно знать -->
+                                    <!-- <span class="badge badge-blog badge-useful">Полезно знать</span> -->
+                                    <!-- Выводить, если Продукция -->
+                                    <!-- <span class="badge badge-blog badge-products">Продукция</span> -->
+                                    <!-- Выводить, если Новости компании -->
+                                    <span class="badge badge-blog badge-news">Новости компании</span>
+                                </ul>
+                                <div class="blog-card__image">
+                                    <img src="./images/blog-card-3.webp" alt="B•POWER: премиальный протеин из Италии" width="564" height="340" />
+                                </div>
+                                <div class="blog-card__content">
+                                    <h2 class="blog-card__title">B•POWER: премиальный протеин из Италии</h2>
+                                    <p>Знакомимся с брендом, который объединил итальянские технологии производства и необычную основу — сыворотку буйволиного молока.</p>
+                                </div>
+                                <div class="blog-card__meta article-meta">
+                                    <time datetime="2026-07-29" class="article-meta__date">29 июля 2026</time>
+                                    <ul class="article-meta__stats">
+                                        <li class="article-meta__stat article-meta__stat--views">2 104</li>
+                                        <li class="article-meta__stat article-meta__stat--comments">31</li>
+                                    </ul>
+                                </div>
+                            </a>
+                            <a href="article.html" class="blog-card">
+                                <ul class="blog-card__badges">
+                                    <!-- Выводить, если Статьи -->
+                                    <span class="badge badge-blog badge-articles">Статьи</span>
+                                    <!-- Выводить, если Полезно знать -->
+                                    <!-- <span class="badge badge-blog badge-useful">Полезно знать</span> -->
+                                    <!-- Выводить, если Продукция -->
+                                    <span class="badge badge-blog badge-products">Продукция</span>
+                                    <!-- Выводить, если Новости компании -->
+                                    <!-- <span class="badge badge-blog badge-news">Новости компании</span> -->
+                                </ul>
+                                <div class="blog-card__image">
+                                    <img src="./images/blog-card-1.webp" alt="Почему буйволиный протеин — новый взгляд на спортивное питание" width="564" height="340" />
+                                </div>
+                                <div class="blog-card__content">
+                                    <h2 class="blog-card__title">Почему буйволиный протеин — новый взгляд на спортивное питание</h2>
+                                    <p>Буйволиное молоко — необычная основа для сывороточного протеина. Разбираемся, чем такой источник белка отличается от привычного коровьего молока и почему на него обращают внимание.</p>
+                                </div>
+                                <div class="blog-card__meta article-meta">
+                                    <time datetime="2026-08-18" class="article-meta__date">18 августа 2026</time>
+                                    <ul class="article-meta__stats">
+                                        <li class="article-meta__stat article-meta__stat--views">281</li>
+                                        <li class="article-meta__stat article-meta__stat--comments">12</li>
+                                    </ul>
+                                </div>
+                            </a>
+                            <a href="article.html" class="blog-card">
+                                <ul class="blog-card__badges">
+                                    <!-- Выводить, если Статьи -->
+                                    <!-- <span class="badge badge-blog badge-articles">Статьи</span> -->
+                                    <!-- Выводить, если Полезно знать -->
+                                    <span class="badge badge-blog badge-useful">Полезно знать</span>
+                                    <!-- Выводить, если Продукция -->
+                                    <span class="badge badge-blog badge-products">Продукция</span>
+                                    <!-- Выводить, если Новости компании -->
+                                    <!-- <span class="badge badge-blog badge-news">Новости компании</span> -->
+                                </ul>
+                                <div class="blog-card__image">
+                                    <img src="./images/blog-card-2.webp" alt="Буйволиное молоко: что делает его особенным?" width="564" height="340" />
+                                </div>
+                                <div class="blog-card__content">
+                                    <h2 class="blog-card__title">Буйволиное молоко: что делает его особенным?</h2>
+                                    <p>Высокая пищевая ценность и богатый природный состав делают буйволиное молоко интересным ингредиентом для продуктов премиального сегмента. Рассказываем о его особенностях и происхождении.</p>
+                                </div>
+                                <div class="blog-card__meta article-meta">
+                                    <time datetime="2026-08-12" class="article-meta__date">12 августа 2026</time>
+                                    <ul class="article-meta__stats">
+                                        <li class="article-meta__stat article-meta__stat--views">1 248</li>
+                                        <li class="article-meta__stat article-meta__stat--comments">31</li>
+                                    </ul>
+                                </div>
+                            </a>
+                            <a href="article.html" class="blog-card">
+                                <ul class="blog-card__badges">
+                                    <!-- Выводить, если Статьи -->
+                                    <!-- <span class="badge badge-blog badge-articles">Статьи</span> -->
+                                    <!-- Выводить, если Полезно знать -->
+                                    <span class="badge badge-blog badge-useful">Полезно знать</span>
+                                    <!-- Выводить, если Продукция -->
+                                    <span class="badge badge-blog badge-products">Продукция</span>
+                                    <!-- Выводить, если Новости компании -->
+                                    <!-- <span class="badge badge-blog badge-news">Новости компании</span> -->
+                                </ul>
+                                <div class="blog-card__image">
+                                    <img src="./images/blog-card-2.webp" alt="Буйволиное молоко: что делает его особенным?" width="564" height="340" />
+                                </div>
+                                <div class="blog-card__content">
+                                    <h2 class="blog-card__title">Буйволиное молоко: что делает его особенным?</h2>
+                                    <p>Высокая пищевая ценность и богатый природный состав делают буйволиное молоко интересным ингредиентом для продуктов премиального сегмента. Рассказываем о его особенностях и происхождении.</p>
+                                </div>
+                                <div class="blog-card__meta article-meta">
+                                    <time datetime="2026-08-12" class="article-meta__date">12 августа 2026</time>
+                                    <ul class="article-meta__stats">
+                                        <li class="article-meta__stat article-meta__stat--views">1 248</li>
+                                        <li class="article-meta__stat article-meta__stat--comments">31</li>
+                                    </ul>
+                                </div>
+                            </a>
+                            <a href="article.html" class="blog-card">
+                                <ul class="blog-card__badges">
+                                    <!-- Выводить, если Статьи -->
+                                    <!-- <span class="badge badge-blog badge-articles">Статьи</span> -->
+                                    <!-- Выводить, если Полезно знать -->
+                                    <!-- <span class="badge badge-blog badge-useful">Полезно знать</span> -->
+                                    <!-- Выводить, если Продукция -->
+                                    <!-- <span class="badge badge-blog badge-products">Продукция</span> -->
+                                    <!-- Выводить, если Новости компании -->
+                                    <span class="badge badge-blog badge-news">Новости компании</span>
+                                </ul>
+                                <div class="blog-card__image">
+                                    <img src="./images/blog-card-3.webp" alt="B•POWER: премиальный протеин из Италии" width="564" height="340" />
+                                </div>
+                                <div class="blog-card__content">
+                                    <h2 class="blog-card__title">B•POWER: премиальный протеин из Италии</h2>
+                                    <p>Знакомимся с брендом, который объединил итальянские технологии производства и необычную основу — сыворотку буйволиного молока.</p>
+                                </div>
+                                <div class="blog-card__meta article-meta">
+                                    <time datetime="2026-07-29" class="article-meta__date">29 июля 2026</time>
+                                    <ul class="article-meta__stats">
+                                        <li class="article-meta__stat article-meta__stat--views">2 104</li>
+                                        <li class="article-meta__stat article-meta__stat--comments">31</li>
+                                    </ul>
+                                </div>
+                            </a>
+                            <a href="article.html" class="blog-card">
+                                <ul class="blog-card__badges">
+                                    <!-- Выводить, если Статьи -->
+                                    <span class="badge badge-blog badge-articles">Статьи</span>
+                                    <!-- Выводить, если Полезно знать -->
+                                    <!-- <span class="badge badge-blog badge-useful">Полезно знать</span> -->
+                                    <!-- Выводить, если Продукция -->
+                                    <span class="badge badge-blog badge-products">Продукция</span>
+                                    <!-- Выводить, если Новости компании -->
+                                    <!-- <span class="badge badge-blog badge-news">Новости компании</span> -->
+                                </ul>
+                                <div class="blog-card__image">
+                                    <img src="./images/blog-card-1.webp" alt="Почему буйволиный протеин — новый взгляд на спортивное питание" width="564" height="340" />
+                                </div>
+                                <div class="blog-card__content">
+                                    <h2 class="blog-card__title">Почему буйволиный протеин — новый взгляд на спортивное питание</h2>
+                                    <p>Буйволиное молоко — необычная основа для сывороточного протеина. Разбираемся, чем такой источник белка отличается от привычного коровьего молока и почему на него обращают внимание.</p>
+                                </div>
+                                <div class="blog-card__meta article-meta">
+                                    <time datetime="2026-08-18" class="article-meta__date">18 августа 2026</time>
+                                    <ul class="article-meta__stats">
+                                        <li class="article-meta__stat article-meta__stat--views">281</li>
+                                        <li class="article-meta__stat article-meta__stat--comments">12</li>
+                                    </ul>
+                                </div>
+                            </a>
+                            <a href="article.html" class="blog-card">
+                                <ul class="blog-card__badges">
+                                    <!-- Выводить, если Статьи -->
+                                    <span class="badge badge-blog badge-articles">Статьи</span>
+                                    <!-- Выводить, если Полезно знать -->
+                                    <!-- <span class="badge badge-blog badge-useful">Полезно знать</span> -->
+                                    <!-- Выводить, если Продукция -->
+                                    <span class="badge badge-blog badge-products">Продукция</span>
+                                    <!-- Выводить, если Новости компании -->
+                                    <!-- <span class="badge badge-blog badge-news">Новости компании</span> -->
+                                </ul>
+                                <div class="blog-card__image">
+                                    <img src="./images/blog-card-1.webp" alt="Почему буйволиный протеин — новый взгляд на спортивное питание" width="564" height="340" />
+                                </div>
+                                <div class="blog-card__content">
+                                    <h2 class="blog-card__title">Почему буйволиный протеин — новый взгляд на спортивное питание</h2>
+                                    <p>Буйволиное молоко — необычная основа для сывороточного протеина. Разбираемся, чем такой источник белка отличается от привычного коровьего молока и почему на него обращают внимание.</p>
+                                </div>
+                                <div class="blog-card__meta article-meta">
+                                    <time datetime="2026-08-18" class="article-meta__date">18 августа 2026</time>
+                                    <ul class="article-meta__stats">
+                                        <li class="article-meta__stat article-meta__stat--views">281</li>
+                                        <li class="article-meta__stat article-meta__stat--comments">12</li>
+                                    </ul>
+                                </div>
+                            </a>
+                            <a href="article.html" class="blog-card">
+                                <ul class="blog-card__badges">
+                                    <!-- Выводить, если Статьи -->
+                                    <!-- <span class="badge badge-blog badge-articles">Статьи</span> -->
+                                    <!-- Выводить, если Полезно знать -->
+                                    <span class="badge badge-blog badge-useful">Полезно знать</span>
+                                    <!-- Выводить, если Продукция -->
+                                    <span class="badge badge-blog badge-products">Продукция</span>
+                                    <!-- Выводить, если Новости компании -->
+                                    <!-- <span class="badge badge-blog badge-news">Новости компании</span> -->
+                                </ul>
+                                <div class="blog-card__image">
+                                    <img src="./images/blog-card-2.webp" alt="Буйволиное молоко: что делает его особенным?" width="564" height="340" />
+                                </div>
+                                <div class="blog-card__content">
+                                    <h2 class="blog-card__title">Буйволиное молоко: что делает его особенным?</h2>
+                                    <p>Высокая пищевая ценность и богатый природный состав делают буйволиное молоко интересным ингредиентом для продуктов премиального сегмента. Рассказываем о его особенностях и происхождении.</p>
+                                </div>
+                                <div class="blog-card__meta article-meta">
+                                    <time datetime="2026-08-12" class="article-meta__date">12 августа 2026</time>
+                                    <ul class="article-meta__stats">
+                                        <li class="article-meta__stat article-meta__stat--views">1 248</li>
+                                        <li class="article-meta__stat article-meta__stat--comments">31</li>
+                                    </ul>
+                                </div>
+                            </a>
+                            <a href="article.html" class="blog-card">
+                                <ul class="blog-card__badges">
+                                    <!-- Выводить, если Статьи -->
+                                    <!-- <span class="badge badge-blog badge-articles">Статьи</span> -->
+                                    <!-- Выводить, если Полезно знать -->
+                                    <!-- <span class="badge badge-blog badge-useful">Полезно знать</span> -->
+                                    <!-- Выводить, если Продукция -->
+                                    <!-- <span class="badge badge-blog badge-products">Продукция</span> -->
+                                    <!-- Выводить, если Новости компании -->
+                                    <span class="badge badge-blog badge-news">Новости компании</span>
+                                </ul>
+                                <div class="blog-card__image">
+                                    <img src="./images/blog-card-3.webp" alt="B•POWER: премиальный протеин из Италии" width="564" height="340" />
+                                </div>
+                                <div class="blog-card__content">
+                                    <h2 class="blog-card__title">B•POWER: премиальный протеин из Италии</h2>
+                                    <p>Знакомимся с брендом, который объединил итальянские технологии производства и необычную основу — сыворотку буйволиного молока.</p>
+                                </div>
+                                <div class="blog-card__meta article-meta">
+                                    <time datetime="2026-07-29" class="article-meta__date">29 июля 2026</time>
+                                    <ul class="article-meta__stats">
+                                        <li class="article-meta__stat article-meta__stat--views">2 104</li>
+                                        <li class="article-meta__stat article-meta__stat--comments">31</li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <nav class="pagination pagination--blog" aria-label="Навигация по страницам">
+                        <ul class="pagination-list">
+                            <li>
+                                <a href="/page/1" class="pagination-link pagination-link--prev" disabled aria-label="Предыдущая страница">
+                                    <span class="visually-hidden">Предыдущая страница</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/page/1" class="pagination-link" aria-current="page">1</a>
+                            </li>
+                            <li>
+                                <a href="/page/2" class="pagination-link">2</a>
+                            </li>
+                            <li>
+                                <a href="/page/3" class="pagination-link">3</a>
+                            </li>
+                            <li aria-hidden="true">
+                                <span class="pagination-ellipsis">. . .</span>
+                            </li>
+                            <li>
+                                <a href="/page/12" class="pagination-link">12</a>
+                            </li>
+                            <li>
+                                <a href="/page/2" class="pagination-link pagination-link--next" aria-label="Следующая страница">
+                                    <span class="visually-hidden">Следующая страница</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-inner">
+                    <div class="footer-left">
+                        <div class="footer-logo">
+                            <a href="./index.html" aria-label="На главную страницу">
+                                <!-- изображение для темной и светлой версии  -->
+                                <img src="./images/dark-logo.svg" data-theme-image='{"dark": "./images/dark-logo.svg", "light": "./images/light-logo.svg"}' alt="BUFFALO PROTEIN" width="200" height="68" loading="lazy" />
+                            </a>
+                        </div>
+                        <div class="footer-info">
+                            <ul class="footer-info__contacts">
+                                <li>
+                                    <p>Почта</p>
+                                    <a href="mailto:info@mail.ru">info@mail.ru</a>
+                                </li>
+                                <li>
+                                    <p>Телефон горячей линии</p>
+                                    <a href="tel:+78001000000">8 800 100-00-00</a>
+                                </li>
+                            </ul>
+                            <div class="footer-info__socials" aria-label="Социальные сети">
+                                <a href="https://wa.me" target="_blank" rel="noopener noreferrer" class="footer-info__social" aria-label="WhatsApp">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/icons/dark-whatsapp.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-whatsapp.svg", "light": "./images/icons/light-whatsapp.svg"}' loading="lazy" />
+                                </a>
+                                <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="footer-info__social" aria-label="Telegram">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/icons/dark-telegram.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-telegram.svg", "light": "./images/icons/light-telegram.svg"}' loading="lazy" />
+                                </a>
+                                <a href="https://vk.com" target="_blank" rel="noopener noreferrer" class="footer-info__social" aria-label="ВКонтакте">
+                                    <!-- изображение для темной и светлой версии  -->
+                                    <img src="./images/icons/dark-vk.svg" width="18" height="18" alt="" data-theme-image='{"dark": "./images/icons/dark-vk.svg", "light": "./images/icons/light-vk.svg"}' loading="lazy" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="footer-additional">
+                            <p class="footer-additional__copy">©2012–2025, ООО «Название компании», ИНН/КПП 7810845678/781101001, ОГРН 1234567890</p>
+                            <nav class="footer-additional__nav">
+                                <ul>
+                                    <li><a href="#!">Политика обработки персональных данных</a></li>
+                                    <li><a href="#!">Правила обмена и возврата товара</a></li>
+                                    <li><a href="./policy.html">Политика конфиденциальности</a></li>
+                                    <li><a href="#!">Правила продажи/оплаты</a></li>
+                                    <li><a href="./terms-and-conditions.html">Публичная оферта интернет-магазина</a></li>
+                                    <li><a href="#!">Реквизиты продавца</a></li>
+                                    <li><a href="#!">Политика обработки файлов cookie</a></li>
+                                    <li><a href="#!">Правила доставки</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <div class="footer-col">
+                            <nav class="footer-nav" aria-label="Навигация по сайту">
+                                <h3 class="footer-nav__title">Навигация</h3>
+                                <ul class="footer-nav__menu">
+                                    <li><a href="./index.html">Главная</a></li>
+                                    <li><a href="./about.html">О нас</a></li>
+                                    <li><a href="./loyalty.html">Программа лояльности</a></li>
+                                    <li><a href="./shipping-payment.html">Оплата и доставка</a></li>
+                                    <li><a href="./faq.html">Вопрос-Ответ</a></li>
+                                    <li><a href="./contacts.html">Контакты</a></li>
+                                </ul>
+                            </nav>
+                            <nav class="footer-nav" aria-label="Способы оплаты">
+                                <h3 class="footer-nav__title">Принимаем к оплате</h3>
+                                <ul class="footer-nav__payments">
+                                    <li>
+                                        <img src="./images/payment-1.svg" width="74" height="23" alt="оплата картой МИР" />
+                                    </li>
+                                    <li>
+                                        <img src="./images/payment-2.svg" width="53" height="31" alt="оплата картой MasterCard" />
+                                    </li>
+                                    <li>
+                                        <img src="./images/payment-3.svg" width="69" height="21" alt="оплата картой VISA" />
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <nav class="footer-nav" aria-label="Каталог продукции">
+                            <h3 class="footer-nav__title">Каталог продукции</h3>
+                            <ul class="footer-nav__menu">
+                                <li><a href="./product.html">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a></li>
+                                <li><a href="./product.html">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a></li>
+                                <li><a href="./product.html">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a></li>
+                                <li><a href="./product.html">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад» </a></li>
+                                <li><a href="./product.html">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a></li>
+                                <li><a href="./product.html">БАД к пище «Сывороточный протеин из молока буйволиц B-POWER с высоким содержанием белка +80 Шоколад»</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="footer-mobile">
+                        <p class="footer-mobile__copy">©2012–2025, ООО «Название компании», ИНН/КПП 7810845678/781101001, ОГРН&nbsp;1234567890</p>
+                        <nav class="footer-additional__nav">
+                            <ul>
+                                <li><a href="#!">Политика обработки персональных данных</a></li>
+                                <li><a href="./policy.html">Политика конфиденциальности</a></li>
+                                <li><a href="./terms-and-conditions.html">Публичная оферта интернет-магазина</a></li>
+                                <li><a href="#!">Политика обработки файлов cookie</a></li>
+                                <li><a href="#!">Правила обмена и возврата товара</a></li>
+                                <li><a href="#!">Правила доставки</a></li>
+                                <li><a href="#!">Правила продажи/оплаты</a></li>
+                                <li><a href="#!">Реквизиты продавца</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="./js/swiper-bundle.min.js"></script>
+        <script src="./js/libphonenumber-js.min.js"></script>
+        <script src="./js/phoneinput.js"></script>
+        <script src="./js/glightbox.min.js"></script>
+        <script src="./js/simplebar.min.js"></script>
+        <script src="./js/choices.min.js"></script>
+        <script src="./js/index.js"></script>
+    </body>
+</html>
